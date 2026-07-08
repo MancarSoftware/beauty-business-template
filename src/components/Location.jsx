@@ -11,9 +11,9 @@ function Location({ business }) {
     <section id="ubicacion" className="bg-white px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          eyebrow="Ubicación"
-          title="Encuéntranos y agenda sin complicaciones"
-          description="Información clara para llegar, contactar y reservar desde el celular."
+          eyebrow="Ubicación y horarios"
+          title="Estamos en Av. República de El Salvador, Quito"
+          description="Agenda tu turno antes de venir y te confirmamos el horario disponible para corte, barba o paquete completo."
         />
 
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -25,7 +25,7 @@ function Location({ business }) {
             <div className="relative flex h-full min-h-80 flex-col justify-between">
               <div>
                 <p className="text-sm font-semibold text-amber-200">
-                  Mapa referencial
+                  BarberPro Studio
                 </p>
                 <h3 className="mt-4 max-w-md text-3xl font-semibold">
                   {business.address}

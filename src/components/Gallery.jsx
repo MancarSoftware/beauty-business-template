@@ -5,9 +5,9 @@ function Gallery({ business }) {
     <section id="galeria" className="bg-zinc-950 px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          eyebrow="Galería"
-          title="Un portafolio visual para vender confianza"
-          description="Cards preparadas para reemplazar por fotos reales de cortes, barba y acabados sin cambiar la estructura."
+          eyebrow="Trabajos realizados"
+          title="Elige tu próximo corte viendo nuestros acabados"
+          description="Fades, barba definida, textura y perfilado hechos en BarberPro Studio para clientes que buscan un resultado limpio y moderno."
           inverse
         />
 

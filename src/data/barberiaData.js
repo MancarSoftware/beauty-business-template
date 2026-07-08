@@ -7,20 +7,20 @@ import galleryTexture from '../assets/gallery-texture.png'
 const barberiaData = {
   name: 'BarberPro Studio',
   shortName: 'BarberPro',
-  type: 'Barbería Premium',
-  slogan: 'Estilo profesional para hombres modernos',
+  type: 'Barbería masculina',
+  slogan: 'Cortes, barba y estilo con acabado profesional',
   description:
-    'Cortes precisos, barba cuidada y una experiencia premium pensada para que salgas listo para cualquier ocasión.',
+    'Barbería especializada en cortes masculinos, degradados, barba y styling profesional en Quito.',
   positioning:
-    'Reserva rápida, acabado preciso y atención premium sin esperas largas.',
+    'Agenda por WhatsApp, confirma tu horario y llega directo a tu silla.',
   whatsapp: '593999999999',
   whatsappMessage: 'Hola BarberPro Studio, quiero agendar una cita.',
   phone: '+593 99 999 9999',
   email: 'reservas@barberpro.ec',
-  address: 'Av. Principal y Calle Central, Quito',
+  address: 'Av. República de El Salvador N34-211, Quito',
   schedule: 'Lunes a sábado - 09:00 a 20:00',
   mapsUrl:
-    'https://www.google.com/maps/search/?api=1&query=Av.%20Principal%20y%20Calle%20Central%20Quito',
+    'https://www.google.com/maps/search/?api=1&query=Av.%20Rep%C3%BAblica%20de%20El%20Salvador%20N34-211%20Quito',
   theme: {
     accent: '#d6a85a',
     dark: '#08090a',
@@ -32,10 +32,10 @@ const barberiaData = {
     tiktok: '#',
   },
   hero: {
-    eyebrow: 'Barbería premium en tu ciudad',
-    title: 'Cortes impecables para hombres que cuidan su estilo.',
+    eyebrow: 'Barbería masculina en Quito',
+    title: 'Corte, barba y estilo listo para salir impecable.',
     subtitle:
-      'Agenda rápido por WhatsApp y vive una experiencia de barbería moderna: atención puntual, asesoría personalizada y acabados de alto nivel.',
+      'Agenda tu turno en BarberPro Studio por WhatsApp. Te atendemos con puntualidad, diagnóstico antes del corte, productos profesionales y acabado final para que salgas listo.',
     image: barberHero,
     cta: 'Agendar por WhatsApp',
     secondaryCta: 'Ver servicios',
@@ -44,7 +44,7 @@ const barberiaData = {
       label: 'Reserva directa',
       value: 'Consulta disponibilidad',
       service: 'Corte + barba',
-      duration: 'Confirmamos horario y barbero disponible.',
+      duration: 'Te confirmamos horario, duración y barbero disponible.',
     },
     stats: [
       { value: '+8', label: 'años de experiencia' },
@@ -57,63 +57,63 @@ const barberiaData = {
       icon: 'classic',
       label: 'Corte',
       name: 'Corte clásico',
-      description: 'Corte limpio, sobrio y adaptable a tu estilo diario.',
+      description: 'Corte con máquina o tijera, contornos limpios y peinado final para el día a día.',
       price: 'Desde $12',
     },
     {
       icon: 'fade',
       label: 'Fade',
       name: 'Corte degradado',
-      description: 'Fade bajo, medio o alto con acabado preciso y moderno.',
+      description: 'Fade bajo, medio o alto con transición limpia, navaja en contornos y acabado moderno.',
       price: 'Desde $15',
     },
     {
       icon: 'beard',
       label: 'Barba',
       name: 'Diseño de barba',
-      description: 'Perfilado, simetría y detalle para una barba definida.',
+      description: 'Perfilado con navaja, simetría y control de volumen para una barba definida.',
       price: 'Desde $10',
     },
     {
       icon: 'brow',
       label: 'Cejas',
       name: 'Perfilado de cejas',
-      description: 'Limpieza natural para resaltar tu expresión sin exagerar.',
+      description: 'Limpieza precisa de cejas para mantener una expresión natural y ordenada.',
       price: 'Desde $5',
     },
     {
       icon: 'style',
       label: 'Color',
       name: 'Tinte y estilo',
-      description: 'Color, matizado y peinado final con productos premium.',
+      description: 'Aplicación de color, matizado y styling final con productos profesionales.',
       price: 'Desde $25',
     },
   ],
   benefits: [
     {
-      title: 'Atención profesional',
+      title: 'Diagnóstico antes del corte',
       description:
-        'Barberos capacitados, puntuales y enfocados en el detalle de cada corte.',
+        'Revisamos tu tipo de cabello, forma del rostro y referencia antes de empezar.',
     },
     {
-      title: 'Estilo moderno',
+      title: 'Degradados bien trabajados',
       description:
-        'Tendencias actuales adaptadas a tu rostro, cabello y rutina diaria.',
+        'Cuidamos la transición del fade, los contornos y el acabado para que el corte se vea limpio.',
     },
     {
-      title: 'Reserva rápida',
+      title: 'Reserva confirmada',
       description:
-        'Contacto directo por WhatsApp para coordinar horario sin complicaciones.',
+        'Coordinas por WhatsApp, confirmamos disponibilidad y respetamos tu horario.',
     },
     {
-      title: 'Ambiente cómodo',
+      title: 'Estación limpia y ordenada',
       description:
-        'Espacio limpio, elegante y pensado para una experiencia relajada.',
+        'Trabajamos con herramientas preparadas, productos profesionales y un espacio cómodo.',
     },
     {
-      title: 'Experiencia personalizada',
+      title: 'Recomendación final',
       description:
-        'Recomendaciones reales según tu estilo, tipo de cabello y ocasión.',
+        'Te explicamos cómo peinar y mantener el corte para que conserve la forma por más tiempo.',
     },
   ],
   gallery: [
@@ -164,7 +164,7 @@ const barberiaData = {
       price: '$12',
       tag: 'Mantenimiento',
       duration: '25 min',
-      description: 'Ideal para mantener tu estilo con acabado profesional.',
+      description: 'Ideal para retocar tu corte, limpiar contornos y salir peinado.',
       benefits: ['Diagnóstico rápido', 'Corte con máquina o tijera', 'Peinado final'],
     },
     {
@@ -172,7 +172,7 @@ const barberiaData = {
       price: '$20',
       tag: 'Más elegido',
       duration: '40 min',
-      description: 'Servicio completo para un look limpio y equilibrado.',
+      description: 'Corte personalizado, barba perfilada y acabado equilibrado en una sola cita.',
       benefits: ['Corte personalizado', 'Perfilado de barba', 'Toalla caliente'],
       featured: true,
     },
@@ -181,7 +181,7 @@ const barberiaData = {
       price: '$28',
       tag: 'Detalle avanzado',
       duration: '55 min',
-      description: 'Mayor detalle, asesoría y acabado con productos premium.',
+      description: 'Asesoría, corte avanzado y terminación con productos de styling profesional.',
       benefits: ['Asesoría de imagen', 'Corte avanzado', 'Barba o cejas'],
     },
     {
@@ -189,33 +189,33 @@ const barberiaData = {
       price: '$38',
       tag: 'Cambio total',
       duration: '75 min',
-      description: 'La experiencia completa para eventos o renovación total.',
+      description: 'Corte, barba, cejas, lavado y styling para cambio completo o evento.',
       benefits: ['Corte + barba', 'Perfilado de cejas', 'Lavado y styling'],
     },
   ],
   testimonials: [
     {
       name: 'Carlos Mendoza',
-      role: 'Cliente frecuente',
+      role: 'Fade medio + barba',
       quote:
         'El corte queda exactamente como lo pido y siempre me recomiendan qué estilo me favorece más. Muy profesionales.',
     },
     {
       name: 'Daniel Ortega',
-      role: 'Emprendedor local',
+      role: 'Corte antes de reunión',
       quote:
         'Reservo por WhatsApp, llego a mi hora y salgo listo. El ambiente es cómodo y el servicio se siente premium.',
     },
     {
       name: 'Andres Paredes',
-      role: 'Cliente nuevo',
+      role: 'Primer degradado',
       quote:
         'Fui por un degradado y barba. El detalle en los contornos fue excelente, se nota la experiencia.',
     },
   ],
   contactCta: {
-    title: 'Agenda tu próxima cita hoy',
-    text: 'Escríbenos por WhatsApp o deja tus datos y prepara tu siguiente cambio de estilo.',
+    title: 'Agenda tu cita en BarberPro Studio',
+    text: 'Escríbenos por WhatsApp para confirmar disponibilidad. Indica el servicio que quieres, tu horario preferido y te respondemos con el tiempo estimado.',
   },
   footerServices: ['Corte clásico', 'Corte degradado', 'Barba', 'Tinte y estilo'],
 }

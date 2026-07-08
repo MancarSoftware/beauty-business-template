@@ -5,9 +5,9 @@ function Services({ business }) {
     <section id="servicios" className="bg-[#f7f4ee] px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          eyebrow="Servicios"
-          title="Todo lo necesario para mantener un estilo impecable"
-          description="Servicios claros, precios referenciales y una experiencia pensada para reservar sin fricción."
+          eyebrow="Servicios BarberPro"
+          title="Cortes, barba, cejas y color atendidos por barberos profesionales"
+          description="Elige el servicio que necesitas, confirma disponibilidad por WhatsApp y llega a tu cita con el horario reservado."
         />
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">

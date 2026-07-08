@@ -4,22 +4,24 @@ function WhyChooseUs({ business }) {
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <div className="lg:sticky lg:top-28">
           <p className="mb-3 text-sm font-semibold uppercase text-amber-200">
-            Por qué elegirnos
+            Método BarberPro
           </p>
           <h2 className="text-3xl font-semibold leading-tight text-white md:text-5xl">
-            Una barbería creada para verte bien sin perder tiempo
+            Te atendemos a tiempo, con diagnóstico y acabado final
           </h2>
           <p className="mt-5 text-lg leading-8 text-zinc-300">
-            Cada detalle está pensado para que la experiencia sea rápida,
-            cómoda y consistente desde el primer mensaje.
+            Antes de empezar revisamos tu tipo de cabello, la forma del rostro
+            y el estilo que quieres mantener. Así cada corte sale limpio,
+            cómodo y fácil de peinar.
           </p>
           <div className="mt-8 rounded-lg border border-amber-300/20 bg-amber-300/10 p-5">
             <p className="text-sm font-semibold text-amber-100">
-              Experiencia BarberPro
+              Así trabajamos tu cita
             </p>
             <p className="mt-2 text-sm leading-6 text-zinc-300">
-              Reserva por WhatsApp, llega a tu hora y recibe una recomendación
-              real según tu rostro, cabello y estilo de vida.
+              Confirmamos tu reserva por WhatsApp, preparamos la estación y
+              cerramos cada servicio con producto y recomendación de
+              mantenimiento.
             </p>
           </div>
         </div>

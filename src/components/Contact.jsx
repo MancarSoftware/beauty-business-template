@@ -5,7 +5,7 @@ function Contact({ business }) {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    message: 'Hola, quiero agendar una cita.',
+    message: 'Hola, quiero agendar un corte en BarberPro Studio.',
   })
 
   const handleChange = (event) => {
@@ -84,7 +84,7 @@ function Contact({ business }) {
                 Reserva directa
               </p>
               <h3 className="mt-2 text-2xl font-semibold text-zinc-950">
-                Cuéntanos qué necesitas
+                Dinos qué servicio quieres reservar
               </h3>
             </div>
             <p className="text-sm font-semibold text-zinc-500">

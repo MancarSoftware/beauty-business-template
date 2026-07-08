@@ -8,9 +8,9 @@ function Testimonials({ business }) {
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          eyebrow="Testimonios"
-          title="Clientes que vuelven por el detalle"
-          description="Opiniones ficticias para la demo, listas para reemplazar por comentarios reales."
+          eyebrow="Clientes BarberPro"
+          title="Clientes que agendan, se atienden y vuelven"
+          description="Nos recomiendan por la puntualidad, el detalle del degradado, el perfilado de barba y la atención directa por WhatsApp."
           inverse
         />
 

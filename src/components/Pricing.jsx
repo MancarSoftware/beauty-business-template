@@ -6,9 +6,9 @@ function Pricing({ business }) {
     <section id="precios" className="bg-[#f7f4ee] px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          eyebrow="Precios y paquetes"
-          title="Opciones claras para reservar con confianza"
-          description="Paquetes comerciales pensados para que el cliente compare rápido y escriba directo por WhatsApp."
+          eyebrow="Precios BarberPro"
+          title="Reserva tu servicio con precio desde y tiempo estimado"
+          description="Selecciona el paquete que quieres y escríbenos por WhatsApp. Te confirmamos disponibilidad, duración y barbero antes de tu llegada."
         />
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -63,7 +63,7 @@ function Pricing({ business }) {
                       plan.featured ? 'text-zinc-400' : 'text-zinc-500'
                     }`}
                   >
-                    referencial
+                    desde
                   </p>
                 </div>
 
