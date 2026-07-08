@@ -2,10 +2,17 @@ import { useState } from 'react'
 import { createWhatsAppUrl } from '../utils/whatsapp'
 
 function Contact({ business }) {
+  const formCopy = business.contactForm ?? {
+    eyebrow: 'Reserva directa',
+    title: 'Cuéntanos qué servicio necesitas',
+    responseLabel: 'Respuesta por WhatsApp',
+    initialMessage: `Hola, quiero agendar una cita en ${business.name}.`,
+    submitLabel: 'Enviar por WhatsApp',
+  }
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    message: 'Hola, quiero agendar un corte en BarberPro Studio.',
+    message: formCopy.initialMessage,
   })
 
   const handleChange = (event) => {
@@ -32,7 +39,7 @@ function Contact({ business }) {
     <section id="contacto" className="bg-zinc-950 px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
         <div className="rounded-xl border border-white/10 bg-white/6 p-6 md:p-8">
-          <p className="mb-3 text-sm font-semibold uppercase text-amber-200">
+          <p className="mb-3 text-sm font-semibold uppercase text-[var(--brand-accent)]">
             Contacto
           </p>
           <h2 className="text-3xl font-semibold leading-tight text-white md:text-5xl">
@@ -66,7 +73,7 @@ function Contact({ business }) {
               <a
                 key={name}
                 href={url}
-                className="rounded-md border border-white/10 bg-white/8 px-4 py-3 text-sm font-semibold capitalize text-zinc-200 transition hover:border-amber-300 hover:text-white"
+                className="rounded-md border border-white/10 bg-white/8 px-4 py-3 text-sm font-semibold capitalize text-zinc-200 transition hover:border-[color:var(--brand-accent)] hover:text-white"
               >
                 {name}
               </a>
@@ -80,15 +87,15 @@ function Contact({ business }) {
         >
           <div className="mb-6 flex flex-col gap-2 border-b border-zinc-200 pb-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm font-semibold uppercase text-amber-700">
-                Reserva directa
+              <p className="text-sm font-semibold uppercase text-[var(--brand-accent-dark)]">
+                {formCopy.eyebrow}
               </p>
               <h3 className="mt-2 text-2xl font-semibold text-zinc-950">
-                Dinos qué servicio quieres reservar
+                {formCopy.title}
               </h3>
             </div>
             <p className="text-sm font-semibold text-zinc-500">
-              Respuesta por WhatsApp
+              {formCopy.responseLabel}
             </p>
           </div>
 
@@ -101,7 +108,7 @@ function Contact({ business }) {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Tu nombre"
-                className="rounded-md border border-zinc-200 px-4 py-3 font-normal outline-none transition focus:border-amber-400 focus:ring-4 focus:ring-amber-100"
+                className="rounded-md border border-zinc-200 px-4 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent)] focus:ring-4 focus:ring-pink-100"
               />
             </label>
             <label className="grid gap-2 text-sm font-semibold text-zinc-800">
@@ -115,7 +122,7 @@ function Contact({ business }) {
                 pattern="[0-9]{1,10}"
                 maxLength="10"
                 placeholder="0999999999"
-                className="rounded-md border border-zinc-200 px-4 py-3 font-normal outline-none transition focus:border-amber-400 focus:ring-4 focus:ring-amber-100"
+                className="rounded-md border border-zinc-200 px-4 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent)] focus:ring-4 focus:ring-pink-100"
               />
             </label>
           </div>
@@ -127,7 +134,7 @@ function Contact({ business }) {
               value={formData.message}
               onChange={handleChange}
               rows="5"
-              className="resize-none rounded-md border border-zinc-200 px-4 py-3 font-normal outline-none transition focus:border-amber-400 focus:ring-4 focus:ring-amber-100"
+              className="resize-none rounded-md border border-zinc-200 px-4 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent)] focus:ring-4 focus:ring-pink-100"
             />
           </label>
 
@@ -135,7 +142,7 @@ function Contact({ business }) {
             type="submit"
             className="mt-6 w-full rounded-md bg-zinc-950 px-5 py-4 text-sm font-bold text-white transition hover:bg-zinc-800"
           >
-            Enviar por WhatsApp
+            {formCopy.submitLabel}
           </button>
         </form>
       </div>

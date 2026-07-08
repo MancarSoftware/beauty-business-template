@@ -9,15 +9,18 @@ import Services from './components/Services'
 import Testimonials from './components/Testimonials'
 import WhatsAppButton from './components/WhatsAppButton'
 import WhyChooseUs from './components/WhyChooseUs'
-import barberiaData from './data/barberiaData'
+import salonData from './data/salonData'
 
 function App() {
-  const business = barberiaData
+  const business = salonData
 
   return (
     <div
       className="min-h-screen bg-zinc-950 text-zinc-100"
-      style={{ '--brand-accent': business.theme.accent }}
+      style={{
+        '--brand-accent': business.theme.accent,
+        '--brand-accent-dark': business.theme.accentDark ?? business.theme.accent,
+      }}
     >
       <Navbar business={business} />
       <main>

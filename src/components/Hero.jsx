@@ -8,8 +8,11 @@ function Hero({ business }) {
   const booking = business.hero.booking ?? {
     label: 'Reserva directa',
     value: 'Disponibilidad por WhatsApp',
+    suggestedLabel: 'Servicio destacado',
     service: business.services?.[0]?.name ?? 'Servicio destacado',
     duration: 'Confirmamos horario y disponibilidad.',
+    price: business.pricing?.[0]?.price ?? '',
+    priceLabel: 'Desde',
   }
   const positioning = business.positioning ?? business.description
 
@@ -28,13 +31,13 @@ function Hero({ business }) {
         <div className="absolute inset-0 bg-zinc-950" />
       )}
       <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/88 to-zinc-950/22" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_26%,rgba(214,168,90,0.2),transparent_26%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_26%,rgba(231,183,200,0.2),transparent_26%)]" />
       <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-zinc-950 via-zinc-950/85 to-transparent" />
 
       <div className="relative mx-auto grid min-h-screen max-w-7xl items-end gap-8 px-4 pb-10 pt-28 sm:px-6 md:pb-14 lg:grid-cols-[minmax(0,1fr)_340px] lg:px-8 xl:grid-cols-[minmax(0,1fr)_390px]">
         <div className="max-w-3xl pb-2 lg:pb-12">
           <div className="mb-5 flex flex-wrap items-center gap-3">
-            <p className="inline-flex rounded-md border border-amber-300/30 bg-amber-300/10 px-3 py-2 text-sm font-semibold text-amber-100">
+            <p className="inline-flex rounded-md border border-[color:var(--brand-accent)] bg-white/8 px-3 py-2 text-sm font-semibold text-[var(--brand-accent)]">
               {business.hero.eyebrow}
             </p>
             <p className="inline-flex rounded-md border border-white/12 bg-white/8 px-3 py-2 text-sm font-medium text-zinc-200">
@@ -54,7 +57,7 @@ function Hero({ business }) {
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="rounded-md bg-amber-300 px-6 py-4 text-center text-sm font-bold text-zinc-950 shadow-xl shadow-amber-950/30 transition hover:-translate-y-0.5 hover:bg-amber-200"
+              className="rounded-md bg-[var(--brand-accent)] px-6 py-4 text-center text-sm font-bold text-zinc-950 shadow-xl shadow-black/30 transition hover:-translate-y-0.5 hover:brightness-105"
             >
               {business.hero.cta}
             </a>
@@ -83,7 +86,7 @@ function Hero({ business }) {
                 key={stat.label}
                 className="border-r border-white/10 p-4 last:border-r-0"
               >
-                <strong className="block text-xl font-semibold text-amber-200 sm:text-2xl">
+                <strong className="block text-xl font-semibold text-[var(--brand-accent)] sm:text-2xl">
                   {stat.value}
                 </strong>
                 <span className="mt-1 block text-xs leading-5 text-zinc-300 sm:text-sm">
@@ -95,8 +98,8 @@ function Hero({ business }) {
         </div>
 
         <aside className="mb-4 rounded-xl border border-white/12 bg-zinc-950/72 p-4 shadow-2xl shadow-black/40 backdrop-blur-xl lg:mb-12">
-          <div className="rounded-lg border border-amber-300/20 bg-amber-300/10 p-4">
-            <p className="text-xs font-semibold uppercase text-amber-100">
+          <div className="rounded-lg border border-[color:var(--brand-accent)] bg-white/8 p-4">
+            <p className="text-xs font-semibold uppercase text-[var(--brand-accent)]">
               {booking.label}
             </p>
             <p className="mt-2 text-xl font-semibold leading-tight text-white">
@@ -107,7 +110,7 @@ function Hero({ business }) {
           <div className="mt-4 grid gap-3">
             <div className="rounded-lg border border-white/10 bg-white/6 p-4">
               <p className="text-xs font-semibold uppercase text-zinc-400">
-                Servicio sugerido
+                {booking.suggestedLabel ?? 'Servicio destacado'}
               </p>
               <p className="mt-2 text-lg font-semibold text-white">
                 {booking.service}
@@ -119,8 +122,12 @@ function Hero({ business }) {
 
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-lg border border-white/10 bg-white/6 p-4">
-                <p className="text-xs text-zinc-400">Precio ref.</p>
-                <p className="mt-1 text-2xl font-semibold text-white">$12</p>
+                <p className="text-xs text-zinc-400">
+                  {booking.priceLabel ?? 'Desde'}
+                </p>
+                <p className="mt-1 text-2xl font-semibold text-white">
+                  {booking.price ?? business.pricing?.[0]?.price}
+                </p>
               </div>
               <div className="rounded-lg border border-white/10 bg-white/6 p-4">
                 <p className="text-xs text-zinc-400">Horario</p>
@@ -135,7 +142,7 @@ function Hero({ business }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-4 block rounded-md bg-amber-300 px-5 py-4 text-center text-sm font-bold text-zinc-950 shadow-lg shadow-amber-950/30 transition hover:bg-amber-200"
+            className="mt-4 block rounded-md bg-[var(--brand-accent)] px-5 py-4 text-center text-sm font-bold text-zinc-950 shadow-lg shadow-black/30 transition hover:brightness-105"
           >
             Consultar por WhatsApp
           </a>

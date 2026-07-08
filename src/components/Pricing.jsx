@@ -2,13 +2,20 @@ import SectionHeader from './SectionHeader'
 import { createWhatsAppUrl } from '../utils/whatsapp'
 
 function Pricing({ business }) {
+  const section = business.sections?.pricing ?? {
+    eyebrow: 'Precios',
+    title: 'Elige tu servicio y agenda por WhatsApp',
+    description:
+      'Confirma disponibilidad, duración y precio antes de tu visita.',
+  }
+
   return (
     <section id="precios" className="bg-[#f7f4ee] px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          eyebrow="Precios BarberPro"
-          title="Reserva tu servicio con precio desde y tiempo estimado"
-          description="Selecciona el paquete que quieres y escríbenos por WhatsApp. Te confirmamos disponibilidad, duración y barbero antes de tu llegada."
+          eyebrow={section.eyebrow}
+          title={section.title}
+          description={section.description}
         />
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -20,20 +27,20 @@ function Pricing({ business }) {
                 key={plan.name}
                 className={`relative overflow-hidden rounded-xl border p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-2xl ${
                   plan.featured
-                    ? 'border-amber-300 bg-zinc-950 text-white shadow-zinc-400/70 xl:-translate-y-4'
+                    ? 'border-[color:var(--brand-accent)] bg-zinc-950 text-white shadow-zinc-400/70 xl:-translate-y-4'
                     : 'border-zinc-200 bg-white text-zinc-950 shadow-zinc-200/70'
                 }`}
               >
                 <div
                   className={`absolute inset-x-0 top-0 h-1 ${
-                    plan.featured ? 'bg-amber-300' : 'bg-zinc-950'
+                    plan.featured ? 'bg-[var(--brand-accent)]' : 'bg-zinc-950'
                   }`}
                 />
                 <div className="mb-5 flex items-center justify-between gap-3">
                   <span
                     className={`rounded-md px-3 py-1 text-xs font-bold ${
                       plan.featured
-                        ? 'bg-white/10 text-amber-100'
+                        ? 'bg-white/10 text-[var(--brand-accent)]'
                         : 'bg-zinc-100 text-zinc-700'
                     }`}
                   >
@@ -72,7 +79,7 @@ function Pricing({ business }) {
                     <li key={benefit} className="flex gap-3 text-sm">
                       <span
                         className={`mt-1 h-2 w-2 rounded-full ${
-                          plan.featured ? 'bg-amber-300' : 'bg-amber-600'
+                          plan.featured ? 'bg-[var(--brand-accent)]' : 'bg-[var(--brand-accent-dark)]'
                         }`}
                       />
                       <span
@@ -90,7 +97,7 @@ function Pricing({ business }) {
                   href={createWhatsAppUrl(business.whatsapp, message)}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-8 block rounded-md bg-amber-300 px-4 py-4 text-center text-sm font-bold text-zinc-950 transition hover:bg-amber-200"
+                  className="mt-8 block rounded-md bg-[var(--brand-accent)] px-4 py-4 text-center text-sm font-bold text-zinc-950 transition hover:brightness-105"
                 >
                   Agendar por WhatsApp
                 </a>

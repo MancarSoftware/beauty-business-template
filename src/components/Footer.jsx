@@ -47,7 +47,7 @@ function Footer({ business }) {
               <a
                 key={name}
                 href={url}
-                className="rounded-md border border-white/10 px-3 py-2 text-sm capitalize transition hover:border-amber-300 hover:text-white"
+                className="rounded-md border border-white/10 px-3 py-2 text-sm capitalize transition hover:border-[color:var(--brand-accent)] hover:text-white"
               >
                 {name}
               </a>
@@ -61,7 +61,7 @@ function Footer({ business }) {
           © {new Date().getFullYear()} {business.name}. Todos los derechos
           reservados.
         </p>
-        <p>Plantilla comercial para negocios de belleza y cuidado personal.</p>
+        <p>{business.footerNote ?? business.slogan}</p>
       </div>
     </footer>
   )

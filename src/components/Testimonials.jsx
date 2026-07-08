@@ -1,6 +1,12 @@
 import SectionHeader from './SectionHeader'
 
 function Testimonials({ business }) {
+  const section = business.sections?.testimonials ?? {
+    eyebrow: 'Testimonios',
+    title: 'Clientes que vuelven por el servicio',
+    description: 'Opiniones de clientes sobre la atención y el resultado.',
+  }
+
   return (
     <section
       id="testimonios"
@@ -8,9 +14,9 @@ function Testimonials({ business }) {
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          eyebrow="Clientes BarberPro"
-          title="Clientes que agendan, se atienden y vuelven"
-          description="Nos recomiendan por la puntualidad, el detalle del degradado, el perfilado de barba y la atención directa por WhatsApp."
+          eyebrow={section.eyebrow}
+          title={section.title}
+          description={section.description}
           inverse
         />
 
@@ -21,8 +27,8 @@ function Testimonials({ business }) {
               className="rounded-lg border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/20 transition hover:-translate-y-1 hover:bg-white/8"
             >
               <div className="flex items-center justify-between gap-4">
-                <p className="text-4xl text-amber-200">"</p>
-                <span className="rounded-md border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-sm font-bold text-amber-100">
+                <p className="text-4xl text-[var(--brand-accent)]">"</p>
+                <span className="rounded-md border border-[color:var(--brand-accent)] bg-white/5 px-3 py-1 text-sm font-bold text-[var(--brand-accent)]">
                   5.0
                 </span>
               </div>

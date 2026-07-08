@@ -12,6 +12,12 @@ const navItems = [
 function Navbar({ business }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const initials = business.shortName
+    .split(' ')
+    .map((word) => word[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase()
   const whatsappUrl = createWhatsAppUrl(
     business.whatsapp,
     business.whatsappMessage,
@@ -36,15 +42,15 @@ function Navbar({ business }) {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <a href="#inicio" className="flex items-center gap-3">
-          <span className="relative flex h-11 w-11 items-center justify-center rounded-lg border border-amber-300/35 bg-zinc-950 text-sm font-bold text-amber-200 shadow-lg shadow-black/30">
-            <span className="absolute inset-1 rounded-md border border-amber-300/15" />
-            <span className="relative">BP</span>
+          <span className="relative flex h-11 w-11 items-center justify-center rounded-lg border border-[color:var(--brand-accent)] bg-zinc-950 text-sm font-bold text-[var(--brand-accent)] shadow-lg shadow-black/30">
+            <span className="absolute inset-1 rounded-md border border-white/10" />
+            <span className="relative">{initials}</span>
           </span>
           <span>
             <span className="block text-base font-semibold leading-5 text-white">
               {business.shortName}
             </span>
-            <span className="block text-xs text-amber-100/70">
+            <span className="block text-xs text-zinc-300">
               {business.type}
             </span>
           </span>
@@ -67,7 +73,7 @@ function Navbar({ business }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="rounded-md bg-amber-300 px-4 py-2 text-sm font-bold text-zinc-950 transition hover:bg-amber-200"
+            className="rounded-md bg-[var(--brand-accent)] px-4 py-2 text-sm font-bold text-zinc-950 transition hover:brightness-105"
           >
             WhatsApp
           </a>
@@ -120,7 +126,7 @@ function Navbar({ business }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-2 rounded-md bg-amber-300 px-4 py-3 text-center text-sm font-semibold text-zinc-950"
+            className="mt-2 rounded-md bg-[var(--brand-accent)] px-4 py-3 text-center text-sm font-semibold text-zinc-950"
           >
             Agendar por WhatsApp
           </a>

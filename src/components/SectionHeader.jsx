@@ -2,9 +2,8 @@ function SectionHeader({ eyebrow, title, description, inverse = false }) {
   return (
     <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
       <p
-        className={`mb-3 text-sm font-semibold uppercase ${
-          inverse ? 'text-amber-200' : 'text-amber-700'
-        }`}
+        className="mb-3 text-sm font-semibold uppercase"
+        style={{ color: inverse ? 'var(--brand-accent)' : 'var(--brand-accent-dark)' }}
       >
         {eyebrow}
       </p>

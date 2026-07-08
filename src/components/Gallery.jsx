@@ -1,13 +1,19 @@
 import SectionHeader from './SectionHeader'
 
 function Gallery({ business }) {
+  const section = business.sections?.gallery ?? {
+    eyebrow: 'Galería',
+    title: 'Trabajos realizados',
+    description: 'Resultados recientes para inspirar tu próxima reserva.',
+  }
+
   return (
     <section id="galeria" className="bg-zinc-950 px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          eyebrow="Trabajos realizados"
-          title="Elige tu próximo corte viendo nuestros acabados"
-          description="Fades, barba definida, textura y perfilado hechos en BarberPro Studio para clientes que buscan un resultado limpio y moderno."
+          eyebrow={section.eyebrow}
+          title={section.title}
+          description={section.description}
           inverse
         />
 
@@ -34,7 +40,7 @@ function Gallery({ business }) {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(214,168,90,0.24),transparent_34%)] opacity-0 transition duration-500 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08)_0,transparent_34%,rgba(0,0,0,0.32)_100%)]" />
                 <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black/85 via-black/45 to-transparent" />
-                <div className="absolute right-5 top-5 h-16 w-16 rounded-lg border border-white/15 bg-white/10 backdrop-blur transition group-hover:scale-105 group-hover:border-amber-300/45" />
+                <div className="absolute right-5 top-5 h-16 w-16 rounded-lg border border-white/15 bg-white/10 backdrop-blur transition group-hover:scale-105 group-hover:border-[color:var(--brand-accent)]" />
 
                 <div className="relative flex h-full flex-col justify-between p-5">
                   <div className="flex items-center justify-between gap-4">
@@ -47,7 +53,7 @@ function Gallery({ business }) {
                   </div>
 
                   <div>
-                    <span className="mb-3 inline-flex rounded-md bg-amber-300 px-3 py-1 text-xs font-bold text-zinc-950">
+                    <span className="mb-3 inline-flex rounded-md bg-[var(--brand-accent)] px-3 py-1 text-xs font-bold text-zinc-950">
                       {item.metric}
                     </span>
                     <h3
