@@ -7,6 +7,8 @@ const barberiaData = {
   slogan: 'Estilo profesional para hombres modernos',
   description:
     'Cortes precisos, barba cuidada y una experiencia premium pensada para que salgas listo para cualquier ocasión.',
+  positioning:
+    'Reserva rápida, acabado preciso y atención premium sin esperas largas.',
   whatsapp: '593999999999',
   whatsappMessage: 'Hola BarberPro Studio, quiero agendar una cita.',
   phone: '+593 99 999 9999',
@@ -34,6 +36,12 @@ const barberiaData = {
     cta: 'Agendar por WhatsApp',
     secondaryCta: 'Ver servicios',
     highlights: ['Reserva rápida', 'Atención profesional', 'Ambiente premium'],
+    booking: {
+      label: 'Próximo turno',
+      value: 'Hoy desde 16:30',
+      service: 'Corte + barba',
+      duration: '40 min aprox.',
+    },
     stats: [
       { value: '+8', label: 'años de experiencia' },
       { value: '4.9', label: 'calificación promedio' },
@@ -42,31 +50,31 @@ const barberiaData = {
   },
   services: [
     {
-      icon: 'CL',
+      icon: 'classic',
       name: 'Corte clásico',
       description: 'Corte limpio, sobrio y adaptable a tu estilo diario.',
       price: 'Desde $12',
     },
     {
-      icon: 'FD',
+      icon: 'fade',
       name: 'Corte degradado',
       description: 'Fade bajo, medio o alto con acabado preciso y moderno.',
       price: 'Desde $15',
     },
     {
-      icon: 'BR',
+      icon: 'beard',
       name: 'Diseño de barba',
       description: 'Perfilado, simetría y detalle para una barba definida.',
       price: 'Desde $10',
     },
     {
-      icon: 'CJ',
+      icon: 'brow',
       name: 'Perfilado de cejas',
       description: 'Limpieza natural para resaltar tu expresión sin exagerar.',
       price: 'Desde $5',
     },
     {
-      icon: 'TE',
+      icon: 'style',
       name: 'Tinte y estilo',
       description: 'Color, matizado y peinado final con productos premium.',
       price: 'Desde $25',
@@ -104,6 +112,7 @@ const barberiaData = {
       title: 'Fade ejecutivo',
       category: 'Degradado',
       description: 'Laterales limpios con transición suave y acabado natural.',
+      metric: 'Fade medio',
       initials: '01',
       background:
         'linear-gradient(135deg, #0f1115 0%, #2f333b 52%, #8c6428 100%)',
@@ -112,6 +121,7 @@ const barberiaData = {
       title: 'Barba definida',
       category: 'Barba',
       description: 'Líneas precisas, volumen controlado y perfil masculino.',
+      metric: 'Contorno premium',
       initials: '02',
       background:
         'linear-gradient(135deg, #15110d 0%, #3b3025 50%, #c59b57 100%)',
@@ -120,6 +130,7 @@ const barberiaData = {
       title: 'Corte texturizado',
       category: 'Estilo',
       description: 'Movimiento, textura y peinado final para un look moderno.',
+      metric: 'Textura natural',
       initials: '03',
       background:
         'linear-gradient(135deg, #111827 0%, #273449 50%, #9a7a44 100%)',
@@ -128,6 +139,7 @@ const barberiaData = {
       title: 'Perfil premium',
       category: 'Detalle',
       description: 'Contornos limpios para una presentación impecable.',
+      metric: 'Acabado nítido',
       initials: '04',
       background:
         'linear-gradient(135deg, #09090b 0%, #2d2a27 48%, #7f5539 100%)',
@@ -137,12 +149,16 @@ const barberiaData = {
     {
       name: 'Corte básico',
       price: '$12',
+      tag: 'Mantenimiento',
+      duration: '25 min',
       description: 'Ideal para mantener tu estilo con acabado profesional.',
       benefits: ['Diagnóstico rápido', 'Corte con máquina o tijera', 'Peinado final'],
     },
     {
       name: 'Corte + barba',
       price: '$20',
+      tag: 'Más elegido',
+      duration: '40 min',
       description: 'Servicio completo para un look limpio y equilibrado.',
       benefits: ['Corte personalizado', 'Perfilado de barba', 'Toalla caliente'],
       featured: true,
@@ -150,12 +166,16 @@ const barberiaData = {
     {
       name: 'Servicio premium',
       price: '$28',
+      tag: 'Detalle avanzado',
+      duration: '55 min',
       description: 'Mayor detalle, asesoría y acabado con productos premium.',
       benefits: ['Asesoría de imagen', 'Corte avanzado', 'Barba o cejas'],
     },
     {
       name: 'Paquete completo',
       price: '$38',
+      tag: 'Cambio total',
+      duration: '75 min',
       description: 'La experiencia completa para eventos o renovación total.',
       benefits: ['Corte + barba', 'Perfilado de cejas', 'Lavado y styling'],
     },

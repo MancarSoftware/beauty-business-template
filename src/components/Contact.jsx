@@ -27,25 +27,44 @@ function Contact({ business }) {
   }
 
   return (
-    <section id="contacto" className="bg-zinc-50 px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div>
-          <p className="mb-3 text-sm font-semibold uppercase text-amber-700">
+    <section id="contacto" className="bg-zinc-950 px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+        <div className="rounded-xl border border-white/10 bg-white/6 p-6 md:p-8">
+          <p className="mb-3 text-sm font-semibold uppercase text-amber-200">
             Contacto
           </p>
-          <h2 className="text-3xl font-semibold leading-tight text-zinc-950 md:text-5xl">
+          <h2 className="text-3xl font-semibold leading-tight text-white md:text-5xl">
             {business.contactCta.title}
           </h2>
-          <p className="mt-5 text-lg leading-8 text-zinc-600">
+          <p className="mt-5 text-lg leading-8 text-zinc-300">
             {business.contactCta.text}
           </p>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-lg border border-white/10 bg-zinc-950/55 p-4">
+              <p className="text-xs font-semibold uppercase text-zinc-400">
+                Horario
+              </p>
+              <p className="mt-2 text-sm leading-6 text-white">
+                {business.schedule}
+              </p>
+            </div>
+            <div className="rounded-lg border border-white/10 bg-zinc-950/55 p-4">
+              <p className="text-xs font-semibold uppercase text-zinc-400">
+                WhatsApp
+              </p>
+              <p className="mt-2 text-sm leading-6 text-white">
+                {business.phone}
+              </p>
+            </div>
+          </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
             {Object.entries(business.social).map(([name, url]) => (
               <a
                 key={name}
                 href={url}
-                className="rounded-md border border-zinc-200 bg-white px-4 py-3 text-sm font-semibold capitalize text-zinc-800 transition hover:border-amber-300 hover:text-zinc-950"
+                className="rounded-md border border-white/10 bg-white/8 px-4 py-3 text-sm font-semibold capitalize text-zinc-200 transition hover:border-amber-300 hover:text-white"
               >
                 {name}
               </a>
@@ -55,8 +74,22 @@ function Contact({ business }) {
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-lg border border-zinc-200 bg-white p-5 shadow-xl shadow-zinc-200/80 md:p-8"
+          className="rounded-xl border border-zinc-200 bg-white p-5 shadow-2xl shadow-black/30 md:p-8"
         >
+          <div className="mb-6 flex flex-col gap-2 border-b border-zinc-200 pb-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase text-amber-700">
+                Reserva directa
+              </p>
+              <h3 className="mt-2 text-2xl font-semibold text-zinc-950">
+                Cuéntanos qué necesitas
+              </h3>
+            </div>
+            <p className="text-sm font-semibold text-zinc-500">
+              Respuesta por WhatsApp
+            </p>
+          </div>
+
           <div className="grid gap-5 md:grid-cols-2">
             <label className="grid gap-2 text-sm font-semibold text-zinc-800">
               Nombre

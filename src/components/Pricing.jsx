@@ -3,7 +3,7 @@ import { createWhatsAppUrl } from '../utils/whatsapp'
 
 function Pricing({ business }) {
   return (
-    <section id="precios" className="bg-zinc-50 px-4 py-20 sm:px-6 lg:px-8">
+    <section id="precios" className="bg-[#f7f4ee] px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Precios y paquetes"
@@ -11,25 +11,50 @@ function Pricing({ business }) {
           description="Paquetes comerciales pensados para que el cliente compare rápido y escriba directo por WhatsApp."
         />
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {business.pricing.map((plan) => {
             const message = `Hola ${business.name}, quiero agendar el paquete ${plan.name}.`
 
             return (
               <article
                 key={plan.name}
-                className={`rounded-lg border p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl ${
+                className={`relative overflow-hidden rounded-xl border p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-2xl ${
                   plan.featured
-                    ? 'border-amber-300 bg-zinc-950 text-white shadow-zinc-300/70'
+                    ? 'border-amber-300 bg-zinc-950 text-white shadow-zinc-400/70 xl:-translate-y-4'
                     : 'border-zinc-200 bg-white text-zinc-950 shadow-zinc-200/70'
                 }`}
               >
+                <div
+                  className={`absolute inset-x-0 top-0 h-1 ${
+                    plan.featured ? 'bg-amber-300' : 'bg-zinc-950'
+                  }`}
+                />
                 {plan.featured ? (
                   <p className="mb-4 inline-flex rounded-md bg-amber-300 px-3 py-1 text-xs font-bold text-zinc-950">
-                    Mas reservado
+                    Más reservado
                   </p>
                 ) : null}
-                <h3 className="text-xl font-semibold">{plan.name}</h3>
+
+                <div className="mb-5 flex items-center justify-between gap-3">
+                  <span
+                    className={`rounded-md px-3 py-1 text-xs font-bold ${
+                      plan.featured
+                        ? 'bg-white/10 text-amber-100'
+                        : 'bg-zinc-100 text-zinc-700'
+                    }`}
+                  >
+                    {plan.tag}
+                  </span>
+                  <span
+                    className={`text-xs font-semibold ${
+                      plan.featured ? 'text-zinc-300' : 'text-zinc-500'
+                    }`}
+                  >
+                    {plan.duration}
+                  </span>
+                </div>
+
+                <h3 className="text-2xl font-semibold">{plan.name}</h3>
                 <p
                   className={`mt-3 text-sm leading-6 ${
                     plan.featured ? 'text-zinc-300' : 'text-zinc-600'
@@ -37,7 +62,16 @@ function Pricing({ business }) {
                 >
                   {plan.description}
                 </p>
-                <p className="mt-6 text-4xl font-semibold">{plan.price}</p>
+                <div className="mt-7 flex items-end gap-2">
+                  <p className="text-5xl font-semibold">{plan.price}</p>
+                  <p
+                    className={`pb-2 text-sm ${
+                      plan.featured ? 'text-zinc-400' : 'text-zinc-500'
+                    }`}
+                  >
+                    referencial
+                  </p>
+                </div>
 
                 <ul className="mt-6 space-y-3">
                   {plan.benefits.map((benefit) => (
@@ -62,7 +96,7 @@ function Pricing({ business }) {
                   href={createWhatsAppUrl(business.whatsapp, message)}
                   target="_blank"
                   rel="noreferrer"
-                  className={`mt-8 block rounded-md px-4 py-3 text-center text-sm font-bold transition ${
+                  className={`mt-8 block rounded-md px-4 py-4 text-center text-sm font-bold transition ${
                     plan.featured
                       ? 'bg-amber-300 text-zinc-950 hover:bg-amber-200'
                       : 'bg-zinc-950 text-white hover:bg-zinc-800'

@@ -4,7 +4,7 @@ function Testimonials({ business }) {
   return (
     <section
       id="testimonios"
-      className="bg-zinc-950 px-4 py-20 sm:px-6 lg:px-8"
+      className="bg-zinc-950 px-4 py-24 sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
@@ -18,9 +18,14 @@ function Testimonials({ business }) {
           {business.testimonials.map((testimonial) => (
             <article
               key={testimonial.name}
-              className="rounded-lg border border-white/10 bg-white/5 p-6"
+              className="rounded-lg border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/20 transition hover:-translate-y-1 hover:bg-white/8"
             >
-              <p className="text-4xl text-amber-200">"</p>
+              <div className="flex items-center justify-between gap-4">
+                <p className="text-4xl text-amber-200">"</p>
+                <span className="rounded-md border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-sm font-bold text-amber-100">
+                  5.0
+                </span>
+              </div>
               <p className="mt-4 text-base leading-7 text-zinc-200">
                 {testimonial.quote}
               </p>
