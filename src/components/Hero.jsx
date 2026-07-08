@@ -6,10 +6,10 @@ function Hero({ business }) {
     business.whatsappMessage,
   )
   const booking = business.hero.booking ?? {
-    label: 'Próximo turno',
-    value: 'Disponible hoy',
+    label: 'Reserva directa',
+    value: 'Disponibilidad por WhatsApp',
     service: business.services?.[0]?.name ?? 'Servicio destacado',
-    duration: 'Confirmación por WhatsApp',
+    duration: 'Confirmamos horario y disponibilidad.',
   }
   const positioning = business.positioning ?? business.description
 
@@ -99,7 +99,7 @@ function Hero({ business }) {
             <p className="text-xs font-semibold uppercase text-amber-100">
               {booking.label}
             </p>
-            <p className="mt-2 text-2xl font-semibold text-white">
+            <p className="mt-2 text-xl font-semibold leading-tight text-white">
               {booking.value}
             </p>
           </div>
@@ -112,17 +112,21 @@ function Hero({ business }) {
               <p className="mt-2 text-lg font-semibold text-white">
                 {booking.service}
               </p>
-              <p className="mt-1 text-sm text-zinc-300">{booking.duration}</p>
+              <p className="mt-1 text-sm leading-6 text-zinc-300">
+                {booking.duration}
+              </p>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-lg border border-white/10 bg-white/6 p-4">
-                <p className="text-xs text-zinc-400">Desde</p>
+                <p className="text-xs text-zinc-400">Precio ref.</p>
                 <p className="mt-1 text-2xl font-semibold text-white">$12</p>
               </div>
               <div className="rounded-lg border border-white/10 bg-white/6 p-4">
-                <p className="text-xs text-zinc-400">Respuesta</p>
-                <p className="mt-1 text-2xl font-semibold text-white">5 min</p>
+                <p className="text-xs text-zinc-400">Horario</p>
+                <p className="mt-1 text-sm font-semibold leading-5 text-white">
+                  {business.schedule}
+                </p>
               </div>
             </div>
           </div>
@@ -131,9 +135,9 @@ function Hero({ business }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-4 block rounded-md bg-white px-5 py-4 text-center text-sm font-bold text-zinc-950 transition hover:bg-amber-100"
+            className="mt-4 block rounded-md bg-amber-300 px-5 py-4 text-center text-sm font-bold text-zinc-950 shadow-lg shadow-amber-950/30 transition hover:bg-amber-200"
           >
-            Confirmar horario
+            Consultar por WhatsApp
           </a>
         </aside>
       </div>

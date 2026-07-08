@@ -1,4 +1,8 @@
 import barberHero from '../assets/barber-hero.png'
+import galleryBeard from '../assets/gallery-beard.png'
+import galleryDetail from '../assets/gallery-detail.png'
+import galleryFade from '../assets/gallery-fade.png'
+import galleryTexture from '../assets/gallery-texture.png'
 
 const barberiaData = {
   name: 'BarberPro Studio',
@@ -37,10 +41,10 @@ const barberiaData = {
     secondaryCta: 'Ver servicios',
     highlights: ['Reserva rápida', 'Atención profesional', 'Ambiente premium'],
     booking: {
-      label: 'Próximo turno',
-      value: 'Hoy desde 16:30',
+      label: 'Reserva directa',
+      value: 'Consulta disponibilidad',
       service: 'Corte + barba',
-      duration: '40 min aprox.',
+      duration: 'Confirmamos horario y barbero disponible.',
     },
     stats: [
       { value: '+8', label: 'años de experiencia' },
@@ -51,30 +55,35 @@ const barberiaData = {
   services: [
     {
       icon: 'classic',
+      label: 'Corte',
       name: 'Corte clásico',
       description: 'Corte limpio, sobrio y adaptable a tu estilo diario.',
       price: 'Desde $12',
     },
     {
       icon: 'fade',
+      label: 'Fade',
       name: 'Corte degradado',
       description: 'Fade bajo, medio o alto con acabado preciso y moderno.',
       price: 'Desde $15',
     },
     {
       icon: 'beard',
+      label: 'Barba',
       name: 'Diseño de barba',
       description: 'Perfilado, simetría y detalle para una barba definida.',
       price: 'Desde $10',
     },
     {
       icon: 'brow',
+      label: 'Cejas',
       name: 'Perfilado de cejas',
       description: 'Limpieza natural para resaltar tu expresión sin exagerar.',
       price: 'Desde $5',
     },
     {
       icon: 'style',
+      label: 'Color',
       name: 'Tinte y estilo',
       description: 'Color, matizado y peinado final con productos premium.',
       price: 'Desde $25',
@@ -113,6 +122,7 @@ const barberiaData = {
       category: 'Degradado',
       description: 'Laterales limpios con transición suave y acabado natural.',
       metric: 'Fade medio',
+      image: galleryFade,
       initials: '01',
       background:
         'linear-gradient(135deg, #0f1115 0%, #2f333b 52%, #8c6428 100%)',
@@ -122,6 +132,7 @@ const barberiaData = {
       category: 'Barba',
       description: 'Líneas precisas, volumen controlado y perfil masculino.',
       metric: 'Contorno premium',
+      image: galleryBeard,
       initials: '02',
       background:
         'linear-gradient(135deg, #15110d 0%, #3b3025 50%, #c59b57 100%)',
@@ -131,6 +142,7 @@ const barberiaData = {
       category: 'Estilo',
       description: 'Movimiento, textura y peinado final para un look moderno.',
       metric: 'Textura natural',
+      image: galleryTexture,
       initials: '03',
       background:
         'linear-gradient(135deg, #111827 0%, #273449 50%, #9a7a44 100%)',
@@ -140,6 +152,7 @@ const barberiaData = {
       category: 'Detalle',
       description: 'Contornos limpios para una presentación impecable.',
       metric: 'Acabado nítido',
+      image: galleryDetail,
       initials: '04',
       background:
         'linear-gradient(135deg, #09090b 0%, #2d2a27 48%, #7f5539 100%)',

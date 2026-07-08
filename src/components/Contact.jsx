@@ -10,7 +10,9 @@ function Contact({ business }) {
 
   const handleChange = (event) => {
     const { name, value } = event.target
-    setFormData((current) => ({ ...current, [name]: value }))
+    const nextValue = name === 'phone' ? value.replace(/\D/g, '').slice(0, 10) : value
+
+    setFormData((current) => ({ ...current, [name]: nextValue }))
   }
 
   const handleSubmit = (event) => {
@@ -109,7 +111,10 @@ function Contact({ business }) {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="+593..."
+                inputMode="numeric"
+                pattern="[0-9]{1,10}"
+                maxLength="10"
+                placeholder="0999999999"
                 className="rounded-md border border-zinc-200 px-4 py-3 font-normal outline-none transition focus:border-amber-400 focus:ring-4 focus:ring-amber-100"
               />
             </label>

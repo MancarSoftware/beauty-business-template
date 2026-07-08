@@ -63,16 +63,13 @@ function Navbar({ business }) {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
-          <span className="rounded-md border border-emerald-300/20 bg-emerald-300/10 px-3 py-2 text-xs font-semibold text-emerald-100">
-            Reservas hoy
-          </span>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
             className="rounded-md bg-amber-300 px-4 py-2 text-sm font-bold text-zinc-950 transition hover:bg-amber-200"
           >
-            Reservar
+            WhatsApp
           </a>
         </div>
 

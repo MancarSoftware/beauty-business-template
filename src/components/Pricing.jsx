@@ -29,12 +29,6 @@ function Pricing({ business }) {
                     plan.featured ? 'bg-amber-300' : 'bg-zinc-950'
                   }`}
                 />
-                {plan.featured ? (
-                  <p className="mb-4 inline-flex rounded-md bg-amber-300 px-3 py-1 text-xs font-bold text-zinc-950">
-                    Más reservado
-                  </p>
-                ) : null}
-
                 <div className="mb-5 flex items-center justify-between gap-3">
                   <span
                     className={`rounded-md px-3 py-1 text-xs font-bold ${
@@ -96,13 +90,9 @@ function Pricing({ business }) {
                   href={createWhatsAppUrl(business.whatsapp, message)}
                   target="_blank"
                   rel="noreferrer"
-                  className={`mt-8 block rounded-md px-4 py-4 text-center text-sm font-bold transition ${
-                    plan.featured
-                      ? 'bg-amber-300 text-zinc-950 hover:bg-amber-200'
-                      : 'bg-zinc-950 text-white hover:bg-zinc-800'
-                  }`}
+                  className="mt-8 block rounded-md bg-amber-300 px-4 py-4 text-center text-sm font-bold text-zinc-950 transition hover:bg-amber-200"
                 >
-                  Agendar paquete
+                  Agendar por WhatsApp
                 </a>
               </article>
             )

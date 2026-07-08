@@ -21,12 +21,20 @@ function Gallery({ business }) {
                 className={`group relative overflow-hidden rounded-lg border border-white/10 text-white shadow-2xl shadow-black/30 ${
                   isFeatured ? 'md:col-span-2 md:row-span-2' : ''
                 }`}
-                style={{ background: item.background }}
+                style={{ background: item.image ? undefined : item.background }}
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.22),transparent_30%)]" />
-                <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.14)_0,transparent_34%,rgba(0,0,0,0.32)_100%)]" />
+                {item.image ? (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="absolute inset-0 h-full w-full object-cover grayscale saturate-75 transition duration-500 group-hover:scale-105 group-hover:grayscale-0 group-hover:saturate-125"
+                  />
+                ) : null}
+                <div className="absolute inset-0 bg-zinc-950/34 transition duration-500 group-hover:bg-zinc-950/8" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(214,168,90,0.24),transparent_34%)] opacity-0 transition duration-500 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08)_0,transparent_34%,rgba(0,0,0,0.32)_100%)]" />
                 <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black/85 via-black/45 to-transparent" />
-                <div className="absolute right-5 top-5 h-16 w-16 rounded-lg border border-white/15 bg-white/10 backdrop-blur transition group-hover:scale-105" />
+                <div className="absolute right-5 top-5 h-16 w-16 rounded-lg border border-white/15 bg-white/10 backdrop-blur transition group-hover:scale-105 group-hover:border-amber-300/45" />
 
                 <div className="relative flex h-full flex-col justify-between p-5">
                   <div className="flex items-center justify-between gap-4">
