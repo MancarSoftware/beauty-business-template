@@ -1,45 +1,36 @@
-import Contact from './components/Contact'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
-import Gallery from './components/Gallery'
 import Hero from './components/Hero'
 import Location from './components/Location'
 import Navbar from './components/Navbar'
 import Pricing from './components/Pricing'
-import Promotions from './components/Promotions'
+import Programs from './components/Programs'
 import Seo from './components/Seo'
-import Services from './components/Services'
-import Testimonials from './components/Testimonials'
 import WhatsAppButton from './components/WhatsAppButton'
 import WhyChooseUs from './components/WhyChooseUs'
-import salonData from './data/salonData'
+import gymData from './data/gymData'
 
 function App() {
-  const business = salonData
+  const business = gymData
 
   return (
     <div
-      className="min-h-screen bg-[#fff8fa] text-[#130f12]"
+      className="min-h-screen bg-white text-[#101010]"
       style={{
         '--brand-accent': business.theme.accent,
         '--brand-accent-dark': business.theme.accentDark ?? business.theme.accent,
       }}
     >
       <Seo business={business} />
-
       <Navbar business={business} />
 
       <main>
         <Hero business={business} />
-        <Services business={business} />
-        <Promotions business={business} />
-        <WhyChooseUs business={business} />
-        <Gallery business={business} />
+        <Programs business={business} />
         <Pricing business={business} />
-        <Testimonials business={business} />
-        <FAQ business={business} />
+        <WhyChooseUs business={business} />
         <Location business={business} />
-        <Contact business={business} />
+        <FAQ business={business} />
       </main>
 
       <Footer business={business} />
