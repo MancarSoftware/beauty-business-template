@@ -6,23 +6,23 @@ function FAQ({ business }) {
   }
 
   return (
-    <section id="faq" className="bg-[#fff8fa] px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-        <div>
+    <section id="faq" className="bg-[#fff8fa] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mx-auto mb-12 max-w-5xl text-center">
           <p className="text-sm font-semibold uppercase text-[var(--brand-accent-dark)]">
             {section.eyebrow}
           </p>
 
-          <h2 className="mt-4 font-display text-5xl font-semibold leading-tight text-[#130f12] md:text-7xl">
+          <h2 className="mx-auto mt-4 max-w-4xl font-display text-4xl font-semibold leading-tight text-[#130f12] md:text-5xl lg:text-6xl">
             {section.title}
           </h2>
 
-          <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-700">
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-zinc-600 md:text-lg">
             {section.description}
           </p>
         </div>
 
-        <div className="divide-y divide-[#ead8df] border-y border-[#ead8df]">
+        <div className="mx-auto max-w-4xl divide-y divide-[#ead8df] border-y border-[#ead8df]">
           {section.items.map((item) => (
             <details key={item.question} className="group py-6">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-left">

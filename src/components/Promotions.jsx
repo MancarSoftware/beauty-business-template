@@ -13,16 +13,16 @@ function Promotions({ business }) {
       className="bg-[#fff8fa] px-4 py-16 sm:px-6 lg:px-8 lg:py-20"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10 max-w-4xl">
+        <div className="mx-auto mb-12 max-w-5xl text-center">
           <p className="text-sm font-semibold uppercase text-[var(--brand-accent-dark)]">
             {section.eyebrow}
           </p>
 
-          <h2 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight text-[#130f12] md:text-5xl lg:text-6xl">
+          <h2 className="mx-auto mt-4 max-w-4xl font-display text-4xl font-semibold leading-tight text-[#130f12] md:text-5xl lg:text-6xl">
             {section.title}
           </h2>
 
-          <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-600 md:text-lg">
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-zinc-600 md:text-lg">
             {section.description}
           </p>
         </div>
