@@ -15,19 +15,53 @@ function Navbar({ business }) {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 16)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 16)
+    }
 
     handleScroll()
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    if (!isOpen) {
+      return
+    }
+
+    const closeMenuOnScroll = () => {
+      setIsOpen(false)
+    }
+
+    const closeMenuOnEscape = (event) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false)
+      }
+    }
+
+    const closeMenuOnResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false)
+      }
+    }
+
+    window.addEventListener('scroll', closeMenuOnScroll, { passive: true })
+    window.addEventListener('keydown', closeMenuOnEscape)
+    window.addEventListener('resize', closeMenuOnResize)
+
+    return () => {
+      window.removeEventListener('scroll', closeMenuOnScroll)
+      window.removeEventListener('keydown', closeMenuOnEscape)
+      window.removeEventListener('resize', closeMenuOnResize)
+    }
+  }, [isOpen])
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#fff8fa]/92 shadow-lg shadow-[#130f12]/8 backdrop-blur-xl'
+        isScrolled || isOpen
+          ? 'bg-[#fff8fa]/95 shadow-lg shadow-[#130f12]/8 backdrop-blur-xl'
           : 'bg-transparent'
       }`}
     >
@@ -40,7 +74,7 @@ function Navbar({ business }) {
           <span>
             <span
               className={`block font-display text-xl leading-5 transition ${
-                isScrolled ? 'text-[#130f12]' : 'text-white'
+                isScrolled || isOpen ? 'text-[#130f12]' : 'text-white'
               }`}
             >
               {business.shortName}
@@ -48,7 +82,7 @@ function Navbar({ business }) {
 
             <span
               className={`block text-xs transition ${
-                isScrolled ? 'text-zinc-500' : 'text-zinc-200'
+                isScrolled || isOpen ? 'text-zinc-500' : 'text-zinc-200'
               }`}
             >
               {business.type}
@@ -76,11 +110,11 @@ function Navbar({ business }) {
 
         <button
           type="button"
-          aria-label="Abrir menú"
+          aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={isOpen}
           onClick={() => setIsOpen((current) => !current)}
           className={`inline-flex h-11 w-11 items-center justify-center rounded-full border transition md:hidden ${
-            isScrolled
+            isScrolled || isOpen
               ? 'border-[#ead8df] bg-white text-[#130f12]'
               : 'border-white/20 bg-white/10 text-white backdrop-blur'
           }`}
@@ -106,8 +140,8 @@ function Navbar({ business }) {
       </nav>
 
       <div
-        className={`overflow-hidden border-t border-[#ead8df] bg-[#fff8fa] transition-all duration-300 md:hidden ${
-          isOpen ? 'max-h-96' : 'max-h-0'
+        className={`overflow-hidden border-t border-[#ead8df] bg-[#fff8fa] shadow-xl shadow-[#130f12]/10 transition-all duration-300 md:hidden ${
+          isOpen ? 'max-h-[520px]' : 'max-h-0'
         }`}
       >
         <div className="mx-auto grid max-w-7xl gap-1 px-4 py-4">
@@ -116,7 +150,7 @@ function Navbar({ business }) {
               key={item.href}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="rounded-md px-3 py-3 text-sm font-semibold text-[#130f12] transition hover:bg-[#f5e6ec]"
+              className="rounded-xl px-4 py-4 text-base font-semibold text-[#130f12] transition hover:bg-[#f5e6ec]"
             >
               {item.label}
             </a>
