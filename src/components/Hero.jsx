@@ -6,105 +6,86 @@ function Hero({ business }) {
     business.whatsappMessage,
   )
 
-  const booking = business.hero.booking ?? {
-    label: 'Reserva directa',
-    value: 'Disponibilidad por WhatsApp',
-    service: business.services?.[0]?.name ?? 'Servicio destacado',
-    duration: 'Confirmamos horario y disponibilidad.',
-    price: business.pricing?.[0]?.price ?? '',
-    priceLabel: 'Desde',
-  }
-
-  const secondaryHref = business.hero.secondaryHref ?? '#servicios'
-  const secondaryCta = business.hero.secondaryCta ?? 'Ver servicios'
+  const features = business.hero.features ?? []
 
   return (
-    <section
-      id="inicio"
-      className="relative isolate min-h-screen overflow-hidden bg-[#130f12]"
-    >
-      {business.hero.image ? (
-        <img
-          src={business.hero.image}
-          alt={`Interior de ${business.name}`}
-          className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
-        />
-      ) : null}
+    <section id="inicio" className="overflow-hidden bg-white pt-20">
+      <div className="grid min-h-[760px] lg:grid-cols-[0.52fr_0.48fr]">
+        <div className="relative flex items-center px-4 py-16 sm:px-6 lg:px-12 xl:px-20">
+          <div className="mx-auto max-w-2xl lg:mx-0">
+            <p className="mb-5 text-sm font-black uppercase tracking-[0.24em] text-[var(--brand-accent-dark)]">
+              {business.hero.eyebrow}
+            </p>
 
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(19,15,18,0.42)_0%,rgba(19,15,18,0.22)_42%,rgba(19,15,18,0.90)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(255,248,250,0.12),transparent_34%)]" />
+            <h1 className="font-display text-6xl font-black uppercase leading-[0.9] tracking-tight text-[#101010] md:text-7xl xl:text-8xl">
+              {business.hero.title}
+              <span className="mt-3 block text-[var(--brand-accent-dark)]">
+                {business.hero.accentTitle}
+              </span>
+            </h1>
 
-      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between px-4 pb-5 pt-28 sm:px-6 lg:px-8">
-        <div className="hidden justify-between text-xs font-semibold uppercase text-white/70 lg:flex">
-          <span>Color</span>
-          <span>Corte</span>
-          <span>Balayage</span>
-          <span>Styling</span>
+            <p className="mt-7 max-w-xl text-base leading-8 text-zinc-600 md:text-lg">
+              {business.hero.subtitle}
+            </p>
+
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-3 rounded-md bg-[var(--brand-accent)] px-7 py-4 text-sm font-black uppercase text-white shadow-xl shadow-black/10 transition hover:-translate-y-0.5 hover:bg-[var(--brand-accent-dark)]"
+              >
+                {business.hero.cta}
+                <span>→</span>
+              </a>
+
+              <a
+                href={business.hero.secondaryHref ?? '#planes'}
+                className="inline-flex items-center justify-center gap-3 rounded-md border border-zinc-300 bg-white px-7 py-4 text-sm font-black uppercase text-[#101010] transition hover:-translate-y-0.5 hover:border-[var(--brand-accent)] hover:text-[var(--brand-accent-dark)]"
+              >
+                {business.hero.secondaryCta ?? 'Ver planes'}
+              </a>
+            </div>
+
+            <div className="mt-12 grid gap-5 sm:grid-cols-3">
+              {features.map((feature) => (
+                <article key={feature.title} className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-300 text-sm font-black text-[var(--brand-accent-dark)]">
+                    ✓
+                  </span>
+                  <div>
+                    <p className="text-xs font-black uppercase text-[#101010]">
+                      {feature.title}
+                    </p>
+                    <p className="text-xs font-semibold uppercase text-zinc-500">
+                      {feature.text}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="mx-auto max-w-5xl py-16 text-center">
-          <p className="mx-auto mb-5 w-fit rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur">
-            {business.hero.eyebrow}
-          </p>
+        <div className="relative min-h-[520px] overflow-hidden bg-[#101010] lg:min-h-full">
+          <div className="absolute -left-24 top-0 z-10 hidden h-full w-44 skew-x-[-16deg] bg-white lg:block" />
 
-          <h1 className="font-display text-6xl font-semibold leading-[0.9] text-white md:text-8xl lg:text-9xl">
-            {business.hero.title}
-          </h1>
+          {business.hero.image ? (
+            <img
+              src={business.hero.image}
+              alt={`Entrenamiento en ${business.name}`}
+              className="h-full w-full object-cover object-center grayscale"
+            />
+          ) : null}
 
-          <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-zinc-100 md:text-lg">
-            {business.hero.subtitle}
-          </p>
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,16,16,0.10),rgba(16,16,16,0.25))]" />
 
-          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full bg-[#fff8fa] px-7 py-4 text-center text-sm font-bold text-[#130f12] shadow-xl shadow-black/25 transition hover:-translate-y-0.5 hover:bg-[var(--brand-accent)]"
-            >
-              {business.hero.cta}
-            </a>
-
-            <a
-              href={secondaryHref}
-              className="group inline-flex items-center justify-center gap-3 rounded-full border border-[#e7b7c8]/70 bg-[#e7b7c8] px-7 py-4 text-center text-sm font-extrabold text-[#130f12] shadow-xl shadow-black/30 transition hover:-translate-y-0.5 hover:bg-[#f4d2de]"
-            >
-              {secondaryCta}
-              <span className="transition group-hover:translate-x-1">→</span>
-            </a>
-          </div>
-        </div>
-
-        <div className="grid overflow-hidden rounded-lg border border-white/14 bg-[#fff8fa] text-[#130f12] shadow-2xl shadow-black/30 md:grid-cols-4">
-          <div className="border-b border-[#ead8df] p-4 md:border-b-0 md:border-r">
-            <p className="text-xs font-bold uppercase text-[var(--brand-accent-dark)]">
-              {booking.label}
+          <div className="absolute bottom-8 left-8 right-8 rounded-2xl border border-white/15 bg-black/45 p-5 text-white backdrop-blur-md lg:hidden">
+            <p className="text-xs font-black uppercase text-[var(--brand-accent)]">
+              Primera visita
             </p>
-            <p className="mt-1 text-lg font-semibold">{booking.value}</p>
+            <p className="mt-1 text-xl font-black">Evaluación inicial</p>
           </div>
-
-          <div className="border-b border-[#ead8df] p-4 md:border-b-0 md:border-r">
-            <p className="text-xs font-bold uppercase text-zinc-500">
-              Servicio
-            </p>
-            <p className="mt-1 font-semibold">{booking.service}</p>
-          </div>
-
-          <div className="border-b border-[#ead8df] p-4 md:border-b-0 md:border-r">
-            <p className="text-xs font-bold uppercase text-zinc-500">
-              {booking.priceLabel}
-            </p>
-            <p className="mt-1 text-2xl font-semibold">{booking.price}</p>
-          </div>
-
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="flex min-h-16 items-center justify-center bg-[#e7b7c8] px-4 py-4 text-center text-sm font-extrabold text-[#130f12] transition hover:bg-[#f4d2de]"
-          >
-            Reservar por WhatsApp
-          </a>
         </div>
       </div>
     </section>
