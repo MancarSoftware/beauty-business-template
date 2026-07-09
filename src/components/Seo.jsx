@@ -101,7 +101,7 @@ function Seo({ business }) {
 
     upsertMeta('meta[name="theme-color"]', {
       name: 'theme-color',
-      content: business.theme?.dark ?? '#130f12',
+      content: business.theme?.dark ?? '#101010',
     })
 
     if (seo.siteUrl) {
@@ -118,7 +118,7 @@ function Seo({ business }) {
 
     const schema = {
       '@context': 'https://schema.org',
-      '@type': 'BeautySalon',
+      '@type': seo.businessType ?? 'ExerciseGym',
       name: business.name,
       description,
       telephone: business.phone,
