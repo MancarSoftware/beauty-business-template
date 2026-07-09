@@ -33,10 +33,10 @@ const salonData = {
     tiktok: '#',
   },
   hero: {
-    eyebrow: 'Salón de belleza en Quito',
-    title: 'Color, corte y styling para salir lista y segura.',
+    eyebrow: 'Salón boutique en Quito',
+    title: 'Bella Aura Studio',
     subtitle:
-      'Agenda tu cita en Bella Aura Studio y recibe asesoría personalizada antes de tu servicio. Trabajamos color, corte, peinados y tratamientos con productos profesionales y acabado de salón.',
+      'Color, corte, tratamientos y styling con una experiencia tranquila, elegante y pensada para cuidar tu cabello desde la asesoría hasta el acabado final.',
     image: salonHero,
     cta: 'Agendar por WhatsApp',
     secondaryCta: 'Ver servicios',

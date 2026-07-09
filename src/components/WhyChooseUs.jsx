@@ -11,60 +11,62 @@ function WhyChooseUs({ business }) {
   const image = business.gallery?.[3]?.image ?? business.hero.image
 
   return (
-    <section id="beneficios" className="bg-[#f2e7eb] px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.92fr] lg:items-start">
-        <div>
-          <p className="mb-3 text-sm font-semibold uppercase text-[var(--brand-accent-dark)]">
-            {section.eyebrow}
-          </p>
-          <h2 className="max-w-3xl text-4xl font-semibold leading-tight text-[#130f12] md:text-6xl">
-            {section.title}
-          </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-700">
+    <section
+      id="beneficios"
+      className="bg-[#130f12] px-4 py-24 text-white sm:px-6 lg:px-8"
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase text-[var(--brand-accent)]">
+              {section.eyebrow}
+            </p>
+            <h2 className="mt-4 font-display text-5xl font-semibold leading-tight md:text-7xl">
+              Ritual de belleza, sin prisa y con criterio.
+            </h2>
+          </div>
+          <p className="max-w-2xl text-lg leading-8 text-zinc-300">
             {section.description}
           </p>
-
-          <div className="mt-10 divide-y divide-[#d9c5ce] border-y border-[#d9c5ce]">
-            {business.benefits.map((benefit, index) => (
-              <article
-                key={benefit.title}
-                className="grid gap-4 py-6 md:grid-cols-[80px_1fr]"
-              >
-                <p className="text-3xl font-semibold text-[var(--brand-accent-dark)]">
-                  {String(index + 1).padStart(2, '0')}
-                </p>
-                <div>
-                  <h3 className="text-xl font-semibold text-[#130f12]">
-                    {benefit.title}
-                  </h3>
-                  <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-700">
-                    {benefit.description}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
         </div>
 
-        <aside className="lg:sticky lg:top-28">
-          <div className="overflow-hidden rounded-lg border border-[#d9c5ce] bg-white shadow-2xl shadow-[#9f4f68]/10">
+        <div className="mt-14 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+          <div className="relative min-h-[540px] overflow-hidden rounded-[40px] bg-white/6">
             {image ? (
               <img
                 src={image}
-                alt="Tratamiento capilar en Bella Aura Studio"
-                className="h-80 w-full object-cover"
+                alt="Cuidado capilar en Bella Aura Studio"
+                className="absolute inset-0 h-full w-full object-cover"
               />
             ) : null}
-            <div className="p-6">
-              <p className="text-sm font-semibold text-[var(--brand-accent-dark)]">
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(19,15,18,0.70)_100%)]" />
+            <div className="absolute bottom-0 p-7">
+              <p className="text-sm font-semibold uppercase text-[var(--brand-accent)]">
                 {section.cardTitle}
               </p>
-              <p className="mt-3 text-sm leading-7 text-zinc-700">
+              <p className="mt-3 max-w-md text-sm leading-7 text-zinc-100">
                 {section.cardText}
               </p>
             </div>
           </div>
-        </aside>
+
+          <div className="grid border-y border-white/12 md:grid-cols-2">
+            {business.benefits.map((benefit, index) => (
+              <article
+                key={benefit.title}
+                className="border-b border-white/12 py-7 md:border-r md:px-7 md:even:border-r-0"
+              >
+                <p className="font-display text-5xl text-[var(--brand-accent)]">
+                  {String(index + 1).padStart(2, '0')}
+                </p>
+                <h3 className="mt-6 text-xl font-semibold">{benefit.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-300">
+                  {benefit.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

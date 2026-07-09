@@ -2,29 +2,23 @@ import { useEffect, useState } from 'react'
 import { createWhatsAppUrl } from '../utils/whatsapp'
 
 const navItems = [
-  { label: 'Inicio', href: '#inicio' },
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Galería', href: '#galeria' },
+  { label: 'Ritual', href: '#beneficios' },
+  { label: 'Lookbook', href: '#galeria' },
   { label: 'Precios', href: '#precios' },
-  { label: 'Ubicación', href: '#ubicacion' },
+  { label: 'Contacto', href: '#contacto' },
 ]
 
 function Navbar({ business }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const initials = business.shortName
-    .split(' ')
-    .map((word) => word[0])
-    .join('')
-    .slice(0, 2)
-    .toUpperCase()
   const whatsappUrl = createWhatsAppUrl(
     business.whatsapp,
     business.whatsappMessage,
   )
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 12)
+    const handleScroll = () => setIsScrolled(window.scrollY > 16)
 
     handleScroll()
     window.addEventListener('scroll', handleScroll)
@@ -36,55 +30,74 @@ function Navbar({ business }) {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'border-b border-[#ead8df]/25 bg-[#130f12]/86 shadow-2xl shadow-black/20 backdrop-blur-xl'
-          : 'bg-gradient-to-b from-[#130f12]/72 to-transparent backdrop-blur-sm'
+          ? 'bg-[#fff8fa]/92 shadow-lg shadow-[#130f12]/8 backdrop-blur-xl'
+          : 'bg-transparent'
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <a href="#inicio" className="flex items-center gap-3">
-          <span className="relative flex h-11 w-11 items-center justify-center rounded-lg border border-[color:var(--brand-accent)] bg-[#f8edf2] text-sm font-bold text-[#130f12] shadow-lg shadow-black/30">
-            <span className="absolute inset-1 rounded-md border border-[#130f12]/10" />
-            <span className="relative">{initials}</span>
+          <span className="flex h-12 w-12 items-center justify-center rounded-full border border-[#ead8df] bg-[#fff8fa] font-display text-base font-semibold text-[#130f12] shadow-lg shadow-black/10">
+            BA
           </span>
           <span>
-            <span className="block text-base font-semibold leading-5 text-white">
+            <span
+              className={`block font-display text-xl leading-5 transition ${
+                isScrolled ? 'text-[#130f12]' : 'text-white'
+              }`}
+            >
               {business.shortName}
             </span>
-            <span className="block text-xs text-zinc-300">
+            <span
+              className={`block text-xs transition ${
+                isScrolled ? 'text-zinc-500' : 'text-zinc-200'
+              }`}
+            >
               {business.type}
             </span>
           </span>
         </a>
 
-        <div className="hidden items-center rounded-lg border border-white/12 bg-white/10 px-2 py-2 backdrop-blur md:flex">
+        <div
+          className={`hidden items-center gap-7 rounded-full px-6 py-3 text-sm font-semibold transition md:flex ${
+            isScrolled
+              ? 'border border-[#ead8df] bg-white/80 text-[#130f12]'
+              : 'border border-white/15 bg-white/10 text-white backdrop-blur'
+          }`}
+        >
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-zinc-200 transition hover:bg-white/12 hover:text-white"
+              className="transition hover:text-[var(--brand-accent)]"
             >
               {item.label}
             </a>
           ))}
         </div>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-md bg-[var(--brand-accent)] px-4 py-2 text-sm font-bold text-zinc-950 transition hover:brightness-105"
-          >
-            WhatsApp
-          </a>
-        </div>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+          className={`hidden rounded-full px-5 py-3 text-sm font-bold transition md:inline-flex ${
+            isScrolled
+              ? 'bg-[#130f12] text-white hover:bg-[var(--brand-accent-dark)]'
+              : 'bg-[#fff8fa] text-[#130f12] hover:bg-[var(--brand-accent)]'
+          }`}
+        >
+          Reservar
+        </a>
 
         <button
           type="button"
           aria-label="Abrir menú"
           aria-expanded={isOpen}
           onClick={() => setIsOpen((current) => !current)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 text-white md:hidden"
+          className={`inline-flex h-11 w-11 items-center justify-center rounded-full border transition md:hidden ${
+            isScrolled
+              ? 'border-[#ead8df] bg-white text-[#130f12]'
+              : 'border-white/20 bg-white/10 text-white backdrop-blur'
+          }`}
         >
           <span className="relative h-4 w-5">
             <span
@@ -107,7 +120,7 @@ function Navbar({ business }) {
       </nav>
 
       <div
-        className={`overflow-hidden border-t border-white/10 bg-zinc-950/95 transition-all duration-300 md:hidden ${
+        className={`overflow-hidden border-t border-[#ead8df] bg-[#fff8fa] transition-all duration-300 md:hidden ${
           isOpen ? 'max-h-96' : 'max-h-0'
         }`}
       >
@@ -117,7 +130,7 @@ function Navbar({ business }) {
               key={item.href}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="rounded-md px-3 py-3 text-sm font-medium text-zinc-200 transition hover:bg-white/5"
+              className="rounded-md px-3 py-3 text-sm font-semibold text-[#130f12] transition hover:bg-[#f5e6ec]"
             >
               {item.label}
             </a>
@@ -126,7 +139,7 @@ function Navbar({ business }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-2 rounded-md bg-[var(--brand-accent)] px-4 py-3 text-center text-sm font-semibold text-zinc-950"
+            className="mt-2 rounded-full bg-[#130f12] px-4 py-3 text-center text-sm font-semibold text-white"
           >
             Agendar por WhatsApp
           </a>

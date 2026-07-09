@@ -37,62 +37,46 @@ function Contact({ business }) {
   }
 
   return (
-    <section id="contacto" className="bg-white px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
-        <div className="relative overflow-hidden rounded-lg bg-[#130f12] p-6 text-white md:p-8">
-          <div className="absolute inset-x-0 top-0 h-1 bg-[var(--brand-accent)]" />
-          <p className="text-sm font-semibold uppercase text-[var(--brand-accent)]">
+    <section id="contacto" className="bg-[#fff8fa] px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+        <div className="lg:sticky lg:top-28">
+          <p className="text-sm font-semibold uppercase text-[var(--brand-accent-dark)]">
             Contacto
           </p>
-          <h2 className="mt-4 text-4xl font-semibold leading-tight md:text-6xl">
+          <h2 className="mt-4 font-display text-5xl font-semibold leading-tight text-[#130f12] md:text-7xl">
             {business.contactCta.title}
           </h2>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-300">
+          <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-700">
             {business.contactCta.text}
           </p>
 
-          <div className="mt-10 grid gap-3 sm:grid-cols-2">
-            <div className="rounded-md border border-white/10 bg-white/6 p-4">
-              <p className="text-xs font-semibold uppercase text-zinc-400">
+          <div className="mt-10 grid gap-4 border-y border-[#ead8df] py-6">
+            <div className="flex items-center justify-between gap-6">
+              <span className="text-sm font-bold uppercase text-zinc-500">
                 Horario
-              </p>
-              <p className="mt-2 text-sm leading-6 text-white">
+              </span>
+              <span className="text-right text-sm font-semibold text-[#130f12]">
                 {business.schedule}
-              </p>
+              </span>
             </div>
-            <div className="rounded-md border border-white/10 bg-white/6 p-4">
-              <p className="text-xs font-semibold uppercase text-zinc-400">
+            <div className="flex items-center justify-between gap-6">
+              <span className="text-sm font-bold uppercase text-zinc-500">
                 WhatsApp
-              </p>
-              <p className="mt-2 text-sm leading-6 text-white">
+              </span>
+              <span className="text-right text-sm font-semibold text-[#130f12]">
                 {business.phone}
-              </p>
+              </span>
             </div>
-          </div>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            {Object.entries(business.social).map(([name, url]) => (
-              <a
-                key={name}
-                href={url}
-                className="rounded-md border border-white/10 bg-white/8 px-4 py-3 text-sm font-semibold capitalize text-zinc-200 transition hover:border-[color:var(--brand-accent)] hover:text-white"
-              >
-                {name}
-              </a>
-            ))}
           </div>
         </div>
 
-        <form
-          onSubmit={handleSubmit}
-          className="rounded-lg border border-[#ead8df] bg-[#fff8fa] p-5 shadow-2xl shadow-[#9f4f68]/10 md:p-8"
-        >
-          <div className="mb-6 flex flex-col gap-2 border-b border-[#ead8df] pb-6 sm:flex-row sm:items-end sm:justify-between">
+        <form onSubmit={handleSubmit} className="border-t border-[#ead8df]">
+          <div className="flex flex-col gap-2 border-b border-[#ead8df] py-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase text-[var(--brand-accent-dark)]">
                 {formCopy.eyebrow}
               </p>
-              <h3 className="mt-2 text-2xl font-semibold text-[#130f12]">
+              <h3 className="mt-2 font-display text-3xl font-semibold text-[#130f12]">
                 {formCopy.title}
               </h3>
             </div>
@@ -101,8 +85,8 @@ function Contact({ business }) {
             </p>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2">
-            <label className="grid gap-2 text-sm font-semibold text-zinc-800">
+          <div className="grid gap-6 border-b border-[#ead8df] py-6 md:grid-cols-2">
+            <label className="grid gap-3 text-sm font-semibold text-[#130f12]">
               Nombre
               <input
                 type="text"
@@ -110,10 +94,10 @@ function Contact({ business }) {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Tu nombre"
-                className="rounded-md border border-[#ead8df] bg-white px-4 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent)] focus:ring-4 focus:ring-pink-100"
+                className="border-b border-[#d9c5ce] bg-transparent px-0 py-3 font-normal outline-none transition placeholder:text-zinc-400 focus:border-[color:var(--brand-accent-dark)]"
               />
             </label>
-            <label className="grid gap-2 text-sm font-semibold text-zinc-800">
+            <label className="grid gap-3 text-sm font-semibold text-[#130f12]">
               Teléfono
               <input
                 type="tel"
@@ -124,25 +108,25 @@ function Contact({ business }) {
                 pattern="[0-9]{1,10}"
                 maxLength="10"
                 placeholder="0999999999"
-                className="rounded-md border border-[#ead8df] bg-white px-4 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent)] focus:ring-4 focus:ring-pink-100"
+                className="border-b border-[#d9c5ce] bg-transparent px-0 py-3 font-normal outline-none transition placeholder:text-zinc-400 focus:border-[color:var(--brand-accent-dark)]"
               />
             </label>
           </div>
 
-          <label className="mt-5 grid gap-2 text-sm font-semibold text-zinc-800">
+          <label className="grid gap-3 border-b border-[#ead8df] py-6 text-sm font-semibold text-[#130f12]">
             Mensaje
             <textarea
               name="message"
               value={formData.message}
               onChange={handleChange}
               rows="6"
-              className="resize-none rounded-md border border-[#ead8df] bg-white px-4 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent)] focus:ring-4 focus:ring-pink-100"
+              className="resize-none border-b border-[#d9c5ce] bg-transparent px-0 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent-dark)]"
             />
           </label>
 
           <button
             type="submit"
-            className="mt-6 w-full rounded-md bg-[#130f12] px-5 py-4 text-sm font-bold text-white transition hover:bg-[var(--brand-accent-dark)]"
+            className="mt-8 w-full rounded-full bg-[#130f12] px-5 py-4 text-sm font-bold text-white transition hover:bg-[var(--brand-accent-dark)]"
           >
             {formCopy.submitLabel}
           </button>
