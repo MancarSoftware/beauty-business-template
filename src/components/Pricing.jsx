@@ -3,16 +3,15 @@ import SectionHeader from './SectionHeader'
 
 function Pricing({ business }) {
   const section = business.sections?.pricing ?? {
-    eyebrow: 'Precios',
-    title: 'Elige tu servicio y agenda por WhatsApp',
-    description:
-      'Confirma disponibilidad, duración y precio antes de tu visita.',
+    eyebrow: 'Planes',
+    title: 'Planes y membresias',
+    description: 'Elige el plan ideal para empezar.',
   }
 
   return (
     <section
-      id="precios"
-      className="bg-[#fff8fa] px-4 py-16 sm:px-6 lg:px-8 lg:py-20"
+      id="planes"
+      className="bg-white px-4 py-16 text-[#101010] sm:px-6 lg:px-8 lg:py-20"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
@@ -21,72 +20,74 @@ function Pricing({ business }) {
           description={section.description}
         />
 
-        <div className="overflow-hidden rounded-[2rem] border border-[#ead8df] bg-white shadow-xl shadow-[#9f4f68]/10">
-          <div className="grid lg:grid-cols-[0.34fr_0.66fr]">
-            <div className="bg-[#130f12] p-8 text-white md:p-10">
-              <p className="text-sm font-semibold uppercase text-[var(--brand-accent)]">
-                Guía de reserva
-              </p>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {business.pricing.map((plan) => (
+            <article
+              key={plan.name}
+              className={`relative rounded-[2rem] border bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/10 ${
+                plan.featured
+                  ? 'border-[var(--brand-accent)] ring-2 ring-[var(--brand-accent)]'
+                  : 'border-zinc-200'
+              }`}
+            >
+              {plan.featured ? (
+                <div className="absolute left-6 right-6 top-0 -translate-y-1/2 rounded-full bg-[var(--brand-accent)] px-4 py-2 text-center text-xs font-black uppercase text-white">
+                  {plan.tag}
+                </div>
+              ) : null}
 
-              <h3 className="mt-5 font-display text-4xl font-semibold leading-tight">
-                Elige por objetivo, no solo por precio.
-              </h3>
+              <div className="text-center">
+                <p className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fff7e8] text-2xl font-black text-[var(--brand-accent-dark)]">
+                  {plan.icon}
+                </p>
 
-              <p className="mt-5 text-sm leading-7 text-zinc-300">
-                Si no sabes qué reservar, escríbenos una foto de referencia y te
-                orientamos con el servicio correcto.
-              </p>
-            </div>
+                <h3 className="mt-5 text-xl font-black uppercase text-[#101010]">
+                  {plan.name}
+                </h3>
 
-            <div className="divide-y divide-[#ead8df]">
-              {business.pricing.map((plan) => (
-                <article
-                  key={plan.name}
-                  className="grid gap-5 p-6 transition hover:bg-[#fff1f6] md:grid-cols-[1fr_100px_110px_auto] md:items-center"
-                >
-                  <div>
-                    <p className="text-xs font-bold uppercase text-[var(--brand-accent-dark)]">
-                      {plan.tag}
-                    </p>
+                <div className="mt-4 flex items-end justify-center gap-1">
+                  <span className="font-display text-5xl font-black text-[#101010]">
+                    {plan.price}
+                  </span>
+                  <span className="pb-2 text-sm font-bold text-zinc-500">
+                    {plan.period}
+                  </span>
+                </div>
 
-                    <h3 className="mt-2 font-display text-2xl font-semibold text-[#130f12] md:text-3xl">
-                      {plan.name}
-                    </h3>
+                <p className="mt-4 text-sm leading-6 text-zinc-600">
+                  {plan.description}
+                </p>
+              </div>
 
-                    <p className="mt-2 text-sm leading-6 text-zinc-600">
-                      {plan.description}
-                    </p>
-                  </div>
+              <ul className="mt-7 space-y-3">
+                {plan.benefits.map((benefit) => (
+                  <li key={benefit} className="flex gap-3 text-sm text-zinc-700">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#fff7e8] text-xs font-black text-[var(--brand-accent-dark)]">
+                      ✓
+                    </span>
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
 
-                  <p className="text-sm font-semibold text-zinc-500">
-                    {plan.duration}
-                  </p>
-
-                  <div>
-                    <p className="text-xs font-bold uppercase text-zinc-400">
-                      Desde
-                    </p>
-
-                    <p className="font-display text-3xl font-semibold text-[#130f12]">
-                      {plan.price}
-                    </p>
-                  </div>
-
-                  <a
-                    href={createWhatsAppUrl(
-                      business.whatsapp,
-                      `Hola ${business.name}, quiero agendar el servicio ${plan.name}.`,
-                    )}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex justify-center rounded-full bg-[var(--brand-accent)] px-5 py-3 text-center text-sm font-bold text-[#130f12] transition hover:brightness-95"
-                  >
-                    Reservar
-                  </a>
-                </article>
-              ))}
-            </div>
-          </div>
+              <a
+                href={createWhatsAppUrl(
+                  business.whatsapp,
+                  plan.whatsappMessage ??
+                    `Hola ${business.name}, quiero informacion sobre el plan ${plan.name}.`,
+                )}
+                target="_blank"
+                rel="noreferrer"
+                className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-4 text-sm font-black uppercase transition ${
+                  plan.featured
+                    ? 'bg-[var(--brand-accent)] text-white hover:bg-[var(--brand-accent-dark)]'
+                    : 'border border-[var(--brand-accent)] text-[#101010] hover:bg-[var(--brand-accent)] hover:text-white'
+                }`}
+              >
+                Elegir plan
+              </a>
+            </article>
+          ))}
         </div>
       </div>
     </section>
