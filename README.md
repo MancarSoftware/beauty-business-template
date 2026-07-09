@@ -1,6 +1,9 @@
-# Beauty Business Template
+# Bella Aura Studio
 
-Plantilla profesional reutilizable para vender páginas web a negocios locales de belleza y cuidado personal: barberías, salones, spas, peluquerías y centros estéticos.
+Landing page profesional para un salon de belleza premium en Quito.
+
+La pagina esta enfocada en reservas por WhatsApp para color, corte, balayage,
+tratamientos capilares, peinados y maquillaje social.
 
 ## Stack
 
@@ -9,7 +12,7 @@ Plantilla profesional reutilizable para vender páginas web a negocios locales d
 - JavaScript
 - Tailwind CSS
 - Componentes reutilizables
-- Datos centralizados por tipo de negocio
+- Datos centralizados en `src/data/salonData.js`
 
 ## Estructura
 
@@ -18,6 +21,7 @@ src/
   assets/
   components/
   data/
+    salonData.js
   utils/
   App.jsx
   main.jsx
@@ -35,26 +39,20 @@ npm run lint
 
 ## Personalizacion
 
-La demo activa está en `src/App.jsx` importando `src/data/barberiaData.js`.
-Para cambiar a salon o spa, importa otro archivo de datos con la misma forma:
+La informacion principal del salon se edita en:
 
-```js
-import spaData from './data/spaData'
+```txt
+src/data/salonData.js
 ```
 
-Luego asigna:
-
-```js
-const business = spaData
-```
-
-Los componentes leen arrays de servicios, beneficios, galeria, paquetes y testimonios. La idea es adaptar contenido, precios, colores, imagen hero, WhatsApp y datos de contacto sin reescribir la interfaz.
+Ahi puedes cambiar nombre, telefono, WhatsApp, direccion, horarios, servicios,
+precios, testimonios, galeria, colores y textos de cada seccion.
 
 ## Git recomendado
 
 ```bash
-git checkout -b feature/landing-barberia
+git checkout -b feature/landing-salon-belleza
 git add .
-git commit -m "feat: create initial barber landing page"
-git push -u origin feature/landing-barberia
+git commit -m "feat: create premium beauty salon landing page"
+git push -u origin feature/landing-salon-belleza
 ```
