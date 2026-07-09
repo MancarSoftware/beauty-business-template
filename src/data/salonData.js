@@ -7,15 +7,16 @@ import salonTreatment from '../assets/salon-treatment.png'
 const salonData = {
   name: 'Bella Aura Studio',
   shortName: 'Bella Aura',
+  logoInitials: 'BA',
   type: 'Salón de belleza premium',
   slogan: 'Color, corte y styling con asesoría profesional',
   description:
     'Salón especializado en coloración, cortes, tratamientos capilares, peinados y maquillaje social en Quito.',
   positioning:
     'Agenda por WhatsApp, confirma tu horario y recibe una asesoría antes de cada servicio.',
-  whatsapp: '593999999999',
+  whatsapp: '593987654321',
   whatsappMessage: 'Hola Bella Aura Studio, quiero agendar una cita.',
-  phone: '+593 99 999 9999',
+  phone: '+593 98 765 4321',
   email: 'reservas@bellaaura.ec',
   address: 'Av. Portugal E10-57 y República de El Salvador, Quito',
   schedule: 'Lunes a sábado - 10:00 a 19:00',
@@ -26,6 +27,15 @@ const salonData = {
     accentDark: '#9f4f68',
     dark: '#130f12',
     surface: '#21191f',
+  },
+  seo: {
+  title: 'Bella Aura Studio | Salón de belleza premium en Quito',
+  description:
+    'Reserva por WhatsApp servicios de color profesional, corte, balayage, tratamientos capilares, peinados y maquillaje social en Quito.',
+  image: '/favicon.svg',
+  locale: 'es_EC',
+  areaServed: 'Quito, Ecuador',
+  priceRange: '$$',
   },
   social: {
     instagram: '#',

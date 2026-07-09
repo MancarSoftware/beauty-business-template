@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import Location from './components/Location'
 import Navbar from './components/Navbar'
 import Pricing from './components/Pricing'
+import Seo from './components/Seo'
 import Services from './components/Services'
 import Testimonials from './components/Testimonials'
 import WhatsAppButton from './components/WhatsAppButton'
@@ -22,7 +23,10 @@ function App() {
         '--brand-accent-dark': business.theme.accentDark ?? business.theme.accent,
       }}
     >
+      <Seo business={business} />
+
       <Navbar business={business} />
+
       <main>
         <Hero business={business} />
         <Services business={business} />
@@ -33,6 +37,7 @@ function App() {
         <Location business={business} />
         <Contact business={business} />
       </main>
+
       <Footer business={business} />
       <WhatsAppButton business={business} />
     </div>
