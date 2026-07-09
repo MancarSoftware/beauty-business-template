@@ -36,14 +36,14 @@ function Navbar({ business }) {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'border-b border-white/10 bg-zinc-950/90 shadow-2xl shadow-black/20 backdrop-blur-xl'
-          : 'bg-gradient-to-b from-zinc-950/80 to-zinc-950/10 backdrop-blur-sm'
+          ? 'border-b border-[#ead8df]/25 bg-[#130f12]/86 shadow-2xl shadow-black/20 backdrop-blur-xl'
+          : 'bg-gradient-to-b from-[#130f12]/72 to-transparent backdrop-blur-sm'
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <a href="#inicio" className="flex items-center gap-3">
-          <span className="relative flex h-11 w-11 items-center justify-center rounded-lg border border-[color:var(--brand-accent)] bg-zinc-950 text-sm font-bold text-[var(--brand-accent)] shadow-lg shadow-black/30">
-            <span className="absolute inset-1 rounded-md border border-white/10" />
+          <span className="relative flex h-11 w-11 items-center justify-center rounded-lg border border-[color:var(--brand-accent)] bg-[#f8edf2] text-sm font-bold text-[#130f12] shadow-lg shadow-black/30">
+            <span className="absolute inset-1 rounded-md border border-[#130f12]/10" />
             <span className="relative">{initials}</span>
           </span>
           <span>
@@ -56,12 +56,12 @@ function Navbar({ business }) {
           </span>
         </a>
 
-        <div className="hidden items-center rounded-lg border border-white/10 bg-white/6 px-2 py-2 md:flex">
+        <div className="hidden items-center rounded-lg border border-white/12 bg-white/10 px-2 py-2 backdrop-blur md:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-zinc-300 transition hover:bg-white/8 hover:text-white"
+              className="rounded-md px-3 py-2 text-sm font-medium text-zinc-200 transition hover:bg-white/12 hover:text-white"
             >
               {item.label}
             </a>

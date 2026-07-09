@@ -14,41 +14,46 @@ function Hero({ business }) {
     price: business.pricing?.[0]?.price ?? '',
     priceLabel: 'Desde',
   }
-  const positioning = business.positioning ?? business.description
 
   return (
     <section
       id="inicio"
-      className="relative isolate min-h-screen overflow-hidden bg-zinc-950"
+      className="relative isolate min-h-screen overflow-hidden bg-[#130f12]"
     >
       {business.hero.image ? (
         <img
           src={business.hero.image}
           alt={`Interior de ${business.name}`}
-          className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
+          className="absolute inset-0 h-full w-full object-cover object-[64%_center]"
         />
       ) : (
-        <div className="absolute inset-0 bg-zinc-950" />
+        <div className="absolute inset-0 bg-[#130f12]" />
       )}
-      <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/88 to-zinc-950/22" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_26%,rgba(231,183,200,0.2),transparent_26%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-zinc-950 via-zinc-950/85 to-transparent" />
 
-      <div className="relative mx-auto grid min-h-screen max-w-7xl items-end gap-8 px-4 pb-10 pt-28 sm:px-6 md:pb-14 lg:grid-cols-[minmax(0,1fr)_340px] lg:px-8 xl:grid-cols-[minmax(0,1fr)_390px]">
-        <div className="max-w-3xl pb-2 lg:pb-12">
-          <div className="mb-5 flex flex-wrap items-center gap-3">
-            <p className="inline-flex rounded-md border border-[color:var(--brand-accent)] bg-white/8 px-3 py-2 text-sm font-semibold text-[var(--brand-accent)]">
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(19,15,18,0.96)_0%,rgba(19,15,18,0.82)_38%,rgba(19,15,18,0.22)_72%,rgba(19,15,18,0.08)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(19,15,18,0.48)_0%,transparent_38%,rgba(19,15,18,0.92)_100%)]" />
+      <div className="absolute left-0 top-0 hidden h-full w-16 border-r border-white/10 bg-white/5 backdrop-blur-sm lg:block" />
+
+      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-4 pb-6 pt-28 sm:px-6 lg:px-8">
+        <div className="max-w-4xl pb-8 lg:pb-16">
+          <div className="mb-6 flex max-w-3xl flex-wrap gap-3">
+            <span className="rounded-md border border-[color:var(--brand-accent)] bg-white/10 px-3 py-2 text-sm font-semibold text-[var(--brand-accent)] backdrop-blur">
               {business.hero.eyebrow}
-            </p>
-            <p className="inline-flex rounded-md border border-white/12 bg-white/8 px-3 py-2 text-sm font-medium text-zinc-200">
-              {positioning}
-            </p>
+            </span>
+            {business.hero.highlights.map((highlight) => (
+              <span
+                key={highlight}
+                className="rounded-md border border-white/12 bg-white/8 px-3 py-2 text-sm text-zinc-100 backdrop-blur"
+              >
+                {highlight}
+              </span>
+            ))}
           </div>
 
-          <h1 className="max-w-3xl text-4xl font-semibold leading-[1.04] text-white md:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="max-w-4xl text-5xl font-semibold leading-[0.98] text-white md:text-6xl lg:text-7xl">
             {business.hero.title}
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-200 md:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-100 md:text-lg">
             {business.hero.subtitle}
           </p>
 
@@ -62,91 +67,45 @@ function Hero({ business }) {
               {business.hero.cta}
             </a>
             <a
-              href="#servicios"
-              className="rounded-md border border-white/18 bg-white/8 px-6 py-4 text-center text-sm font-semibold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/14"
+              href="#galeria"
+              className="rounded-md border border-white/18 bg-white/10 px-6 py-4 text-center text-sm font-semibold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/16"
             >
-              {business.hero.secondaryCta}
+              Ver resultados
             </a>
-          </div>
-
-          <div className="mt-9 flex flex-wrap gap-3">
-            {business.hero.highlights.map((highlight) => (
-              <span
-                key={highlight}
-                className="rounded-md border border-white/12 bg-zinc-950/55 px-3 py-2 text-sm text-zinc-200 shadow-lg shadow-black/20 backdrop-blur"
-              >
-                {highlight}
-              </span>
-            ))}
-          </div>
-
-          <div className="mt-10 grid max-w-2xl grid-cols-3 overflow-hidden rounded-lg border border-white/10 bg-zinc-950/58 backdrop-blur">
-            {business.hero.stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="border-r border-white/10 p-4 last:border-r-0"
-              >
-                <strong className="block text-xl font-semibold text-[var(--brand-accent)] sm:text-2xl">
-                  {stat.value}
-                </strong>
-                <span className="mt-1 block text-xs leading-5 text-zinc-300 sm:text-sm">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
           </div>
         </div>
 
-        <aside className="mb-4 rounded-xl border border-white/12 bg-zinc-950/72 p-4 shadow-2xl shadow-black/40 backdrop-blur-xl lg:mb-12">
-          <div className="rounded-lg border border-[color:var(--brand-accent)] bg-white/8 p-4">
-            <p className="text-xs font-semibold uppercase text-[var(--brand-accent)]">
+        <div className="grid overflow-hidden rounded-lg border border-white/14 bg-[#f8edf2]/95 text-[#130f12] shadow-2xl shadow-black/30 backdrop-blur md:grid-cols-[1.1fr_1fr_0.8fr_auto]">
+          <div className="border-b border-[#130f12]/10 p-5 md:border-b-0 md:border-r">
+            <p className="text-xs font-bold uppercase tracking-wide text-[var(--brand-accent-dark)]">
               {booking.label}
             </p>
-            <p className="mt-2 text-xl font-semibold leading-tight text-white">
-              {booking.value}
+            <p className="mt-2 text-xl font-semibold">{booking.value}</p>
+          </div>
+          <div className="border-b border-[#130f12]/10 p-5 md:border-b-0 md:border-r">
+            <p className="text-xs font-bold uppercase tracking-wide text-zinc-500">
+              {booking.suggestedLabel}
+            </p>
+            <p className="mt-2 font-semibold">{booking.service}</p>
+            <p className="mt-1 text-sm leading-6 text-zinc-600">
+              {booking.duration}
             </p>
           </div>
-
-          <div className="mt-4 grid gap-3">
-            <div className="rounded-lg border border-white/10 bg-white/6 p-4">
-              <p className="text-xs font-semibold uppercase text-zinc-400">
-                {booking.suggestedLabel ?? 'Servicio destacado'}
-              </p>
-              <p className="mt-2 text-lg font-semibold text-white">
-                {booking.service}
-              </p>
-              <p className="mt-1 text-sm leading-6 text-zinc-300">
-                {booking.duration}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-lg border border-white/10 bg-white/6 p-4">
-                <p className="text-xs text-zinc-400">
-                  {booking.priceLabel ?? 'Desde'}
-                </p>
-                <p className="mt-1 text-2xl font-semibold text-white">
-                  {booking.price ?? business.pricing?.[0]?.price}
-                </p>
-              </div>
-              <div className="rounded-lg border border-white/10 bg-white/6 p-4">
-                <p className="text-xs text-zinc-400">Horario</p>
-                <p className="mt-1 text-sm font-semibold leading-5 text-white">
-                  {business.schedule}
-                </p>
-              </div>
-            </div>
+          <div className="border-b border-[#130f12]/10 p-5 md:border-b-0 md:border-r">
+            <p className="text-xs font-bold uppercase tracking-wide text-zinc-500">
+              {booking.priceLabel}
+            </p>
+            <p className="mt-1 text-3xl font-semibold">{booking.price}</p>
           </div>
-
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-4 block rounded-md bg-[var(--brand-accent)] px-5 py-4 text-center text-sm font-bold text-zinc-950 shadow-lg shadow-black/30 transition hover:brightness-105"
+            className="flex min-h-20 items-center justify-center bg-[#130f12] px-6 py-4 text-center text-sm font-bold text-white transition hover:bg-[var(--brand-accent-dark)]"
           >
-            Consultar por WhatsApp
+            Consultar horario
           </a>
-        </aside>
+        </div>
       </div>
     </section>
   )

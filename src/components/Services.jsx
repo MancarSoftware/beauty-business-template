@@ -7,9 +7,13 @@ function Services({ business }) {
     description:
       'Elige el servicio que necesitas y confirma disponibilidad antes de tu visita.',
   }
+  const featureImage = business.gallery?.[1]?.image ?? business.hero.image
 
   return (
-    <section id="servicios" className="bg-[#f7f4ee] px-4 py-24 sm:px-6 lg:px-8">
+    <section
+      id="servicios"
+      className="bg-[#fff8fa] px-4 py-24 text-[#130f12] sm:px-6 lg:px-8"
+    >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow={section.eyebrow}
@@ -17,27 +21,58 @@ function Services({ business }) {
           description={section.description}
         />
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-          {business.services.map((service) => (
-            <article
-              key={service.name}
-              className="group relative overflow-hidden rounded-lg border border-zinc-200/80 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-[color:var(--brand-accent)] hover:shadow-2xl hover:shadow-zinc-300/70"
-            >
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-zinc-950 via-[var(--brand-accent)] to-zinc-950 opacity-0 transition group-hover:opacity-100" />
-              <div className="mb-6 inline-flex rounded-md border border-zinc-200 bg-zinc-50 px-3 py-2 text-xs font-bold uppercase text-zinc-700 transition group-hover:border-[color:var(--brand-accent)] group-hover:bg-zinc-100 group-hover:text-zinc-950">
-                {service.label}
-              </div>
-              <h3 className="text-lg font-semibold text-zinc-950">
-                {service.name}
+        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-stretch">
+          <div className="relative min-h-[460px] overflow-hidden rounded-lg border border-[#ead8df] bg-[#2a2027]">
+            {featureImage ? (
+              <img
+                src={featureImage}
+                alt="Resultado de color en Bella Aura Studio"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            ) : null}
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_20%,rgba(19,15,18,0.84)_100%)]" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <p className="text-sm font-semibold uppercase text-[var(--brand-accent)]">
+                Asesoria antes del servicio
+              </p>
+              <h3 className="mt-3 max-w-sm text-3xl font-semibold leading-tight">
+                Color y forma pensados para tu rutina real
               </h3>
-              <p className="mt-3 text-sm leading-6 text-zinc-600">
-                {service.description}
+              <p className="mt-3 max-w-md text-sm leading-6 text-zinc-200">
+                Revisamos tono, largo, textura y mantenimiento antes de
+                recomendarte un servicio.
               </p>
-              <p className="mt-6 inline-flex rounded-md bg-[var(--brand-accent)] px-3 py-2 text-sm font-bold text-zinc-950">
-                {service.price}
-              </p>
-            </article>
-          ))}
+            </div>
+          </div>
+
+          <div className="divide-y divide-[#ead8df] rounded-lg border border-[#ead8df] bg-white">
+            {business.services.map((service, index) => (
+              <article
+                key={service.name}
+                className="group grid gap-4 p-5 transition hover:bg-[#fff1f6] md:grid-cols-[70px_1fr_auto] md:items-center"
+              >
+                <div className="flex h-14 w-14 items-center justify-center rounded-md bg-[#130f12] text-sm font-semibold text-[var(--brand-accent)] transition group-hover:bg-[var(--brand-accent-dark)] group-hover:text-white">
+                  {String(index + 1).padStart(2, '0')}
+                </div>
+
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wide text-[var(--brand-accent-dark)]">
+                    {service.label}
+                  </p>
+                  <h3 className="mt-1 text-xl font-semibold text-[#130f12]">
+                    {service.name}
+                  </h3>
+                  <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-600">
+                    {service.description}
+                  </p>
+                </div>
+
+                <p className="w-fit rounded-md border border-[#ead8df] bg-white px-4 py-3 text-sm font-bold text-[#130f12] shadow-sm">
+                  {service.price}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

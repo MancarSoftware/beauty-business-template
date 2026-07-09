@@ -17,7 +17,8 @@ function Contact({ business }) {
 
   const handleChange = (event) => {
     const { name, value } = event.target
-    const nextValue = name === 'phone' ? value.replace(/\D/g, '').slice(0, 10) : value
+    const nextValue =
+      name === 'phone' ? value.replace(/\D/g, '').slice(0, 10) : value
 
     setFormData((current) => ({ ...current, [name]: nextValue }))
   }
@@ -36,21 +37,22 @@ function Contact({ business }) {
   }
 
   return (
-    <section id="contacto" className="bg-zinc-950 px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
-        <div className="rounded-xl border border-white/10 bg-white/6 p-6 md:p-8">
-          <p className="mb-3 text-sm font-semibold uppercase text-[var(--brand-accent)]">
+    <section id="contacto" className="bg-white px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
+        <div className="relative overflow-hidden rounded-lg bg-[#130f12] p-6 text-white md:p-8">
+          <div className="absolute inset-x-0 top-0 h-1 bg-[var(--brand-accent)]" />
+          <p className="text-sm font-semibold uppercase text-[var(--brand-accent)]">
             Contacto
           </p>
-          <h2 className="text-3xl font-semibold leading-tight text-white md:text-5xl">
+          <h2 className="mt-4 text-4xl font-semibold leading-tight md:text-6xl">
             {business.contactCta.title}
           </h2>
-          <p className="mt-5 text-lg leading-8 text-zinc-300">
+          <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-300">
             {business.contactCta.text}
           </p>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            <div className="rounded-lg border border-white/10 bg-zinc-950/55 p-4">
+          <div className="mt-10 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-md border border-white/10 bg-white/6 p-4">
               <p className="text-xs font-semibold uppercase text-zinc-400">
                 Horario
               </p>
@@ -58,7 +60,7 @@ function Contact({ business }) {
                 {business.schedule}
               </p>
             </div>
-            <div className="rounded-lg border border-white/10 bg-zinc-950/55 p-4">
+            <div className="rounded-md border border-white/10 bg-white/6 p-4">
               <p className="text-xs font-semibold uppercase text-zinc-400">
                 WhatsApp
               </p>
@@ -83,14 +85,14 @@ function Contact({ business }) {
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-xl border border-zinc-200 bg-white p-5 shadow-2xl shadow-black/30 md:p-8"
+          className="rounded-lg border border-[#ead8df] bg-[#fff8fa] p-5 shadow-2xl shadow-[#9f4f68]/10 md:p-8"
         >
-          <div className="mb-6 flex flex-col gap-2 border-b border-zinc-200 pb-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="mb-6 flex flex-col gap-2 border-b border-[#ead8df] pb-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase text-[var(--brand-accent-dark)]">
                 {formCopy.eyebrow}
               </p>
-              <h3 className="mt-2 text-2xl font-semibold text-zinc-950">
+              <h3 className="mt-2 text-2xl font-semibold text-[#130f12]">
                 {formCopy.title}
               </h3>
             </div>
@@ -108,7 +110,7 @@ function Contact({ business }) {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Tu nombre"
-                className="rounded-md border border-zinc-200 px-4 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent)] focus:ring-4 focus:ring-pink-100"
+                className="rounded-md border border-[#ead8df] bg-white px-4 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent)] focus:ring-4 focus:ring-pink-100"
               />
             </label>
             <label className="grid gap-2 text-sm font-semibold text-zinc-800">
@@ -122,7 +124,7 @@ function Contact({ business }) {
                 pattern="[0-9]{1,10}"
                 maxLength="10"
                 placeholder="0999999999"
-                className="rounded-md border border-zinc-200 px-4 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent)] focus:ring-4 focus:ring-pink-100"
+                className="rounded-md border border-[#ead8df] bg-white px-4 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent)] focus:ring-4 focus:ring-pink-100"
               />
             </label>
           </div>
@@ -133,14 +135,14 @@ function Contact({ business }) {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              rows="5"
-              className="resize-none rounded-md border border-zinc-200 px-4 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent)] focus:ring-4 focus:ring-pink-100"
+              rows="6"
+              className="resize-none rounded-md border border-[#ead8df] bg-white px-4 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent)] focus:ring-4 focus:ring-pink-100"
             />
           </label>
 
           <button
             type="submit"
-            className="mt-6 w-full rounded-md bg-zinc-950 px-5 py-4 text-sm font-bold text-white transition hover:bg-zinc-800"
+            className="mt-6 w-full rounded-md bg-[#130f12] px-5 py-4 text-sm font-bold text-white transition hover:bg-[var(--brand-accent-dark)]"
           >
             {formCopy.submitLabel}
           </button>
