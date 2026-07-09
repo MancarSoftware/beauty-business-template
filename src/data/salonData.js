@@ -22,26 +22,30 @@ const salonData = {
   schedule: 'Lunes a sábado - 10:00 a 19:00',
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Av.%20Portugal%20E10-57%20y%20Rep%C3%BAblica%20de%20El%20Salvador%20Quito',
+
   theme: {
     accent: '#e7b7c8',
     accentDark: '#9f4f68',
     dark: '#130f12',
     surface: '#21191f',
   },
+
   seo: {
-  title: 'Bella Aura Studio | Salón de belleza premium en Quito',
-  description:
-    'Reserva por WhatsApp servicios de color profesional, corte, balayage, tratamientos capilares, peinados y maquillaje social en Quito.',
-  image: '/favicon.svg',
-  locale: 'es_EC',
-  areaServed: 'Quito, Ecuador',
-  priceRange: '$$',
+    title: 'Bella Aura Studio | Salón de belleza premium en Quito',
+    description:
+      'Reserva por WhatsApp servicios de color profesional, corte, balayage, tratamientos capilares, peinados y maquillaje social en Quito.',
+    image: '/favicon.svg',
+    locale: 'es_EC',
+    areaServed: 'Quito, Ecuador',
+    priceRange: '$$',
   },
+
   social: {
     instagram: '#',
     facebook: '#',
     tiktok: '#',
   },
+
   hero: {
     eyebrow: 'Salón boutique en Quito',
     title: 'Bella Aura Studio',
@@ -49,6 +53,7 @@ const salonData = {
       'Color, corte, tratamientos y styling con una experiencia tranquila, elegante y pensada para cuidar tu cabello desde la asesoría hasta el acabado final.',
     image: salonHero,
     cta: 'Agendar por WhatsApp',
+    secondaryHref: '#servicios',
     secondaryCta: 'Ver servicios',
     highlights: ['Color profesional', 'Asesoría personalizada', 'Reserva confirmada'],
     booking: {
@@ -66,6 +71,7 @@ const salonData = {
       { value: '60 min', label: 'tiempo promedio' },
     ],
   },
+
   sections: {
     services: {
       eyebrow: 'Servicios Bella Aura',
@@ -108,6 +114,89 @@ const salonData = {
       mapLabel: 'Bella Aura Studio',
     },
   },
+
+  promotions: {
+    eyebrow: 'Promociones Bella Aura',
+    title: 'Paquetes destacados para renovar tu look',
+    description:
+      'Promociones pensadas para clientas que quieren color, cuidado y acabado profesional en una sola cita. Agenda por WhatsApp y confirma disponibilidad.',
+    items: [
+      {
+        name: 'Color + brushing',
+        oldPrice: '$45',
+        price: '$35',
+        tag: 'Oferta del mes',
+        description:
+          'Coloración completa con diagnóstico previo, secado y acabado profesional.',
+        note: 'Precio desde. Puede variar según largo y volumen.',
+        whatsappMessage:
+          'Hola Bella Aura Studio, quiero agendar la promoción Color + brushing.',
+        featured: true,
+      },
+      {
+        name: 'Balayage + tratamiento',
+        oldPrice: '$95',
+        price: '$80',
+        tag: 'Paquete premium',
+        description:
+          'Balayage personalizado con matizado y tratamiento nutritivo post-color.',
+        note: 'Ideal para cambio de look con cuidado capilar.',
+        whatsappMessage:
+          'Hola Bella Aura Studio, quiero información sobre el paquete Balayage + tratamiento.',
+      },
+      {
+        name: 'Peinado + maquillaje',
+        oldPrice: '$70',
+        price: '$60',
+        tag: 'Eventos',
+        description:
+          'Producción completa para bodas, graduaciones, cenas o sesiones de fotos.',
+        note: 'Reserva con anticipación para separar horario.',
+        whatsappMessage:
+          'Hola Bella Aura Studio, quiero agendar la promoción Peinado + maquillaje.',
+      },
+    ],
+  },
+
+  faq: {
+    eyebrow: 'Preguntas frecuentes',
+    title: 'Resolvemos tus dudas antes de agendar',
+    description:
+      'Antes de reservar, revisa las dudas más comunes sobre precios, tiempos, atención y forma de reserva.',
+    items: [
+      {
+        question: '¿Debo reservar antes de ir al salón?',
+        answer:
+          'Sí. Recomendamos reservar por WhatsApp para confirmar disponibilidad, duración del servicio y estilista disponible.',
+      },
+      {
+        question: '¿Los precios son fijos?',
+        answer:
+          'Los precios publicados son desde. Pueden variar según largo, volumen, historial del cabello y tipo de resultado que buscas.',
+      },
+      {
+        question: '¿Cuánto tiempo dura un balayage?',
+        answer:
+          'Un balayage puede durar aproximadamente 3 horas, dependiendo del largo, volumen, decoloración necesaria y acabado final.',
+      },
+      {
+        question: '¿Atienden peinados y maquillaje para eventos?',
+        answer:
+          'Sí. Se realizan peinados y maquillaje social para bodas, graduaciones, cenas, sesiones de fotos y eventos especiales.',
+      },
+      {
+        question: '¿Dónde están ubicados?',
+        answer:
+          'Estamos en Quito, sector República de El Salvador. Puedes abrir la ubicación desde la sección de Google Maps de la página.',
+      },
+      {
+        question: '¿Puedo consultar antes de decidir el servicio?',
+        answer:
+          'Sí. Puedes escribir por WhatsApp, enviar una foto de referencia y recibir orientación antes de confirmar tu cita.',
+      },
+    ],
+  },
+
   services: [
     {
       icon: 'cut',
@@ -150,6 +239,7 @@ const salonData = {
       price: 'Desde $45',
     },
   ],
+
   benefits: [
     {
       title: 'Diagnóstico de cabello',
@@ -177,6 +267,7 @@ const salonData = {
         'Te explicamos cómo mantener el color, brillo y forma para que el resultado dure más.',
     },
   ],
+
   gallery: [
     {
       title: 'Balayage champagne',
@@ -223,6 +314,7 @@ const salonData = {
         'linear-gradient(135deg, #120f12 0%, #4d3a42 48%, #e7b7c8 100%)',
     },
   ],
+
   pricing: [
     {
       name: 'Corte + brushing',
@@ -262,6 +354,7 @@ const salonData = {
       benefits: ['Preparación de piel', 'Maquillaje social', 'Peinado duradero'],
     },
   ],
+
   testimonials: [
     {
       name: 'Camila Torres',
@@ -282,10 +375,12 @@ const salonData = {
         'El peinado me duró toda la noche y el maquillaje quedó natural pero elegante. Volvería sin pensarlo.',
     },
   ],
+
   contactCta: {
     title: 'Agenda tu cita en Bella Aura Studio',
     text: 'Escríbenos por WhatsApp, cuéntanos qué servicio necesitas y te confirmamos disponibilidad, duración y precio desde según tu cabello.',
   },
+
   contactForm: {
     eyebrow: 'Reserva directa',
     title: 'Cuéntanos qué quieres hacerte',
@@ -293,7 +388,14 @@ const salonData = {
     initialMessage: 'Hola, quiero agendar una cita en Bella Aura Studio.',
     submitLabel: 'Enviar por WhatsApp',
   },
-  footerServices: ['Corte y brushing', 'Color completo', 'Balayage', 'Peinado social'],
+
+  footerServices: [
+    'Corte y brushing',
+    'Color completo',
+    'Balayage',
+    'Peinado social',
+  ],
+
   footerNote: 'Reservas por WhatsApp para color, corte, tratamientos y peinados.',
 }
 

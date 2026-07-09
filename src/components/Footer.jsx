@@ -1,10 +1,12 @@
 function Footer({ business }) {
   const quickLinks = [
-    { label: 'Servicios', href: '#servicios' },
-    { label: 'Lookbook', href: '#galeria' },
-    { label: 'Precios', href: '#precios' },
-    { label: 'Contacto', href: '#contacto' },
-  ]
+  { label: 'Servicios', href: '#servicios' },
+  { label: 'Promociones', href: '#promociones' },
+  { label: 'Lookbook', href: '#galeria' },
+  { label: 'Precios', href: '#precios' },
+  { label: 'Preguntas frecuentes', href: '#faq' },
+  { label: 'Contacto', href: '#contacto' },
+]
 
   return (
     <footer className="bg-[#130f12] px-4 py-12 text-white sm:px-6 lg:px-8">

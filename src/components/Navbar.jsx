@@ -3,9 +3,11 @@ import { createWhatsAppUrl } from '../utils/whatsapp'
 
 const navItems = [
   { label: 'Servicios', href: '#servicios' },
+  { label: 'Promos', href: '#promociones' },
   { label: 'Ritual', href: '#beneficios' },
   { label: 'Lookbook', href: '#galeria' },
   { label: 'Precios', href: '#precios' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Contacto', href: '#contacto' },
 ]
 

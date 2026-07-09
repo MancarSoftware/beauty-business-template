@@ -1,10 +1,12 @@
 import Contact from './components/Contact'
+import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import Gallery from './components/Gallery'
 import Hero from './components/Hero'
 import Location from './components/Location'
 import Navbar from './components/Navbar'
 import Pricing from './components/Pricing'
+import Promotions from './components/Promotions'
 import Seo from './components/Seo'
 import Services from './components/Services'
 import Testimonials from './components/Testimonials'
@@ -30,10 +32,12 @@ function App() {
       <main>
         <Hero business={business} />
         <Services business={business} />
+        <Promotions business={business} />
         <WhyChooseUs business={business} />
         <Gallery business={business} />
         <Pricing business={business} />
         <Testimonials business={business} />
+        <FAQ business={business} />
         <Location business={business} />
         <Contact business={business} />
       </main>

@@ -9,11 +9,18 @@ function Contact({ business }) {
     initialMessage: `Hola, quiero agendar una cita en ${business.name}.`,
     submitLabel: 'Enviar por WhatsApp',
   }
+
+  const services = business.services ?? []
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
+    service: services[0]?.name ?? '',
+    preferredDate: '',
     message: formCopy.initialMessage,
   })
+
+  const [errors, setErrors] = useState({})
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -21,16 +28,47 @@ function Contact({ business }) {
       name === 'phone' ? value.replace(/\D/g, '').slice(0, 10) : value
 
     setFormData((current) => ({ ...current, [name]: nextValue }))
+    setErrors((current) => ({ ...current, [name]: '' }))
+  }
+
+  const validateForm = () => {
+    const nextErrors = {}
+
+    if (!formData.name.trim()) {
+      nextErrors.name = 'Ingresa tu nombre.'
+    }
+
+    if (!/^09\d{8}$/.test(formData.phone)) {
+      nextErrors.phone = 'Ingresa un celular válido. Ejemplo: 0999999999.'
+    }
+
+    if (!formData.service.trim()) {
+      nextErrors.service = 'Selecciona un servicio.'
+    }
+
+    if (!formData.message.trim()) {
+      nextErrors.message = 'Escribe el servicio que deseas agendar.'
+    }
+
+    setErrors(nextErrors)
+
+    return Object.keys(nextErrors).length === 0
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
 
+    if (!validateForm()) {
+      return
+    }
+
     const message = [
       `Hola ${business.name}, quiero agendar una cita.`,
-      `Nombre: ${formData.name || 'No indicado'}`,
-      `Teléfono: ${formData.phone || 'No indicado'}`,
-      `Mensaje: ${formData.message || 'No indicado'}`,
+      `Nombre: ${formData.name}`,
+      `Teléfono: ${formData.phone}`,
+      `Servicio: ${formData.service}`,
+      `Fecha tentativa: ${formData.preferredDate || 'No indicada'}`,
+      `Mensaje: ${formData.message}`,
     ].join('\n')
 
     window.open(createWhatsAppUrl(business.whatsapp, message), '_blank')
@@ -43,9 +81,11 @@ function Contact({ business }) {
           <p className="text-sm font-semibold uppercase text-[var(--brand-accent-dark)]">
             Contacto
           </p>
+
           <h2 className="mt-4 font-display text-5xl font-semibold leading-tight text-[#130f12] md:text-7xl">
             {business.contactCta.title}
           </h2>
+
           <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-700">
             {business.contactCta.text}
           </p>
@@ -59,6 +99,7 @@ function Contact({ business }) {
                 {business.schedule}
               </span>
             </div>
+
             <div className="flex items-center justify-between gap-6">
               <span className="text-sm font-bold uppercase text-zinc-500">
                 WhatsApp
@@ -76,10 +117,12 @@ function Contact({ business }) {
               <p className="text-sm font-semibold uppercase text-[var(--brand-accent-dark)]">
                 {formCopy.eyebrow}
               </p>
+
               <h3 className="mt-2 font-display text-3xl font-semibold text-[#130f12]">
                 {formCopy.title}
               </h3>
             </div>
+
             <p className="text-sm font-semibold text-zinc-500">
               {formCopy.responseLabel}
             </p>
@@ -93,10 +136,18 @@ function Contact({ business }) {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
+                required
+                aria-invalid={Boolean(errors.name)}
                 placeholder="Tu nombre"
                 className="border-b border-[#d9c5ce] bg-transparent px-0 py-3 font-normal outline-none transition placeholder:text-zinc-400 focus:border-[color:var(--brand-accent-dark)]"
               />
+              {errors.name ? (
+                <span className="text-xs font-medium text-red-700">
+                  {errors.name}
+                </span>
+              ) : null}
             </label>
+
             <label className="grid gap-3 text-sm font-semibold text-[#130f12]">
               Teléfono
               <input
@@ -105,9 +156,53 @@ function Contact({ business }) {
                 value={formData.phone}
                 onChange={handleChange}
                 inputMode="numeric"
-                pattern="[0-9]{1,10}"
+                pattern="09[0-9]{8}"
                 maxLength="10"
+                required
+                aria-invalid={Boolean(errors.phone)}
                 placeholder="0999999999"
+                className="border-b border-[#d9c5ce] bg-transparent px-0 py-3 font-normal outline-none transition placeholder:text-zinc-400 focus:border-[color:var(--brand-accent-dark)]"
+              />
+              {errors.phone ? (
+                <span className="text-xs font-medium text-red-700">
+                  {errors.phone}
+                </span>
+              ) : null}
+            </label>
+          </div>
+
+          <div className="grid gap-6 border-b border-[#ead8df] py-6 md:grid-cols-2">
+            <label className="grid gap-3 text-sm font-semibold text-[#130f12]">
+              Servicio
+              <select
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                required
+                aria-invalid={Boolean(errors.service)}
+                className="border-b border-[#d9c5ce] bg-transparent px-0 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent-dark)]"
+              >
+                {services.map((service) => (
+                  <option key={service.name} value={service.name}>
+                    {service.name}
+                  </option>
+                ))}
+              </select>
+              {errors.service ? (
+                <span className="text-xs font-medium text-red-700">
+                  {errors.service}
+                </span>
+              ) : null}
+            </label>
+
+            <label className="grid gap-3 text-sm font-semibold text-[#130f12]">
+              Fecha tentativa
+              <input
+                type="text"
+                name="preferredDate"
+                value={formData.preferredDate}
+                onChange={handleChange}
+                placeholder="Ej: viernes en la tarde"
                 className="border-b border-[#d9c5ce] bg-transparent px-0 py-3 font-normal outline-none transition placeholder:text-zinc-400 focus:border-[color:var(--brand-accent-dark)]"
               />
             </label>
@@ -119,9 +214,16 @@ function Contact({ business }) {
               name="message"
               value={formData.message}
               onChange={handleChange}
+              required
+              aria-invalid={Boolean(errors.message)}
               rows="6"
               className="resize-none border-b border-[#d9c5ce] bg-transparent px-0 py-3 font-normal outline-none transition focus:border-[color:var(--brand-accent-dark)]"
             />
+            {errors.message ? (
+              <span className="text-xs font-medium text-red-700">
+                {errors.message}
+              </span>
+            ) : null}
           </label>
 
           <button
