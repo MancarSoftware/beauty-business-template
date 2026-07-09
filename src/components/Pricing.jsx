@@ -75,11 +75,11 @@ function Pricing({ business }) {
                   <a
                     href={createWhatsAppUrl(
                       business.whatsapp,
-                      `Hola ${business.name}, quiero agendar el paquete ${plan.name}.`,
+                      `Hola ${business.name}, quiero agendar el servicio ${plan.name}.`,
                     )}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full bg-[#130f12] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[var(--brand-accent-dark)]"
+                    className="inline-flex justify-center rounded-full bg-[var(--brand-accent)] px-5 py-3 text-center text-sm font-bold text-[#130f12] transition hover:brightness-95"
                   >
                     Reservar
                   </a>

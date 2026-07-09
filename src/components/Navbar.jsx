@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { createWhatsAppUrl } from '../utils/whatsapp'
 
 const navItems = [
   { label: 'Servicios', href: '#servicios' },
@@ -14,10 +13,6 @@ const navItems = [
 function Navbar({ business }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const whatsappUrl = createWhatsAppUrl(
-    business.whatsapp,
-    business.whatsappMessage,
-  )
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 16)
@@ -39,8 +34,9 @@ function Navbar({ business }) {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <a href="#inicio" className="flex items-center gap-3">
           <span className="flex h-12 w-12 items-center justify-center rounded-full border border-[#ead8df] bg-[#fff8fa] font-display text-base font-semibold text-[#130f12] shadow-lg shadow-black/10">
-            BA
+            {business.logoInitials ?? business.shortName?.slice(0, 2) ?? 'BA'}
           </span>
+
           <span>
             <span
               className={`block font-display text-xl leading-5 transition ${
@@ -49,6 +45,7 @@ function Navbar({ business }) {
             >
               {business.shortName}
             </span>
+
             <span
               className={`block text-xs transition ${
                 isScrolled ? 'text-zinc-500' : 'text-zinc-200'
@@ -76,19 +73,6 @@ function Navbar({ business }) {
             </a>
           ))}
         </div>
-
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noreferrer"
-          className={`hidden rounded-full px-5 py-3 text-sm font-bold transition md:inline-flex ${
-            isScrolled
-              ? 'bg-[#130f12] text-white hover:bg-[var(--brand-accent-dark)]'
-              : 'bg-[#fff8fa] text-[#130f12] hover:bg-[var(--brand-accent)]'
-          }`}
-        >
-          Reservar
-        </a>
 
         <button
           type="button"
@@ -137,14 +121,6 @@ function Navbar({ business }) {
               {item.label}
             </a>
           ))}
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-2 rounded-full bg-[#130f12] px-4 py-3 text-center text-sm font-semibold text-white"
-          >
-            Agendar por WhatsApp
-          </a>
         </div>
       </div>
     </header>

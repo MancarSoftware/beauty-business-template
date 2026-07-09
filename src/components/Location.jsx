@@ -31,25 +31,25 @@ function Location({ business }) {
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div>
+          <div className="text-center lg:text-left">
             <p className="text-sm font-semibold uppercase text-[var(--brand-accent)]">
               {section.eyebrow}
             </p>
 
-            <h2 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
+            <h2 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight text-white md:text-5xl lg:mx-0 lg:text-6xl">
               {section.title}
             </h2>
 
-            <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-300 md:text-lg">
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-zinc-300 md:text-lg lg:mx-0">
               {section.description}
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
               <a
                 href={mapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex justify-center rounded-full bg-[var(--brand-accent)] px-6 py-4 text-sm font-bold text-[#130f12] transition hover:brightness-105"
+                className="inline-flex justify-center rounded-full bg-[var(--brand-accent)] px-6 py-4 text-sm font-bold text-[#130f12] transition hover:brightness-95"
               >
                 Abrir Google Maps
               </a>
@@ -58,7 +58,7 @@ function Location({ business }) {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex justify-center rounded-full bg-white px-6 py-4 text-sm font-bold text-[#130f12] transition hover:bg-zinc-200"
+                className="inline-flex justify-center rounded-full border border-white/20 bg-white px-6 py-4 text-sm font-bold text-[#130f12] transition hover:bg-[var(--brand-accent)] hover:text-[#130f12]"
               >
                 Reservar
               </a>

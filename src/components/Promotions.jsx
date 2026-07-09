@@ -38,54 +38,36 @@ function Promotions({ business }) {
             return (
               <article
                 key={promotion.name}
-                className={`rounded-[2rem] border p-6 shadow-lg ${
-                  promotion.featured
-                    ? 'border-[var(--brand-accent)] bg-[#130f12] text-white'
-                    : 'border-[#ead8df] bg-white text-[#130f12]'
-                }`}
+                className="group rounded-[2rem] border border-[#ead8df] bg-white p-6 shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-[#130f12] hover:text-white"
               >
                 {promotion.tag ? (
-                  <span
-                    className={`inline-flex rounded-full px-4 py-2 text-xs font-bold uppercase ${
-                      promotion.featured
-                        ? 'bg-[var(--brand-accent)] text-[#130f12]'
-                        : 'bg-[#f5e6ec] text-[var(--brand-accent-dark)]'
-                    }`}
-                  >
+                  <span className="inline-flex rounded-full bg-[#f5e6ec] px-4 py-2 text-xs font-bold uppercase text-[var(--brand-accent-dark)] transition group-hover:bg-[var(--brand-accent)] group-hover:text-[#130f12]">
                     {promotion.tag}
                   </span>
                 ) : null}
 
-                <h3 className="mt-5 font-display text-3xl font-semibold leading-tight">
+                <h3 className="mt-5 font-display text-3xl font-semibold leading-tight text-[#130f12] transition group-hover:text-white">
                   {promotion.name}
                 </h3>
 
-                <p
-                  className={`mt-4 leading-7 ${
-                    promotion.featured ? 'text-zinc-200' : 'text-zinc-600'
-                  }`}
-                >
+                <p className="mt-4 leading-7 text-zinc-600 transition group-hover:text-zinc-200">
                   {promotion.description}
                 </p>
 
                 <div className="mt-8 flex items-end gap-3">
                   {promotion.oldPrice ? (
-                    <span className="text-lg font-semibold text-zinc-400 line-through">
+                    <span className="text-lg font-semibold text-zinc-400 line-through transition group-hover:text-zinc-400">
                       {promotion.oldPrice}
                     </span>
                   ) : null}
 
-                  <span className="font-display text-4xl font-semibold">
+                  <span className="font-display text-4xl font-semibold text-[#130f12] transition group-hover:text-white">
                     {promotion.price}
                   </span>
                 </div>
 
                 {promotion.note ? (
-                  <p
-                    className={`mt-3 text-sm ${
-                      promotion.featured ? 'text-zinc-300' : 'text-zinc-500'
-                    }`}
-                  >
+                  <p className="mt-3 text-sm text-zinc-500 transition group-hover:text-zinc-300">
                     {promotion.note}
                   </p>
                 ) : null}
@@ -94,11 +76,7 @@ function Promotions({ business }) {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className={`mt-8 inline-flex w-full justify-center rounded-full px-5 py-4 text-sm font-bold transition ${
-                    promotion.featured
-                      ? 'bg-[var(--brand-accent)] text-[#130f12] hover:brightness-105'
-                      : 'bg-[#130f12] text-white hover:bg-[var(--brand-accent-dark)]'
-                  }`}
+                  className="mt-8 inline-flex w-full justify-center rounded-full bg-[#130f12] px-5 py-4 text-sm font-bold text-white transition hover:brightness-95 group-hover:bg-[var(--brand-accent)] group-hover:text-[#130f12]"
                 >
                   Agendar esta promoción
                 </a>
