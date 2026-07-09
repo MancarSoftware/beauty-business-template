@@ -10,26 +10,24 @@ function Promotions({ business }) {
   return (
     <section
       id="promociones"
-      className="bg-[#fff8fa] px-4 py-24 sm:px-6 lg:px-8"
+      className="bg-[#fff8fa] px-4 py-16 sm:px-6 lg:px-8 lg:py-20"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-          <div>
-            <p className="text-sm font-semibold uppercase text-[var(--brand-accent-dark)]">
-              {section.eyebrow}
-            </p>
+        <div className="mb-10 max-w-4xl">
+          <p className="text-sm font-semibold uppercase text-[var(--brand-accent-dark)]">
+            {section.eyebrow}
+          </p>
 
-            <h2 className="mt-4 font-display text-5xl font-semibold leading-tight text-[#130f12] md:text-7xl">
-              {section.title}
-            </h2>
-          </div>
+          <h2 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight text-[#130f12] md:text-5xl lg:text-6xl">
+            {section.title}
+          </h2>
 
-          <p className="max-w-2xl text-lg leading-8 text-zinc-700 lg:justify-self-end">
+          <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-600 md:text-lg">
             {section.description}
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-3">
           {section.items.map((promotion) => {
             const message =
               promotion.whatsappMessage ??
@@ -40,7 +38,7 @@ function Promotions({ business }) {
             return (
               <article
                 key={promotion.name}
-                className={`relative overflow-hidden rounded-[2rem] border p-6 shadow-xl shadow-[#130f12]/8 ${
+                className={`rounded-[2rem] border p-6 shadow-lg ${
                   promotion.featured
                     ? 'border-[var(--brand-accent)] bg-[#130f12] text-white'
                     : 'border-[#ead8df] bg-white text-[#130f12]'
@@ -58,7 +56,7 @@ function Promotions({ business }) {
                   </span>
                 ) : null}
 
-                <h3 className="mt-6 font-display text-4xl font-semibold leading-tight">
+                <h3 className="mt-5 font-display text-3xl font-semibold leading-tight">
                   {promotion.name}
                 </h3>
 
@@ -72,16 +70,12 @@ function Promotions({ business }) {
 
                 <div className="mt-8 flex items-end gap-3">
                   {promotion.oldPrice ? (
-                    <span
-                      className={`text-lg font-semibold line-through ${
-                        promotion.featured ? 'text-zinc-400' : 'text-zinc-400'
-                      }`}
-                    >
+                    <span className="text-lg font-semibold text-zinc-400 line-through">
                       {promotion.oldPrice}
                     </span>
                   ) : null}
 
-                  <span className="font-display text-5xl font-semibold">
+                  <span className="font-display text-4xl font-semibold">
                     {promotion.price}
                   </span>
                 </div>

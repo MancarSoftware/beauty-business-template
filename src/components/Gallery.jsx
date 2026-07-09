@@ -8,7 +8,10 @@ function Gallery({ business }) {
   }
 
   return (
-    <section id="galeria" className="overflow-hidden bg-[#f2e7eb] px-4 py-24 sm:px-6 lg:px-8">
+    <section
+      id="galeria"
+      className="overflow-hidden bg-[#f2e7eb] px-4 py-16 sm:px-6 lg:px-8 lg:py-20"
+    >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow={section.eyebrow}
@@ -16,47 +19,41 @@ function Gallery({ business }) {
           description={section.description}
         />
 
-        <div className="grid gap-5 lg:grid-cols-12 lg:items-end">
-          {business.gallery.map((item, index) => {
-            const layout =
-              index === 0
-                ? 'lg:col-span-7 lg:row-span-2 min-h-[620px]'
-                : index === 1
-                  ? 'lg:col-span-5 min-h-[330px]'
-                  : index === 2
-                    ? 'lg:col-span-4 min-h-[360px]'
-                    : 'lg:col-span-8 min-h-[360px]'
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {business.gallery.map((item) => (
+            <article
+              key={item.title}
+              className="group relative min-h-[360px] overflow-hidden rounded-[2rem] bg-[#130f12]"
+            >
+              {item.image ? (
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                />
+              ) : null}
 
-            return (
-              <article
-                key={item.title}
-                className={`group relative overflow-hidden rounded-[34px] bg-[#130f12] ${layout}`}
-              >
-                {item.image ? (
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                  />
-                ) : null}
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(19,15,18,0.72)_100%)]" />
-                <div className="absolute left-5 top-5 rounded-full bg-[#fff8fa]/92 px-4 py-2 text-xs font-bold uppercase text-[#130f12]">
-                  {item.category}
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <p className="text-sm font-semibold text-[var(--brand-accent)]">
-                    {item.metric}
-                  </p>
-                  <h3 className="mt-2 font-display text-4xl font-semibold leading-tight">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 max-w-lg text-sm leading-6 text-zinc-100">
-                    {item.description}
-                  </p>
-                </div>
-              </article>
-            )
-          })}
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(19,15,18,0.78)_100%)]" />
+
+              <div className="absolute left-5 top-5 rounded-full bg-[#fff8fa]/92 px-4 py-2 text-xs font-bold uppercase text-[#130f12]">
+                {item.category}
+              </div>
+
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <p className="text-sm font-semibold text-[var(--brand-accent)]">
+                  {item.metric}
+                </p>
+
+                <h3 className="mt-2 font-display text-3xl font-semibold leading-tight">
+                  {item.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-6 text-zinc-100">
+                  {item.description}
+                </p>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

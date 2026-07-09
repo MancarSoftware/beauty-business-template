@@ -8,30 +8,31 @@ function WhyChooseUs({ business }) {
     cardText:
       'Reserva por WhatsApp, llega a tu hora y recibe una recomendación según lo que necesitas.',
   }
+
   const image = business.gallery?.[3]?.image ?? business.hero.image
 
   return (
     <section
       id="beneficios"
-      className="bg-[#130f12] px-4 py-24 text-white sm:px-6 lg:px-8"
+      className="bg-[#130f12] px-4 py-16 text-white sm:px-6 lg:px-8 lg:py-20"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-          <div>
-            <p className="text-sm font-semibold uppercase text-[var(--brand-accent)]">
-              {section.eyebrow}
-            </p>
-            <h2 className="mt-4 font-display text-5xl font-semibold leading-tight md:text-7xl">
-              Ritual de belleza, sin prisa y con criterio.
-            </h2>
-          </div>
-          <p className="max-w-2xl text-lg leading-8 text-zinc-300">
+        <div className="mb-10 max-w-4xl">
+          <p className="text-sm font-semibold uppercase text-[var(--brand-accent)]">
+            {section.eyebrow}
+          </p>
+
+          <h2 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
+            {section.title}
+          </h2>
+
+          <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-300 md:text-lg">
             {section.description}
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
-          <div className="relative min-h-[540px] overflow-hidden rounded-[40px] bg-white/6">
+        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+          <div className="relative min-h-[360px] overflow-hidden rounded-[2rem] bg-white/6 lg:min-h-[460px]">
             {image ? (
               <img
                 src={image}
@@ -39,27 +40,32 @@ function WhyChooseUs({ business }) {
                 className="absolute inset-0 h-full w-full object-cover"
               />
             ) : null}
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(19,15,18,0.70)_100%)]" />
+
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(19,15,18,0.74)_100%)]" />
+
             <div className="absolute bottom-0 p-7">
               <p className="text-sm font-semibold uppercase text-[var(--brand-accent)]">
                 {section.cardTitle}
               </p>
+
               <p className="mt-3 max-w-md text-sm leading-7 text-zinc-100">
                 {section.cardText}
               </p>
             </div>
           </div>
 
-          <div className="grid border-y border-white/12 md:grid-cols-2">
+          <div className="grid overflow-hidden rounded-[2rem] border border-white/12 md:grid-cols-2">
             {business.benefits.map((benefit, index) => (
               <article
                 key={benefit.title}
-                className="border-b border-white/12 py-7 md:border-r md:px-7 md:even:border-r-0"
+                className="border-b border-white/12 p-6 md:border-r md:even:border-r-0"
               >
-                <p className="font-display text-5xl text-[var(--brand-accent)]">
+                <p className="font-display text-4xl text-[var(--brand-accent)]">
                   {String(index + 1).padStart(2, '0')}
                 </p>
-                <h3 className="mt-6 text-xl font-semibold">{benefit.title}</h3>
+
+                <h3 className="mt-5 text-xl font-semibold">{benefit.title}</h3>
+
                 <p className="mt-3 text-sm leading-7 text-zinc-300">
                   {benefit.description}
                 </p>

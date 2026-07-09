@@ -1,4 +1,4 @@
-import { createMapsUrl } from '../utils/whatsapp'
+import { createMapsUrl, createWhatsAppUrl } from '../utils/whatsapp'
 
 function Location({ business }) {
   const section = business.sections?.location ?? {
@@ -7,61 +7,107 @@ function Location({ business }) {
     description: 'Agenda por WhatsApp para confirmar disponibilidad antes de venir.',
     mapLabel: business.name,
   }
+
   const mapsUrl =
     business.mapsUrl && business.mapsUrl !== '#'
       ? business.mapsUrl
       : createMapsUrl(business.address)
 
+  const mapEmbedUrl =
+    business.mapEmbedUrl ??
+    `https://www.google.com/maps?q=${encodeURIComponent(
+      business.address,
+    )}&z=17&output=embed`
+
+  const whatsappUrl = createWhatsAppUrl(
+    business.whatsapp,
+    `Hola ${business.name}, quiero reservar una cita.`,
+  )
+
   return (
-    <section id="ubicacion" className="bg-[#130f12] px-4 py-24 text-white sm:px-6 lg:px-8">
+    <section
+      id="ubicacion"
+      className="bg-[#130f12] px-4 py-16 text-white sm:px-6 lg:px-8 lg:py-20"
+    >
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
             <p className="text-sm font-semibold uppercase text-[var(--brand-accent)]">
               {section.eyebrow}
             </p>
-            <h2 className="mt-4 font-display text-5xl font-semibold leading-tight md:text-7xl">
+
+            <h2 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
               {section.title}
             </h2>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-zinc-300">
+
+            <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-300 md:text-lg">
               {section.description}
             </p>
+
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a
+                href={mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex justify-center rounded-full bg-[var(--brand-accent)] px-6 py-4 text-sm font-bold text-[#130f12] transition hover:brightness-105"
+              >
+                Abrir Google Maps
+              </a>
+
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex justify-center rounded-full bg-white px-6 py-4 text-sm font-bold text-[#130f12] transition hover:bg-zinc-200"
+              >
+                Reservar
+              </a>
+            </div>
           </div>
-          <a
-            href={mapsUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="w-fit rounded-full bg-[var(--brand-accent)] px-6 py-4 text-sm font-bold text-[#130f12] transition hover:brightness-105 lg:justify-self-end"
-          >
-            Abrir Google Maps
-          </a>
+
+          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl shadow-black/30">
+            <iframe
+              src={mapEmbedUrl}
+              width="100%"
+              height="420"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title={`Mapa de ${business.name}`}
+              className="h-[420px] w-full"
+            />
+          </div>
         </div>
 
-        <div className="mt-14 grid border-y border-white/12 md:grid-cols-3">
-          <article className="border-b border-white/12 py-8 md:border-b-0 md:border-r md:px-8">
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <article className="rounded-[1.5rem] border border-white/10 bg-white/5 p-6">
             <p className="text-xs font-bold uppercase text-[var(--brand-accent)]">
               Estudio
             </p>
-            <h3 className="mt-4 font-display text-4xl font-semibold">
+
+            <h3 className="mt-3 font-display text-2xl font-semibold">
               {section.mapLabel}
             </h3>
           </article>
-          <article className="border-b border-white/12 py-8 md:border-b-0 md:border-r md:px-8">
+
+          <article className="rounded-[1.5rem] border border-white/10 bg-white/5 p-6">
             <p className="text-xs font-bold uppercase text-[var(--brand-accent)]">
               Dirección
             </p>
-            <p className="mt-4 text-lg leading-8 text-zinc-200">
+
+            <p className="mt-3 leading-7 text-zinc-200">
               {business.address}
             </p>
           </article>
-          <article className="py-8 md:px-8">
+
+          <article className="rounded-[1.5rem] border border-white/10 bg-white/5 p-6">
             <p className="text-xs font-bold uppercase text-[var(--brand-accent)]">
               Atención
             </p>
-            <p className="mt-4 text-lg leading-8 text-zinc-200">
-              {business.schedule}
-            </p>
-            <p className="mt-3 text-zinc-400">{business.phone}</p>
+
+            <p className="mt-3 leading-7 text-zinc-200">{business.schedule}</p>
+            <p className="mt-2 text-zinc-400">{business.phone}</p>
           </article>
         </div>
       </div>

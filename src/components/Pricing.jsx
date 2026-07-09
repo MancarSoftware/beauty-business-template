@@ -1,5 +1,5 @@
-import SectionHeader from './SectionHeader'
 import { createWhatsAppUrl } from '../utils/whatsapp'
+import SectionHeader from './SectionHeader'
 
 function Pricing({ business }) {
   const section = business.sections?.pricing ?? {
@@ -10,7 +10,10 @@ function Pricing({ business }) {
   }
 
   return (
-    <section id="precios" className="bg-[#fff8fa] px-4 py-24 sm:px-6 lg:px-8">
+    <section
+      id="precios"
+      className="bg-[#fff8fa] px-4 py-16 sm:px-6 lg:px-8 lg:py-20"
+    >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow={section.eyebrow}
@@ -18,18 +21,20 @@ function Pricing({ business }) {
           description={section.description}
         />
 
-        <div className="overflow-hidden rounded-[34px] border border-[#ead8df] bg-white shadow-2xl shadow-[#9f4f68]/10">
-          <div className="grid lg:grid-cols-[0.38fr_0.62fr]">
+        <div className="overflow-hidden rounded-[2rem] border border-[#ead8df] bg-white shadow-xl shadow-[#9f4f68]/10">
+          <div className="grid lg:grid-cols-[0.34fr_0.66fr]">
             <div className="bg-[#130f12] p-8 text-white md:p-10">
               <p className="text-sm font-semibold uppercase text-[var(--brand-accent)]">
                 Guía de reserva
               </p>
-              <h3 className="mt-5 font-display text-5xl font-semibold leading-tight">
+
+              <h3 className="mt-5 font-display text-4xl font-semibold leading-tight">
                 Elige por objetivo, no solo por precio.
               </h3>
+
               <p className="mt-5 text-sm leading-7 text-zinc-300">
-                Si no sabes qué reservar, escríbenos una foto de referencia y
-                te orientamos con el servicio correcto.
+                Si no sabes qué reservar, escríbenos una foto de referencia y te
+                orientamos con el servicio correcto.
               </p>
             </div>
 
@@ -37,15 +42,17 @@ function Pricing({ business }) {
               {business.pricing.map((plan) => (
                 <article
                   key={plan.name}
-                  className="grid gap-5 p-6 transition hover:bg-[#fff1f6] md:grid-cols-[1fr_120px_130px_auto] md:items-center"
+                  className="grid gap-5 p-6 transition hover:bg-[#fff1f6] md:grid-cols-[1fr_100px_110px_auto] md:items-center"
                 >
                   <div>
                     <p className="text-xs font-bold uppercase text-[var(--brand-accent-dark)]">
                       {plan.tag}
                     </p>
-                    <h3 className="mt-2 font-display text-3xl font-semibold text-[#130f12]">
+
+                    <h3 className="mt-2 font-display text-2xl font-semibold text-[#130f12] md:text-3xl">
                       {plan.name}
                     </h3>
+
                     <p className="mt-2 text-sm leading-6 text-zinc-600">
                       {plan.description}
                     </p>
@@ -59,7 +66,8 @@ function Pricing({ business }) {
                     <p className="text-xs font-bold uppercase text-zinc-400">
                       Desde
                     </p>
-                    <p className="font-display text-4xl font-semibold text-[#130f12]">
+
+                    <p className="font-display text-3xl font-semibold text-[#130f12]">
                       {plan.price}
                     </p>
                   </div>

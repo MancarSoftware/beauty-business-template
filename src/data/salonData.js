@@ -22,6 +22,8 @@ const salonData = {
   schedule: 'Lunes a sábado - 10:00 a 19:00',
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Av.%20Portugal%20E10-57%20y%20Rep%C3%BAblica%20de%20El%20Salvador%20Quito',
+    mapEmbedUrl:
+    'https://www.google.com/maps?q=Av.%20Portugal%20E10-57%20y%20Rep%C3%BAblica%20de%20El%20Salvador%2C%20Quito&z=17&output=embed',
 
   theme: {
     accent: '#e7b7c8',
@@ -53,8 +55,8 @@ const salonData = {
       'Color, corte, tratamientos y styling con una experiencia tranquila, elegante y pensada para cuidar tu cabello desde la asesoría hasta el acabado final.',
     image: salonHero,
     cta: 'Agendar por WhatsApp',
-    secondaryHref: '#servicios',
-    secondaryCta: 'Ver servicios',
+    secondaryHref: '#promociones',
+    secondaryCta: 'Ver promociones',
     highlights: ['Color profesional', 'Asesoría personalizada', 'Reserva confirmada'],
     booking: {
       label: 'Reserva de salón',

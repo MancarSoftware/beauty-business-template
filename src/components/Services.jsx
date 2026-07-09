@@ -11,7 +11,7 @@ function Services({ business }) {
   return (
     <section
       id="servicios"
-      className="bg-[#fff8fa] px-4 py-24 text-[#130f12] sm:px-6 lg:px-8"
+      className="bg-[#fff8fa] px-4 py-16 text-[#130f12] sm:px-6 lg:px-8 lg:py-20"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
@@ -20,20 +20,20 @@ function Services({ business }) {
           description={section.description}
         />
 
-        <div className="border-y border-[#ead8df]">
+        <div className="overflow-hidden rounded-[2rem] border border-[#ead8df] bg-white">
           {business.services.map((service, index) => {
             const image = business.gallery[index % business.gallery.length]?.image
 
             return (
               <article
                 key={service.name}
-                className="group grid gap-5 border-b border-[#ead8df] py-6 last:border-b-0 lg:grid-cols-[90px_180px_1fr_auto] lg:items-center"
+                className="group grid gap-5 border-b border-[#ead8df] p-5 last:border-b-0 md:grid-cols-[70px_120px_1fr_auto] md:items-center lg:p-6"
               >
-                <p className="font-display text-5xl leading-none text-[#d9c5ce] transition group-hover:text-[var(--brand-accent-dark)]">
+                <p className="font-display text-4xl leading-none text-[#d9c5ce] transition group-hover:text-[var(--brand-accent-dark)]">
                   {String(index + 1).padStart(2, '0')}
                 </p>
 
-                <div className="h-32 overflow-hidden rounded-full border border-[#ead8df] bg-white lg:h-40">
+                <div className="h-28 overflow-hidden rounded-2xl border border-[#ead8df] bg-white">
                   {image ? (
                     <img
                       src={image}
@@ -47,10 +47,12 @@ function Services({ business }) {
                   <p className="text-xs font-bold uppercase text-[var(--brand-accent-dark)]">
                     {service.label}
                   </p>
-                  <h3 className="mt-2 font-display text-3xl font-semibold text-[#130f12] md:text-4xl">
+
+                  <h3 className="mt-2 font-display text-2xl font-semibold text-[#130f12] md:text-3xl">
                     {service.name}
                   </h3>
-                  <p className="mt-3 max-w-2xl text-sm leading-7 text-zinc-600">
+
+                  <p className="mt-2 max-w-2xl text-sm leading-7 text-zinc-600">
                     {service.description}
                   </p>
                 </div>

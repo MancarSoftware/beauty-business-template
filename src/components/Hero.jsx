@@ -5,6 +5,7 @@ function Hero({ business }) {
     business.whatsapp,
     business.whatsappMessage,
   )
+
   const booking = business.hero.booking ?? {
     label: 'Reserva directa',
     value: 'Disponibilidad por WhatsApp',
@@ -13,6 +14,9 @@ function Hero({ business }) {
     price: business.pricing?.[0]?.price ?? '',
     priceLabel: 'Desde',
   }
+
+  const secondaryHref = business.hero.secondaryHref ?? '#servicios'
+  const secondaryCta = business.hero.secondaryCta ?? 'Ver servicios'
 
   return (
     <section
@@ -26,6 +30,7 @@ function Hero({ business }) {
           className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
         />
       ) : null}
+
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(19,15,18,0.40)_0%,rgba(19,15,18,0.18)_42%,rgba(19,15,18,0.88)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(255,248,250,0.10),transparent_34%)]" />
 
@@ -41,9 +46,11 @@ function Hero({ business }) {
           <p className="mx-auto mb-5 w-fit rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur">
             {business.hero.eyebrow}
           </p>
+
           <h1 className="font-display text-6xl font-semibold leading-[0.9] text-white md:text-8xl lg:text-9xl">
             {business.hero.title}
           </h1>
+
           <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-zinc-100 md:text-lg">
             {business.hero.subtitle}
           </p>
@@ -57,11 +64,12 @@ function Hero({ business }) {
             >
               {business.hero.cta}
             </a>
+
             <a
-              href="#galeria"
+              href={secondaryHref}
               className="rounded-full border border-white/24 bg-[#130f12]/45 px-7 py-4 text-center text-sm font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-[#130f12]/58"
             >
-              Ver lookbook
+              {secondaryCta}
             </a>
           </div>
         </div>
@@ -73,18 +81,21 @@ function Hero({ business }) {
             </p>
             <p className="mt-1 text-lg font-semibold">{booking.value}</p>
           </div>
+
           <div className="border-b border-[#ead8df] p-4 md:border-b-0 md:border-r">
             <p className="text-xs font-bold uppercase text-zinc-500">
               Servicio
             </p>
             <p className="mt-1 font-semibold">{booking.service}</p>
           </div>
+
           <div className="border-b border-[#ead8df] p-4 md:border-b-0 md:border-r">
             <p className="text-xs font-bold uppercase text-zinc-500">
               {booking.priceLabel}
             </p>
             <p className="mt-1 text-2xl font-semibold">{booking.price}</p>
           </div>
+
           <a
             href={whatsappUrl}
             target="_blank"
