@@ -31,8 +31,8 @@ function Hero({ business }) {
         />
       ) : null}
 
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(19,15,18,0.40)_0%,rgba(19,15,18,0.18)_42%,rgba(19,15,18,0.88)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(255,248,250,0.10),transparent_34%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(19,15,18,0.42)_0%,rgba(19,15,18,0.22)_42%,rgba(19,15,18,0.90)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(255,248,250,0.12),transparent_34%)]" />
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between px-4 pb-5 pt-28 sm:px-6 lg:px-8">
         <div className="hidden justify-between text-xs font-semibold uppercase text-white/70 lg:flex">
@@ -67,9 +67,10 @@ function Hero({ business }) {
 
             <a
               href={secondaryHref}
-              className="rounded-full border border-white/24 bg-[#130f12]/45 px-7 py-4 text-center text-sm font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-[#130f12]/58"
+              className="group inline-flex items-center justify-center gap-3 rounded-full border border-[#e7b7c8]/70 bg-[#e7b7c8] px-7 py-4 text-center text-sm font-extrabold text-[#130f12] shadow-xl shadow-black/30 transition hover:-translate-y-0.5 hover:bg-[#f4d2de]"
             >
               {secondaryCta}
+              <span className="transition group-hover:translate-x-1">→</span>
             </a>
           </div>
         </div>
@@ -100,7 +101,7 @@ function Hero({ business }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex min-h-16 items-center justify-center bg-[var(--brand-accent)] px-4 py-4 text-center text-sm font-bold text-[#130f12] transition hover:brightness-95"
+            className="flex min-h-16 items-center justify-center bg-[#e7b7c8] px-4 py-4 text-center text-sm font-extrabold text-[#130f12] transition hover:bg-[#f4d2de]"
           >
             Reservar por WhatsApp
           </a>

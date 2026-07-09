@@ -49,18 +49,20 @@ function Location({ business }) {
                 href={mapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex justify-center rounded-full bg-[var(--brand-accent)] px-6 py-4 text-sm font-bold text-[#130f12] transition hover:brightness-95"
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-[#e7b7c8] px-6 py-4 text-sm font-extrabold text-[#130f12] shadow-lg shadow-black/25 transition hover:-translate-y-0.5 hover:bg-[#f4d2de]"
               >
                 Abrir Google Maps
+                <span>↗</span>
               </a>
 
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex justify-center rounded-full border border-white/20 bg-white px-6 py-4 text-sm font-bold text-[#130f12] transition hover:bg-[var(--brand-accent)] hover:text-[#130f12]"
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-[#25D366] px-6 py-4 text-sm font-extrabold text-[#07130b] shadow-lg shadow-black/25 transition hover:-translate-y-0.5 hover:bg-[#39e47a]"
               >
-                Reservar
+                Reservar por WhatsApp
+                <span>→</span>
               </a>
             </div>
           </div>
