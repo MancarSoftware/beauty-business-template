@@ -76,9 +76,10 @@ function Promotions({ business }) {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-8 inline-flex w-full justify-center rounded-full bg-[#130f12] px-5 py-4 text-sm font-bold text-white transition hover:brightness-95 group-hover:bg-[var(--brand-accent)] group-hover:text-[#130f12]"
+                  className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--brand-accent)] px-5 py-4 text-sm font-extrabold text-[#130f12] shadow-lg shadow-[#130f12]/10 transition hover:-translate-y-0.5 hover:bg-[#f4d2de] group-hover:bg-[var(--brand-accent)] group-hover:text-[#130f12]"
                 >
                   Agendar esta promoción
+                  <span>→</span>
                 </a>
               </article>
             )
