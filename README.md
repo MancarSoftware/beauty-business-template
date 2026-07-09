@@ -1,9 +1,10 @@
-# Bella Aura Studio
+# Titan Fit Gym
 
-Landing page profesional para un salon de belleza premium en Quito.
+Landing page profesional para un gimnasio premium.
 
-La pagina esta enfocada en reservas por WhatsApp para color, corte, balayage,
-tratamientos capilares, peinados y maquillaje social.
+La pagina esta enfocada en mostrar programas por objetivo, planes y membresias,
+beneficios del gimnasio, entrenadores, horarios, ubicacion y contacto directo por
+WhatsApp.
 
 ## Stack
 
@@ -12,16 +13,23 @@ tratamientos capilares, peinados y maquillaje social.
 - JavaScript
 - Tailwind CSS
 - Componentes reutilizables
-- Datos centralizados en `src/data/salonData.js`
+- Datos centralizados en `src/data/gymData.js`
 
 ## Estructura
 
 ```txt
 src/
-  assets/
   components/
+    Hero.jsx
+    Programs.jsx
+    Pricing.jsx
+    WhyChooseUs.jsx
+    Location.jsx
+    FAQ.jsx
+    Footer.jsx
+    WhatsAppButton.jsx
   data/
-    salonData.js
+    gymData.js
   utils/
   App.jsx
   main.jsx
@@ -39,20 +47,17 @@ npm run lint
 
 ## Personalizacion
 
-La informacion principal del salon se edita en:
+La informacion principal del gimnasio se edita en:
 
 ```txt
-src/data/salonData.js
+src/data/gymData.js
 ```
 
-Ahi puedes cambiar nombre, telefono, WhatsApp, direccion, horarios, servicios,
-precios, testimonios, galeria, colores y textos de cada seccion.
+Ahi puedes cambiar nombre, telefono, WhatsApp, direccion, horarios, programas,
+planes, entrenadores, colores y textos de cada seccion.
 
-## Git recomendado
+## Rama de trabajo
 
 ```bash
-git checkout -b feature/landing-salon-belleza
-git add .
-git commit -m "feat: create premium beauty salon landing page"
-git push -u origin feature/landing-salon-belleza
+git checkout feature/landing-gimnasio
 ```
