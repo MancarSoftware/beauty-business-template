@@ -2,11 +2,10 @@ import { useEffect, useState } from 'react'
 import { createWhatsAppUrl } from '../utils/whatsapp'
 
 const navItems = [
-  { label: 'Inicio', href: '#inicio' },
   { label: 'Tratamientos', href: '#tratamientos' },
-  { label: 'Reserva', href: '#reserva' },
-  { label: 'Paquetes', href: '#paquetes' },
-  { label: 'Experiencia', href: '#experiencia' },
+  { label: 'Concierge', href: '#reserva' },
+  { label: 'Experiencias', href: '#paquetes' },
+  { label: 'Estandar', href: '#experiencia' },
   { label: 'Ubicacion', href: '#ubicacion' },
 ]
 
@@ -18,12 +17,9 @@ function Navbar({ business }) {
   )
 
   useEffect(() => {
-    if (!isOpen) {
-      return undefined
-    }
+    if (!isOpen) return undefined
 
     const closeMenu = () => setIsOpen(false)
-
     window.addEventListener('touchmove', closeMenu, { passive: true })
     window.addEventListener('scroll', closeMenu, { passive: true })
 
@@ -34,55 +30,57 @@ function Navbar({ business }) {
   }, [isOpen])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#09231f]/88 text-white backdrop-blur-xl">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#09231f]/10 bg-[#fbf7f1]/92 text-[#09231f] backdrop-blur-xl">
+      <nav className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center gap-4 px-4 py-4 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-8">
         <a href="#inicio" className="flex items-center gap-3">
-          <span className="grid h-11 w-11 place-items-center bg-[var(--brand-accent)] text-sm font-black text-white">
+          <span className="grid h-11 w-11 place-items-center bg-[#09231f] text-sm font-black text-white">
             {business.logoInitials}
           </span>
           <span>
             <span className="block text-lg font-black uppercase leading-5">
               {business.shortName}
             </span>
-            <span className="block text-[11px] font-black uppercase text-white/48">
-              Wellness Studio
+            <span className="block text-[11px] font-black uppercase text-[#09231f]/48">
+              Wellness concierge
             </span>
           </span>
         </a>
 
-        <div className="hidden items-center gap-6 text-xs font-black uppercase text-white/64 lg:flex">
+        <div className="hidden items-center gap-7 text-xs font-black uppercase text-[#09231f]/58 lg:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="transition hover:text-[var(--brand-accent)]"
+              className="transition hover:text-[var(--brand-accent-dark)]"
             >
               {item.label}
             </a>
           ))}
         </div>
 
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="hidden bg-white px-5 py-3 text-xs font-black uppercase text-[#09231f] transition hover:bg-[var(--brand-accent)] hover:text-white md:inline-flex"
-        >
-          Reservar
-        </a>
+        <div className="hidden justify-end lg:flex">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="border border-[#09231f] px-5 py-3 text-xs font-black uppercase text-[#09231f] transition hover:bg-[#09231f] hover:text-white"
+          >
+            Solicitar cita
+          </a>
+        </div>
 
         <button
           type="button"
           aria-label="Abrir menu"
           onClick={() => setIsOpen((current) => !current)}
-          className="grid h-11 w-11 place-items-center border border-white/15 bg-white/5 text-2xl font-light text-white lg:hidden"
+          className="grid h-11 w-11 place-items-center border border-[#09231f]/20 bg-white text-2xl font-light text-[#09231f] lg:hidden"
         >
           {isOpen ? 'x' : '='}
         </button>
       </nav>
 
       <div
-        className={`overflow-hidden border-t border-white/10 bg-[#09231f] transition-all duration-300 lg:hidden ${
+        className={`overflow-hidden border-t border-[#09231f]/10 bg-[#fbf7f1] transition-all duration-300 lg:hidden ${
           isOpen ? 'max-h-[560px]' : 'max-h-0'
         }`}
       >
@@ -92,7 +90,7 @@ function Navbar({ business }) {
               key={item.href}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="border border-white/10 bg-white/[0.04] px-4 py-4 text-sm font-black uppercase text-white"
+              className="border border-[#09231f]/10 bg-white px-4 py-4 text-sm font-black uppercase text-[#09231f]"
             >
               {item.label}
             </a>
@@ -103,9 +101,9 @@ function Navbar({ business }) {
             target="_blank"
             rel="noreferrer"
             onClick={() => setIsOpen(false)}
-            className="mt-2 bg-[var(--brand-accent)] px-4 py-4 text-center text-sm font-black uppercase text-white"
+            className="mt-2 bg-[#09231f] px-4 py-4 text-center text-sm font-black uppercase text-white"
           >
-            Reservar por WhatsApp
+            Solicitar cita
           </a>
         </div>
       </div>

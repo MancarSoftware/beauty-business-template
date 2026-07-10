@@ -49,45 +49,45 @@ const spaData = {
   },
 
   hero: {
-    eyebrow: 'Spa urbano en Quito',
-    title: 'Pausa el ritmo.',
-    accentTitle: 'Vuelve a sentirte ligera.',
+    eyebrow: 'Wellness concierge en Quito',
+    title: 'Bienestar con agenda privada.',
+    accentTitle: 'Cuidado sin ruido.',
     subtitle:
-      'Masajes, faciales y rituales corporales en cabinas privadas, con aromas suaves, terapeutas profesionales y reserva directa por WhatsApp.',
+      'Un spa urbano con reserva asistida, cabinas privadas y rituales pensados para piel, cuerpo y descanso real.',
     image:
       'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1800&q=85',
     cta: 'Reservar por WhatsApp',
     secondaryHref: '#tratamientos',
     secondaryCta: 'Ver tratamientos',
     highlights: [
-      { value: '60 min', label: 'sesion recomendada' },
-      { value: '4.9/5', label: 'experiencia valorada' },
-      { value: '24h', label: 'reservas anticipadas' },
+      { value: '01', label: 'cabina preparada' },
+      { value: '02', label: 'terapeuta asignada' },
+      { value: '03', label: 'ritual personalizado' },
     ],
   },
 
   sections: {
     treatments: {
-      eyebrow: 'Tratamientos',
-      title: 'Elige como quieres sentirte al salir.',
+      eyebrow: 'Carta de tratamientos',
+      title: 'Servicios claros, experiencia cuidada y reserva sin espera.',
       description:
         'Cada servicio combina tecnica, ambiente y detalles sensoriales para que la experiencia se sienta cuidada desde la bienvenida.',
     },
     process: {
-      eyebrow: 'Reserva simple',
-      title: 'Tu experiencia empieza antes de llegar.',
+      eyebrow: 'Concierge Serena',
+      title: 'No eliges a ciegas. Te guiamos antes de reservar.',
       description:
         'Te guiamos por WhatsApp, confirmamos horario y preparamos la cabina segun el tratamiento elegido.',
     },
     packages: {
-      eyebrow: 'Experiencias',
-      title: 'Paquetes pensados para regalarte una pausa completa.',
+      eyebrow: 'Menu de experiencias',
+      title: 'Tres formas de convertir una cita en una pausa completa.',
       description:
         'Opciones claras para relajacion, cuidado facial, pareja o desconexion total.',
     },
     experience: {
-      eyebrow: 'Por que elegir Serena',
-      title: 'Un spa disenado para bajar el ruido del dia.',
+      eyebrow: 'Estandar Serena',
+      title: 'Un sistema de atencion silencioso, preciso y memorable.',
       description:
         'Cabinas privadas, aromas equilibrados, musica suave y terapeutas que adaptan la presion, ritmo y productos a tu necesidad.',
     },

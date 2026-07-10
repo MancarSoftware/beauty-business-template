@@ -1,9 +1,8 @@
 function Footer({ business }) {
   const quickLinks = [
-    { label: 'Inicio', href: '#inicio' },
     { label: 'Tratamientos', href: '#tratamientos' },
-    { label: 'Reserva', href: '#reserva' },
-    { label: 'Paquetes', href: '#paquetes' },
+    { label: 'Concierge', href: '#reserva' },
+    { label: 'Experiencias', href: '#paquetes' },
     { label: 'Ubicacion', href: '#ubicacion' },
   ]
 
@@ -21,26 +20,29 @@ function Footer({ business }) {
   }
 
   return (
-    <footer className="border-t border-white/10 bg-[#09231f] px-4 py-12 text-white sm:px-6 lg:px-8">
+    <footer className="bg-[#09231f] px-4 py-12 text-white sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr_1fr]">
+        <div className="border-b border-white/12 pb-10">
+          <p className="text-xs font-black uppercase text-[var(--brand-accent)]">
+            {business.type}
+          </p>
+          <h2 className="mt-4 max-w-5xl text-5xl font-black uppercase leading-[0.95] md:text-7xl">
+            {business.slogan}
+          </h2>
+        </div>
+
+        <div className="grid gap-10 border-b border-white/12 py-10 lg:grid-cols-[1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
               <span className="grid h-12 w-12 place-items-center bg-[var(--brand-accent)] font-black text-white">
                 {business.logoInitials}
               </span>
-              <div>
-                <h2 className="text-3xl font-black uppercase leading-none">
-                  {business.shortName}
-                </h2>
-                <p className="mt-1 text-xs font-black uppercase text-white/45">
-                  {business.type}
-                </p>
-              </div>
+              <h3 className="text-3xl font-black uppercase leading-none">
+                {business.shortName}
+              </h3>
             </div>
-
-            <p className="mt-6 max-w-md text-base leading-7 text-white/62">
-              {business.footerNote ?? business.slogan}
+            <p className="mt-5 max-w-md text-base leading-7 text-white/62">
+              {business.footerNote}
             </p>
           </div>
 
@@ -100,7 +102,7 @@ function Footer({ business }) {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/42 md:flex-row md:items-center md:justify-between">
+        <div className="mt-6 flex flex-col gap-4 text-sm text-white/42 md:flex-row md:items-center md:justify-between">
           <p>
             © {new Date().getFullYear()} {business.name}. Todos los derechos reservados.
           </p>

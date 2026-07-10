@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div
-      className="min-h-screen bg-[#09231f] text-white"
+      className="min-h-screen bg-[#fbf7f1] text-[#09231f]"
       style={{
         '--brand-accent': business.theme.accent,
         '--brand-accent-dark': business.theme.accentDark ?? business.theme.accent,
