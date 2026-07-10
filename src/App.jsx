@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Pricing from './components/Pricing'
 import Process from './components/Process'
 import Programs from './components/Programs'
+import Results from './components/Results'
 import Seo from './components/Seo'
 import WhatsAppButton from './components/WhatsAppButton'
 import WhyChooseUs from './components/WhyChooseUs'
@@ -16,10 +17,12 @@ function App() {
 
   return (
     <div
-      className="min-h-screen bg-[#f8f5ef] text-[#101010]"
+      className="min-h-screen bg-[#050505] text-white"
       style={{
         '--brand-accent': business.theme.accent,
         '--brand-accent-dark': business.theme.accentDark ?? business.theme.accent,
+        '--brand-secondary': business.theme.secondary ?? business.theme.accent,
+        '--brand-punch': business.theme.punch ?? business.theme.accent,
       }}
     >
       <Seo business={business} />
@@ -27,9 +30,10 @@ function App() {
 
       <main>
         <Hero business={business} />
-        <Process business={business} />
-        <Programs business={business} />
-        <Pricing business={business} />
+              <Process business={business} />
+              <Programs business={business} />
+              <Results business={business} />
+              <Pricing business={business} />
         <WhyChooseUs business={business} />
         <Location business={business} />
         <FAQ business={business} />

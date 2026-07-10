@@ -1,159 +1,129 @@
 import { createMapsUrl, createWhatsAppUrl } from '../utils/whatsapp'
 
 function Location({ business }) {
-  const section = business.sections?.location ?? {
-    eyebrow: 'Horarios y ubicación',
-    title: 'Entrena cuando puedas',
-    description: 'Consulta horarios y ubicación.',
-  }
-
+  const section = business.sections?.location
   const mapsUrl =
     business.mapsUrl && business.mapsUrl !== '#'
       ? business.mapsUrl
       : createMapsUrl(business.address)
-
   const mapEmbedUrl =
     business.mapEmbedUrl ??
     `https://www.google.com/maps?q=${encodeURIComponent(
       business.address,
     )}&z=17&output=embed`
-
   const whatsappUrl = createWhatsAppUrl(
     business.whatsapp,
-    `Hola ${business.name}, quiero información para empezar a entrenar.`,
+    `Hola ${business.name}, quiero agendar una visita al gimnasio.`,
   )
 
   return (
     <section
       id="ubicacion"
-      className="bg-[#f8f5ef] px-4 py-16 text-[#101010] sm:px-6 lg:px-8 lg:py-20"
+      className="bg-[#f4f1e8] px-4 py-16 text-[#050505] sm:px-6 lg:px-8 lg:py-24"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10 max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[var(--brand-accent-dark)]">
-            {section.eyebrow}
-          </p>
+        <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+          <div>
+            <p className="text-xs font-black uppercase text-[var(--brand-punch)]">
+              {section.eyebrow}
+            </p>
+            <h2 className="mt-4 text-4xl font-black uppercase leading-[0.96] md:text-6xl">
+              {section.title}
+            </h2>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-600">
+              {section.description}
+            </p>
+          </div>
 
-          <h2 className="mt-4 font-display text-4xl font-black uppercase leading-tight text-[#101010] md:text-5xl">
-            {section.title}
-          </h2>
-
-          <p className="mt-4 text-base leading-7 text-zinc-600">
-            {section.description}
-          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {business.scheduleBlocks.map((item) => (
+              <article key={item.day} className="border border-[#050505]/12 bg-white p-5">
+                <p className="text-xs font-black uppercase text-zinc-500">
+                  {item.day}
+                </p>
+                <p className="mt-3 text-2xl font-black uppercase">{item.time}</p>
+              </article>
+            ))}
+          </div>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1fr_0.7fr]">
-          <article className="rounded-[2rem] border border-black/10 bg-white p-7 shadow-sm">
-            <p className="text-sm font-black uppercase text-[var(--brand-accent-dark)]">
-              Horarios
-            </p>
-
-            <div className="mt-7 space-y-4">
-              {business.scheduleBlocks.map((item) => (
-                <div
-                  key={item.day}
-                  className="flex items-center justify-between gap-5 border-b border-zinc-200 pb-4 text-sm last:border-b-0"
-                >
-                  <span className="font-black text-[#101010]">{item.day}</span>
-                  <span className="font-semibold text-zinc-600">{item.time}</span>
-                </div>
-              ))}
-            </div>
-
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-[var(--brand-accent)] px-5 py-4 text-sm font-black uppercase text-white shadow-lg shadow-[var(--brand-accent)]/25 transition hover:-translate-y-1 hover:bg-[var(--brand-accent-dark)]"
-            >
-              Consultar horarios
-            </a>
-          </article>
-
-          <article className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-sm">
-            <div className="border-b border-zinc-200 p-6 text-center">
-              <p className="text-sm font-black uppercase text-[var(--brand-accent-dark)]">
-                Dónde estamos
+        <div className="mt-10 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
+          <article className="overflow-hidden border border-[#050505]/12 bg-white">
+            <div className="border-b border-[#050505]/12 p-5">
+              <p className="text-xs font-black uppercase text-[var(--brand-punch)]">
+                Direccion
               </p>
-
-              <p className="mt-2 text-sm font-semibold text-zinc-600">
-                {business.address}
-              </p>
+              <p className="mt-2 text-lg font-black">{business.address}</p>
             </div>
 
             <iframe
               src={mapEmbedUrl}
               width="100%"
-              height="330"
+              height="420"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title={`Mapa de ${business.name}`}
-              className="h-[330px] w-full"
+              className="h-[420px] w-full grayscale"
             />
-
-            <div className="p-5">
-              <a
-                href={mapsUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-full bg-[var(--brand-accent)] px-5 py-4 text-sm font-black uppercase text-white shadow-lg shadow-[var(--brand-accent)]/25 transition hover:-translate-y-1 hover:bg-[var(--brand-accent-dark)]"
-              >
-                Cómo llegar
-              </a>
-            </div>
           </article>
 
-          <article className="rounded-[2rem] border border-black/10 bg-white p-7 shadow-sm">
-            <p className="text-sm font-black uppercase text-[var(--brand-accent-dark)]">
-              Instalaciones
+          <aside className="flex flex-col border border-[#050505] bg-[#050505] p-6 text-white">
+            <p className="text-xs font-black uppercase text-[var(--brand-accent)]">
+              Ven preparado
             </p>
+            <h3 className="mt-4 text-4xl font-black uppercase leading-none">
+              Tu primera visita puede ser esta semana.
+            </h3>
 
-            <ul className="mt-6 space-y-5">
+            <ul className="mt-8 grid gap-3">
               {business.locationFeatures.map((feature) => (
                 <li
                   key={feature}
-                  className="flex items-center gap-3 text-sm font-semibold text-zinc-700"
+                  className="flex items-center gap-3 border border-white/10 bg-white/[0.04] p-4 text-sm font-bold"
                 >
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#f8f5ef] text-xs font-black text-[var(--brand-accent-dark)]">
-                    ✓
-                  </span>
+                  <span className="h-2.5 w-2.5 bg-[var(--brand-accent)]" />
                   {feature}
                 </li>
               ))}
             </ul>
 
-            <div className="mt-8 rounded-2xl border border-[var(--brand-accent)]/25 bg-[#f8f5ef] p-6">
-              <p className="text-sm font-black uppercase text-[var(--brand-accent-dark)]">
-                Contacto
-              </p>
-
-              <p className="mt-3 text-xl font-black text-[#101010]">
-                {business.phone}
-              </p>
-
-              <p className="mt-2 text-sm font-semibold text-zinc-600">
-                {business.email}
-              </p>
+            <div className="mt-8 border-t border-white/10 pt-6">
+              <p className="text-sm text-white/55">{business.phone}</p>
+              <p className="mt-1 text-sm text-white/55">{business.email}</p>
             </div>
-          </article>
+
+            <div className="mt-auto grid gap-3 pt-8">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-[var(--brand-accent)] px-6 py-4 text-center text-sm font-black uppercase text-[#050505] transition hover:bg-white"
+              >
+                Agendar visita
+              </a>
+              <a
+                href={mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="border border-white/20 px-6 py-4 text-center text-sm font-black uppercase text-white transition hover:border-[var(--brand-accent)] hover:text-[var(--brand-accent)]"
+              >
+                Abrir Google Maps
+              </a>
+            </div>
+          </aside>
         </div>
       </div>
 
-      <div className="mx-auto mt-16 max-w-7xl rounded-[2.5rem] bg-[#101010] px-6 py-10 text-white shadow-2xl shadow-black/20 lg:px-10">
-        <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+      <div className="mx-auto mt-12 max-w-7xl border border-[#050505] bg-[var(--brand-accent)] p-6 text-[#050505] sm:p-8">
+        <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-center">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.24em] text-[var(--brand-accent)]">
-              WhatsApp
-            </p>
-
-            <h2 className="mt-3 font-display text-4xl font-black uppercase leading-tight md:text-5xl">
+            <p className="text-xs font-black uppercase">WhatsApp directo</p>
+            <h2 className="mt-3 text-4xl font-black uppercase leading-none">
               {business.contactCta.title}
             </h2>
-
-            <p className="mt-4 max-w-xl text-sm leading-7 text-zinc-300">
+            <p className="mt-4 max-w-2xl text-base font-bold leading-7 text-[#050505]/72">
               {business.contactCta.text}
             </p>
           </div>
@@ -162,9 +132,9 @@ function Location({ business }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-[var(--brand-accent)] px-7 py-5 text-sm font-black uppercase text-white shadow-lg shadow-[var(--brand-accent)]/25 transition hover:-translate-y-1 hover:bg-[var(--brand-accent-dark)]"
+            className="bg-[#050505] px-7 py-5 text-center text-sm font-black uppercase text-white transition hover:bg-white hover:text-[#050505]"
           >
-            Escríbenos por WhatsApp
+            Escribir por WhatsApp
           </a>
         </div>
       </div>
