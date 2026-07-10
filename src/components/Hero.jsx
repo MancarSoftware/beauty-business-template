@@ -13,19 +13,19 @@ function Hero({ business }) {
       id="inicio"
       className="relative overflow-hidden bg-[#ede7dc] px-4 pt-28 text-[#101010] sm:px-6 lg:px-8"
     >
-      <div className="absolute left-0 top-0 h-full w-[38%] bg-[#101010]" />
-      <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-[var(--brand-accent)]/20 blur-3xl" />
+      <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-[var(--brand-accent)]/20 blur-3xl" />
+      <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-black/10 blur-3xl" />
 
-      <div className="relative mx-auto grid min-h-[760px] max-w-7xl items-center gap-12 py-12 lg:grid-cols-[0.95fr_0.85fr]">
-        <div className="relative z-10">
+      <div className="relative mx-auto grid min-h-[760px] max-w-7xl items-center gap-14 py-12 lg:grid-cols-[0.9fr_0.9fr]">
+        <div className="max-w-3xl">
           <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-black/10 bg-white/80 px-5 py-2 text-xs font-black uppercase tracking-[0.24em] text-[var(--brand-accent-dark)] shadow-sm backdrop-blur">
             <span className="h-2 w-2 rounded-full bg-[var(--brand-accent)]" />
             {business.hero.eyebrow}
           </div>
 
-          <h1 className="max-w-4xl font-display text-5xl font-black uppercase leading-[0.9] tracking-[-0.05em] text-[#101010] md:text-7xl xl:text-8xl">
+          <h1 className="font-display text-5xl font-black uppercase leading-[0.92] tracking-[-0.04em] text-[#101010] md:text-6xl xl:text-7xl">
             {business.hero.title}
-            <span className="block text-[var(--brand-accent-dark)]">
+            <span className="mt-2 block text-[var(--brand-accent-dark)]">
               {business.hero.accentTitle}
             </span>
           </h1>
@@ -46,7 +46,7 @@ function Hero({ business }) {
 
             <a
               href={business.hero.secondaryHref ?? '#planes'}
-              className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white/80 px-8 py-4 text-sm font-black uppercase text-[#101010] shadow-sm backdrop-blur transition hover:-translate-y-1 hover:border-[var(--brand-accent)] hover:text-[var(--brand-accent-dark)]"
+              className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white px-8 py-4 text-sm font-black uppercase text-[#101010] shadow-sm transition hover:-translate-y-1 hover:border-[var(--brand-accent)] hover:text-[var(--brand-accent-dark)]"
             >
               {business.hero.secondaryCta ?? 'Ver membresías'}
             </a>
@@ -56,11 +56,12 @@ function Hero({ business }) {
             {features.map((feature) => (
               <article
                 key={feature.title}
-                className="border-l border-black/15 pl-5"
+                className="rounded-3xl border border-black/10 bg-white/70 p-5 shadow-sm backdrop-blur"
               >
                 <p className="font-display text-4xl font-black text-[#101010]">
                   {feature.title}
                 </p>
+
                 <p className="mt-2 text-xs font-black uppercase tracking-[0.18em] text-zinc-500">
                   {feature.text}
                 </p>
@@ -69,16 +70,14 @@ function Hero({ business }) {
           </div>
         </div>
 
-        <div className="relative z-10">
-          <div className="relative ml-auto max-w-xl">
-            <div className="absolute -left-8 -top-8 h-full w-full rounded-[2.5rem] border border-[var(--brand-accent)]/40" />
-
-            <div className="relative overflow-hidden rounded-[2.5rem] bg-[#101010] shadow-2xl shadow-black/30">
+        <div className="relative">
+          <div className="rounded-[2.8rem] border border-[var(--brand-accent)]/40 p-5">
+            <div className="relative overflow-hidden rounded-[2.35rem] bg-[#101010] shadow-2xl shadow-black/30">
               {business.hero.image ? (
                 <img
                   src={business.hero.image}
                   alt={`Entrenamiento en ${business.name}`}
-                  className="h-[620px] w-full object-cover object-center opacity-85 grayscale"
+                  className="h-[540px] w-full object-cover object-center opacity-85 grayscale"
                 />
               ) : null}
 
@@ -88,6 +87,7 @@ function Hero({ business }) {
                 <p className="text-xs font-black uppercase tracking-[0.25em] text-[var(--brand-accent)]">
                   Titan Method
                 </p>
+
                 <p className="text-xs font-black uppercase tracking-[0.25em] text-white/60">
                   2026
                 </p>
@@ -112,22 +112,23 @@ function Hero({ business }) {
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="absolute -bottom-7 left-6 right-6 rounded-[2rem] border border-black/10 bg-white p-5 shadow-xl shadow-black/20">
-              <div className="flex items-center justify-between gap-5">
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[0.18em] text-zinc-500">
-                    Membresía destacada
-                  </p>
-                  <p className="mt-1 text-xl font-black uppercase text-[#101010]">
-                    Performance
-                  </p>
-                </div>
+          <div className="mx-auto mt-5 w-[92%] rounded-[2rem] border border-black/10 bg-white p-5 shadow-xl shadow-black/20">
+            <div className="flex items-center justify-between gap-5">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-zinc-500">
+                  Membresía destacada
+                </p>
 
-                <p className="font-display text-3xl font-black text-[var(--brand-accent-dark)]">
-                  $79.900
+                <p className="mt-1 text-xl font-black uppercase text-[#101010]">
+                  Performance
                 </p>
               </div>
+
+              <p className="font-display text-3xl font-black text-[var(--brand-accent-dark)]">
+                $79.900
+              </p>
             </div>
           </div>
         </div>
