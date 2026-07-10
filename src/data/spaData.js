@@ -18,11 +18,11 @@ const spaData = {
     'https://www.google.com/maps?q=Av.%20Portugal%20y%20Republica%20de%20El%20Salvador%2C%20Quito%2C%20Ecuador&z=16&output=embed',
 
   theme: {
-    accent: '#d98b72',
-    accentDark: '#9f5c49',
-    secondary: '#6fa68d',
-    soft: '#f7f1ea',
-    dark: '#09231f',
+    accent: '#c7826f',
+    accentDark: '#8e5145',
+    secondary: '#8fa896',
+    soft: '#fbf3ec',
+    dark: '#17342f',
   },
 
   seo: {
@@ -51,10 +51,10 @@ const spaData = {
   hero: {
     eyebrow: 'Bienvenido a Serena Spa',
     since: 'Since 2012',
-    title: 'Relajacion, belleza y bienestar en un solo lugar.',
-    accentTitle: 'Tu pausa empieza aqui.',
+    title: 'Un ritual privado para volver a ti.',
+    accentTitle: 'Belleza, calma y bienestar.',
     subtitle:
-      'Un spa urbano con reserva asistida, cabinas privadas y rituales pensados para piel, cuerpo y descanso real.',
+      'Reserva masajes, faciales y rituales corporales en un espacio intimo donde cada detalle se prepara antes de tu llegada.',
     image:
       'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1800&q=85',
     cta: 'Reservar por WhatsApp',
@@ -70,7 +70,7 @@ const spaData = {
   sections: {
     about: {
       eyebrow: 'Nosotros',
-      title: 'Disfruta una sesion relajante con Serena Spa',
+      title: 'Un santuario urbano para cuidar piel, cuerpo y energia',
       description:
         'Creamos un oasis urbano donde cada visita se vive como una experiencia sensorial: terapeutas profesionales, cabinas privadas, faciales, masajes y rituales disenados para renovar cuerpo y mente.',
       image:
@@ -78,7 +78,7 @@ const spaData = {
     },
     treatments: {
       eyebrow: 'Carta de tratamientos',
-      title: 'Servicios claros, experiencia cuidada y reserva sin espera.',
+      title: 'Elige el ritual que tu cuerpo esta pidiendo',
       description:
         'Cada servicio combina tecnica, ambiente y detalles sensoriales para que la experiencia se sienta cuidada desde la bienvenida.',
     },
@@ -90,13 +90,13 @@ const spaData = {
     },
     packages: {
       eyebrow: 'Menu de experiencias',
-      title: 'Tres formas de convertir una cita en una pausa completa.',
+      title: 'Experiencias creadas para regalar, celebrar o desconectar',
       description:
         'Opciones claras para relajacion, cuidado facial, pareja o desconexion total.',
     },
     experience: {
       eyebrow: 'Estandar Serena',
-      title: 'Un sistema de atencion silencioso, preciso y memorable.',
+      title: 'Lujo silencioso: atencion precisa sin sentirse forzada.',
       description:
         'Cabinas privadas, aromas equilibrados, musica suave y terapeutas que adaptan la presion, ritmo y productos a tu necesidad.',
     },

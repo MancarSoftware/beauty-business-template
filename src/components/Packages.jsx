@@ -7,7 +7,7 @@ function Packages({ business }) {
   return (
     <section
       id="paquetes"
-      className="bg-[#fff8f1] px-4 py-16 text-[#09231f] sm:px-6 lg:px-8 lg:py-24"
+      className="bg-[#fbf3ec] px-4 py-20 text-[#17342f] sm:px-6 lg:px-8 lg:py-28"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
@@ -20,10 +20,10 @@ function Packages({ business }) {
           {business.packages.map((item) => (
             <article
               key={item.name}
-              className={`flex min-h-[560px] flex-col rounded-[3rem] p-6 shadow-xl transition duration-300 hover:-translate-y-2 ${
+              className={`flex min-h-[560px] flex-col rounded-[4rem] p-6 shadow-xl transition duration-300 hover:-translate-y-2 ${
                 item.featured
-                  ? 'bg-[#09231f] text-white shadow-[#09231f]/20'
-                  : 'bg-white text-[#09231f] shadow-[#09231f]/8'
+                  ? 'bg-[#17342f] text-white shadow-[#17342f]/20'
+                  : 'bg-white text-[#17342f] shadow-[#17342f]/8'
               }`}
             >
               <div className="flex items-center justify-between gap-4">
@@ -45,7 +45,7 @@ function Packages({ business }) {
                 </p>
               </div>
 
-              <h3 className="mt-10 text-4xl font-black uppercase leading-none">
+              <h3 className="mt-10 font-display text-5xl leading-none">
                 {item.name}
               </h3>
               <p
@@ -73,8 +73,8 @@ function Packages({ business }) {
                 rel="noreferrer"
                 className={`mt-10 inline-flex justify-center rounded-full px-7 py-4 text-sm font-black uppercase transition ${
                   item.featured
-                    ? 'bg-white text-[#09231f] hover:bg-[var(--brand-accent)] hover:text-white'
-                    : 'bg-[#09231f] text-white hover:bg-[var(--brand-accent)]'
+                    ? 'bg-white text-[#17342f] hover:bg-[var(--brand-accent)] hover:text-white'
+                    : 'bg-[#17342f] text-white hover:bg-[var(--brand-accent)]'
                 }`}
               >
                 Reservar

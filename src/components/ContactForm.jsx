@@ -7,16 +7,16 @@ function ContactForm({ business }) {
   )
 
   const inputClass =
-    'rounded-2xl bg-[#fff8f1] px-5 py-4 text-base font-medium normal-case outline-none ring-1 ring-[#09231f]/10 transition focus:ring-2 focus:ring-[var(--brand-accent)]'
+    'rounded-full bg-[#fbf3ec] px-5 py-4 text-base font-medium normal-case outline-none ring-1 ring-[#17342f]/10 transition focus:ring-2 focus:ring-[var(--brand-accent)]'
 
   return (
-    <section className="bg-[#fff8f1] px-4 py-16 text-[#09231f] sm:px-6 lg:px-8 lg:py-24">
-      <div className="mx-auto grid max-w-7xl overflow-hidden rounded-[3.5rem] bg-white shadow-2xl shadow-[#09231f]/10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="bg-[#09231f] p-6 text-white sm:p-8 lg:p-10">
+    <section className="bg-[#fbf3ec] px-4 py-20 text-[#17342f] sm:px-6 lg:px-8 lg:py-28">
+      <div className="mx-auto grid max-w-7xl overflow-hidden rounded-[4rem] bg-white shadow-2xl shadow-[#17342f]/10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="bg-[#17342f] p-6 text-white sm:p-8 lg:p-10">
           <p className="w-fit rounded-full bg-white/10 px-5 py-2 text-xs font-black uppercase text-[var(--brand-accent)]">
             Agenda una cita
           </p>
-          <h2 className="mt-5 text-4xl font-black uppercase leading-none md:text-6xl">
+          <h2 className="mt-5 font-display text-5xl leading-[1.02] md:text-7xl">
             Cuentanos que necesitas y preparamos tu experiencia.
           </h2>
           <p className="mt-6 max-w-xl text-base leading-8 text-white/66">
@@ -79,7 +79,7 @@ function ContactForm({ business }) {
             <textarea
               rows="5"
               placeholder="Hola, quiero reservar una cita esta semana."
-              className={`${inputClass} resize-none`}
+              className={`${inputClass} rounded-[2rem] resize-none`}
             />
           </label>
 
@@ -87,7 +87,7 @@ function ContactForm({ business }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="rounded-full bg-[var(--brand-accent)] px-7 py-5 text-center text-sm font-black uppercase text-white shadow-xl shadow-[var(--brand-accent)]/20 transition hover:bg-[#09231f]"
+            className="rounded-full bg-[var(--brand-accent)] px-7 py-5 text-center text-sm font-black uppercase text-white shadow-xl shadow-[var(--brand-accent)]/20 transition hover:bg-[#17342f]"
           >
             Enviar por WhatsApp
           </a>
