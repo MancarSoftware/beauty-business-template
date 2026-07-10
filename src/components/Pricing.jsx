@@ -4,14 +4,14 @@ import SectionHeader from './SectionHeader'
 function Pricing({ business }) {
   const section = business.sections?.pricing ?? {
     eyebrow: 'Membresías',
-    title: 'Planes claros para empezar',
-    description: 'Elige el plan ideal para tu objetivo.',
+    title: 'Elige cómo quieres pertenecer',
+    description: 'Tres formas de entrenar según el nivel de acompañamiento que buscas.',
   }
 
   return (
     <section
       id="planes"
-      className="bg-[#f8f5ef] px-4 py-16 text-[#101010] sm:px-6 lg:px-8 lg:py-20"
+      className="bg-[#ede7dc] px-4 py-16 text-[#101010] sm:px-6 lg:px-8 lg:py-24"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
@@ -20,29 +20,37 @@ function Pricing({ business }) {
           description={section.description}
         />
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {business.pricing.map((plan) => (
+        <div className="overflow-hidden rounded-[2.5rem] border border-black/10 bg-white shadow-2xl shadow-black/10">
+          {business.pricing.map((plan, index) => (
             <article
               key={plan.name}
-              className={`relative overflow-hidden rounded-[2.25rem] border p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/10 ${
-                plan.featured
-                  ? 'border-[#101010] bg-[#101010] text-white'
-                  : 'border-black/10 bg-white text-[#101010]'
+              className={`grid gap-8 border-b border-black/10 p-7 last:border-b-0 lg:grid-cols-[0.18fr_0.32fr_0.28fr_0.22fr] lg:items-center lg:p-9 ${
+                plan.featured ? 'bg-[#101010] text-white' : 'bg-white text-[#101010]'
               }`}
             >
-              {plan.featured ? (
-                <div className="absolute right-6 top-6 rounded-full bg-[var(--brand-accent)] px-4 py-2 text-xs font-black uppercase text-white">
-                  {plan.tag}
-                </div>
-              ) : (
-                <div className="absolute right-6 top-6 rounded-full bg-[#f8f5ef] px-4 py-2 text-xs font-black uppercase text-zinc-600">
-                  {plan.tag}
-                </div>
-              )}
+              <div>
+                <p
+                  className={`font-display text-5xl font-black ${
+                    plan.featured ? 'text-[var(--brand-accent)]' : 'text-zinc-300'
+                  }`}
+                >
+                  0{index + 1}
+                </p>
+              </div>
 
-              <div className="pt-10">
+              <div>
+                <p
+                  className={`mb-3 inline-flex rounded-full px-4 py-2 text-xs font-black uppercase tracking-[0.18em] ${
+                    plan.featured
+                      ? 'bg-[var(--brand-accent)] text-white'
+                      : 'bg-[#ede7dc] text-[var(--brand-accent-dark)]'
+                  }`}
+                >
+                  {plan.tag}
+                </p>
+
                 <h3
-                  className={`text-2xl font-black uppercase ${
+                  className={`font-display text-4xl font-black uppercase leading-tight ${
                     plan.featured ? 'text-white' : 'text-[#101010]'
                   }`}
                 >
@@ -50,34 +58,16 @@ function Pricing({ business }) {
                 </h3>
 
                 <p
-                  className={`mt-4 text-sm leading-7 ${
+                  className={`mt-4 max-w-md text-sm leading-7 ${
                     plan.featured ? 'text-zinc-300' : 'text-zinc-600'
                   }`}
                 >
                   {plan.description}
                 </p>
-
-                <div className="mt-8 flex items-end gap-1">
-                  <span
-                    className={`font-display text-5xl font-black ${
-                      plan.featured ? 'text-[var(--brand-accent)]' : 'text-[#101010]'
-                    }`}
-                  >
-                    {plan.price}
-                  </span>
-
-                  <span
-                    className={`pb-2 text-sm font-bold ${
-                      plan.featured ? 'text-zinc-400' : 'text-zinc-500'
-                    }`}
-                  >
-                    {plan.period}
-                  </span>
-                </div>
               </div>
 
-              <ul className="mt-8 space-y-4">
-                {plan.benefits.map((benefit) => (
+              <ul className="space-y-3">
+                {plan.benefits.slice(0, 4).map((benefit) => (
                   <li
                     key={benefit}
                     className={`flex gap-3 text-sm ${
@@ -88,7 +78,7 @@ function Pricing({ business }) {
                       className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs font-black ${
                         plan.featured
                           ? 'bg-[var(--brand-accent)] text-white'
-                          : 'bg-[#f8f5ef] text-[var(--brand-accent-dark)]'
+                          : 'bg-[#ede7dc] text-[var(--brand-accent-dark)]'
                       }`}
                     >
                       ✓
@@ -98,22 +88,41 @@ function Pricing({ business }) {
                 ))}
               </ul>
 
-              <a
-                href={createWhatsAppUrl(
-                  business.whatsapp,
-                  plan.whatsappMessage ??
-                    `Hola ${business.name}, quiero información sobre el plan ${plan.name}.`,
-                )}
-                target="_blank"
-                rel="noreferrer"
-                className={`mt-9 inline-flex w-full items-center justify-center rounded-full px-5 py-4 text-sm font-black uppercase transition ${
-                  plan.featured
-                    ? 'bg-[var(--brand-accent)] text-white hover:bg-[var(--brand-accent-dark)]'
-                    : 'border border-black/10 bg-[#101010] text-white hover:bg-[var(--brand-accent-dark)]'
-                }`}
-              >
-                Elegir plan
-              </a>
+              <div className="lg:text-right">
+                <div className="flex items-end gap-1 lg:justify-end">
+                  <span
+                    className={`font-display text-5xl font-black ${
+                      plan.featured ? 'text-[var(--brand-accent)]' : 'text-[#101010]'
+                    }`}
+                  >
+                    {plan.price}
+                  </span>
+                  <span
+                    className={`pb-2 text-sm font-bold ${
+                      plan.featured ? 'text-zinc-400' : 'text-zinc-500'
+                    }`}
+                  >
+                    {plan.period}
+                  </span>
+                </div>
+
+                <a
+                  href={createWhatsAppUrl(
+                    business.whatsapp,
+                    plan.whatsappMessage ??
+                      `Hola ${business.name}, quiero información sobre ${plan.name}.`,
+                  )}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`mt-6 inline-flex w-full items-center justify-center rounded-full px-5 py-4 text-sm font-black uppercase transition lg:w-auto ${
+                    plan.featured
+                      ? 'bg-[var(--brand-accent)] text-white hover:bg-[var(--brand-accent-dark)]'
+                      : 'bg-[#101010] text-white hover:bg-[var(--brand-accent-dark)]'
+                  }`}
+                >
+                  Elegir membresía
+                </a>
+              </div>
             </article>
           ))}
         </div>
