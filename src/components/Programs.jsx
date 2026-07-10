@@ -3,9 +3,9 @@ import SectionHeader from './SectionHeader'
 
 function Programs({ business }) {
   const section = business.sections?.programs ?? {
-    eyebrow: 'Entrenamientos',
-    title: 'Programas para cada objetivo',
-    description: 'Elige el programa ideal para tu meta.',
+    eyebrow: 'Programas',
+    title: 'Entrenamiento según tu objetivo',
+    description: 'Elige el programa ideal para empezar.',
   }
 
   return (
@@ -24,13 +24,17 @@ function Programs({ business }) {
           {business.programs.map((program) => (
             <article
               key={program.name}
-              className="group flex min-h-[280px] flex-col rounded-[1.75rem] border border-zinc-200 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[var(--brand-accent)] hover:shadow-xl hover:shadow-black/10"
+              className="group flex min-h-[320px] flex-col rounded-[2rem] border border-zinc-200 bg-[#fbfaf7] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--brand-accent)] hover:bg-white hover:shadow-xl hover:shadow-black/10"
             >
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fff7e8] text-3xl font-black text-[var(--brand-accent-dark)] transition group-hover:bg-[var(--brand-accent)] group-hover:text-white">
-                {program.icon}
+              <div className="flex items-center justify-between">
+                <span className="font-display text-4xl font-black text-[var(--brand-accent-dark)]">
+                  {program.icon}
+                </span>
+
+                <span className="h-px flex-1 bg-zinc-200" />
               </div>
 
-              <h3 className="mt-6 text-lg font-black uppercase tracking-tight text-[#101010]">
+              <h3 className="mt-8 text-xl font-black uppercase leading-tight text-[#101010]">
                 {program.name}
               </h3>
 
@@ -46,7 +50,7 @@ function Programs({ business }) {
                 )}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-6 inline-flex items-center justify-center rounded-full border border-[var(--brand-accent)] px-5 py-3 text-xs font-black uppercase text-[#101010] transition hover:bg-[var(--brand-accent)] hover:text-white"
+                className="mt-7 inline-flex items-center justify-center rounded-full border border-black/10 bg-white px-5 py-3 text-xs font-black uppercase text-[#101010] transition group-hover:border-[var(--brand-accent)] group-hover:bg-[var(--brand-accent)] group-hover:text-white"
               >
                 Ver programa
               </a>

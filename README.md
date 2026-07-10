@@ -2,8 +2,8 @@
 
 Landing page profesional para un gimnasio premium.
 
-La pagina esta enfocada en mostrar programas por objetivo, planes y membresias,
-beneficios del gimnasio, entrenadores, horarios, ubicacion y contacto directo por
+La página está enfocada en mostrar programas por objetivo, planes y membresías,
+beneficios del gimnasio, entrenadores, horarios, ubicación y contacto directo por
 WhatsApp.
 
 ## Stack
@@ -34,30 +34,3 @@ src/
   App.jsx
   main.jsx
   index.css
-```
-
-## Scripts
-
-```bash
-npm install
-npm run dev
-npm run build
-npm run lint
-```
-
-## Personalizacion
-
-La informacion principal del gimnasio se edita en:
-
-```txt
-src/data/gymData.js
-```
-
-Ahi puedes cambiar nombre, telefono, WhatsApp, direccion, horarios, programas,
-planes, entrenadores, colores y textos de cada seccion.
-
-## Rama de trabajo
-
-```bash
-git checkout feature/landing-gimnasio
-```

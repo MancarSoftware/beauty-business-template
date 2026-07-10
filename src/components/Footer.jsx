@@ -17,7 +17,7 @@ function Footer({ business }) {
 
   const developer = business.developer ?? {
     name: 'Mancar Software',
-    text: 'Pagina creada por',
+    text: 'Página creada por',
     url: 'https://www.facebook.com/share/1BNpTPm6Wz/',
   }
 
@@ -27,15 +27,16 @@ function Footer({ business }) {
         <div className="grid gap-10 border-b border-white/10 pb-10 lg:grid-cols-[1fr_1.2fr]">
           <div>
             <div className="flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-md bg-[var(--brand-accent)] font-black text-white">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--brand-accent)] font-black text-white">
                 {business.logoInitials}
               </span>
+
               <div>
                 <h2 className="font-display text-3xl font-black uppercase">
                   {business.shortName}
                 </h2>
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--brand-accent)]">
-                  Gym
+                  Premium Gym
                 </p>
               </div>
             </div>
@@ -48,7 +49,7 @@ function Footer({ business }) {
           <div className="grid gap-8 sm:grid-cols-3">
             <div>
               <h3 className="text-sm font-black uppercase text-[var(--brand-accent)]">
-                Enlaces rapidos
+                Enlaces
               </h3>
 
               <ul className="mt-4 space-y-2 text-sm text-zinc-300">
@@ -86,7 +87,7 @@ function Footer({ business }) {
               </ul>
 
               {socialLinks.length ? (
-                <div className="mt-5 flex gap-3">
+                <div className="mt-5 flex flex-wrap gap-3">
                   {socialLinks.map((link) => (
                     <a
                       key={link.href}

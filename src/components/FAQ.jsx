@@ -6,10 +6,13 @@ function FAQ({ business }) {
   }
 
   return (
-    <section id="faq" className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section
+      id="faq"
+      className="bg-white px-4 py-16 text-[#101010] sm:px-6 lg:px-8 lg:py-20"
+    >
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto mb-10 max-w-5xl text-center">
-          <p className="text-sm font-black uppercase text-[var(--brand-accent-dark)]">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-[var(--brand-accent-dark)]">
             {section.eyebrow}
           </p>
 
@@ -26,7 +29,7 @@ function FAQ({ business }) {
           {section.items.map((item) => (
             <details
               key={item.question}
-              className="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm"
+              className="group rounded-2xl border border-black/10 bg-[#fbfaf7] p-5 shadow-sm transition open:bg-white"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-left">
                 <span className="text-sm font-black text-[#101010]">

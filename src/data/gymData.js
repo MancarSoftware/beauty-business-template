@@ -3,17 +3,14 @@ const gymData = {
   shortName: 'Titan Fit',
   logoInitials: 'TF',
   type: 'Gimnasio premium',
-  slogan: 'Fuerza, disciplina y resultados reales',
+  slogan: 'Entrena con propósito, estructura y resultados reales',
   description:
-    'Gimnasio premium con planes flexibles, entrenadores certificados, programas por objetivo y reservas por WhatsApp.',
-  positioning:
-    'Elige tu objetivo, revisa los planes y agenda una visita para empezar con acompañamiento profesional.',
+    'Gimnasio premium con programas por objetivo, planes flexibles, entrenadores certificados y contacto directo por WhatsApp.',
   whatsapp: '593987654321',
   whatsappMessage: 'Hola Titan Fit Gym, quiero información para empezar a entrenar.',
   phone: '+593 98 765 4321',
   email: 'info@titanfitgym.com',
   address: 'Av. República de El Salvador y Portugal, Quito, Ecuador',
-  schedule: 'Lunes a viernes 05:30 - 22:00 | Sábados 07:00 - 20:00',
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Av.%20Rep%C3%BAblica%20de%20El%20Salvador%20y%20Portugal%2C%20Quito%2C%20Ecuador',
   mapEmbedUrl:
@@ -29,7 +26,7 @@ const gymData = {
   seo: {
     title: 'Titan Fit Gym | Gimnasio premium en Quito',
     description:
-      'Planes de gimnasio, entrenamiento personalizado, programas de fuerza, hipertrofia, pérdida de grasa y acondicionamiento en Quito. Agenda por WhatsApp.',
+      'Planes de gimnasio, entrenamiento personalizado, programas de fuerza, hipertrofia, pérdida de grasa y acondicionamiento en Quito.',
     image: '/favicon.svg',
     locale: 'es_EC',
     areaServed: 'Quito, Ecuador',
@@ -51,95 +48,95 @@ const gymData = {
 
   hero: {
     eyebrow: 'Gimnasio premium en Quito',
-    title: 'Supera tus límites.',
-    accentTitle: 'Transforma tu vida.',
+    title: 'Entrena con propósito',
+    accentTitle: 'y resultados reales',
     subtitle:
-      'Entrena con planes claros, programas por objetivo y acompañamiento profesional para mejorar tu fuerza, energía y disciplina.',
+      'Programas por objetivo, planes flexibles y acompañamiento profesional para mejorar fuerza, energía y disciplina.',
     image:
       'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1600&q=80',
-    cta: 'Comienza hoy',
+    cta: 'Comenzar ahora',
     secondaryHref: '#planes',
     secondaryCta: 'Ver planes',
     features: [
-      { title: 'Entrenadores', text: 'certificados' },
-      { title: 'Equipamiento', text: 'de primer nivel' },
-      { title: 'Planes', text: 'para todos los niveles' },
+      { title: '+500', text: 'miembros activos' },
+      { title: '24/7', text: 'acceso disponible' },
+      { title: '12', text: 'entrenadores' },
     ],
   },
 
   sections: {
     programs: {
-      eyebrow: 'Entrenamientos',
-      title: 'Programas para cada objetivo',
+      eyebrow: 'Programas',
+      title: 'Entrenamiento según tu objetivo',
       description:
-        'Elige el programa ideal para alcanzar tus metas con el acompañamiento de expertos.',
+        'Elige el camino correcto: fuerza, hipertrofia, pérdida de grasa o entrenamiento personalizado.',
     },
     pricing: {
-      eyebrow: 'Planes que se adaptan a ti',
-      title: 'Planes y membresías',
+      eyebrow: 'Membresías',
+      title: 'Planes claros para empezar sin complicaciones',
       description:
-        'Elige el plan que mejor se adapte a tu rutina y comienza tu transformación.',
+        'Opciones flexibles para entrenar a tu ritmo con una experiencia profesional.',
     },
     benefits: {
-      eyebrow: 'Por qué elegir Titan Fit Gym',
-      title: 'Entrena con estructura, ambiente seguro y seguimiento real',
+      eyebrow: 'Por qué elegirnos',
+      title: 'Un gimnasio diseñado para entrenar con orden',
       description:
-        'No solo vendemos acceso al gimnasio. Te damos una experiencia organizada para que sepas qué hacer y cómo avanzar.',
+        'Espacios modernos, entrenadores preparados y seguimiento para que sepas cómo avanzar.',
     },
     trainers: {
-      eyebrow: 'Entrenadores',
-      title: 'Conoce a nuestros entrenadores',
+      eyebrow: 'Equipo profesional',
+      title: 'Entrenadores que guían tu progreso',
       description:
-        'Equipo preparado para guiarte en fuerza, hipertrofia, pérdida de grasa, rendimiento y clases grupales.',
+        'Acompañamiento en fuerza, hipertrofia, rendimiento, nutrición y clases grupales.',
     },
     location: {
       eyebrow: 'Horarios y ubicación',
-      title: 'Entrena cuando puedas y llega sin complicaciones',
+      title: 'Entrena cuando puedas',
       description:
-        'Estamos ubicados en una zona de fácil acceso. Consulta horarios, servicios disponibles y cómo llegar.',
+        'Estamos ubicados en una zona de fácil acceso con horarios amplios y contacto directo por WhatsApp.',
     },
   },
 
   programs: [
     {
-      icon: '▰',
+      icon: '01',
       name: 'Hipertrofia',
       description:
-        'Aumenta tu masa muscular con rutinas efectivas de crecimiento y progresión.',
+        'Rutinas progresivas para aumentar masa muscular con técnica y control.',
       whatsappMessage:
         'Hola Titan Fit Gym, quiero información sobre el programa de hipertrofia.',
     },
     {
-      icon: '●',
+      icon: '02',
       name: 'Pérdida de grasa',
       description:
-        'Quema grasa y mejora tu composición corporal con entrenamientos medibles.',
+        'Entrenamientos medibles para mejorar composición corporal y condición física.',
       whatsappMessage:
-        'Hola Titan Fit Gym, quiero información sobre el programa de pérdida de grasa.',
+        'Hola Titan Fit Gym, quiero información sobre pérdida de grasa.',
     },
     {
-      icon: '◆',
+      icon: '03',
       name: 'Fuerza',
       description:
-        'Desarrolla fuerza máxima y mejora tu rendimiento en cada entrenamiento.',
+        'Programa para mejorar potencia, técnica y rendimiento en sala de pesas.',
       whatsappMessage:
         'Hola Titan Fit Gym, quiero información sobre el programa de fuerza.',
     },
     {
-      icon: '➜',
+      icon: '04',
       name: 'Acondicionamiento',
       description:
-        'Mejora resistencia, agilidad y salud con entrenos dinámicos y efectivos.',
+        'Sesiones dinámicas para resistencia, agilidad y energía diaria.',
       whatsappMessage:
-        'Hola Titan Fit Gym, quiero información sobre acondicionamiento físico.',
+        'Hola Titan Fit Gym, quiero información sobre acondicionamiento.',
     },
     {
-      icon: '★',
-      name: 'Entrenamiento personal',
+      icon: '05',
+      name: 'Personal trainer',
       description:
-        'Sesiones uno a uno con un coach para alcanzar tus metas más rápido.',
+        'Entrenamiento uno a uno con seguimiento directo según tu objetivo.',
       whatsappMessage:
-        'Hola Titan Fit Gym, quiero información sobre entrenamiento personal.',
+        'Hola Titan Fit Gym, quiero información sobre entrenamiento personalizado.',
     },
   ],
 
@@ -148,13 +145,12 @@ const gymData = {
       name: 'Básico',
       price: '$49.900',
       period: '/mes',
-      tag: 'Inicio inteligente',
-      icon: '♛',
-      description: 'Para empezar con acceso al gimnasio y una rutina base.',
+      tag: 'Inicio',
+      description: 'Para empezar con acceso al gimnasio y rutina base.',
       benefits: [
         'Acceso al gimnasio',
-        'Rutina de entrenamiento',
-        'Acceso a sala de pesas',
+        'Rutina inicial',
+        'Sala de pesas',
         'Asesoría inicial',
       ],
       whatsappMessage: 'Hola Titan Fit Gym, quiero información sobre el plan Básico.',
@@ -163,15 +159,14 @@ const gymData = {
       name: 'Premium',
       price: '$79.900',
       period: '/mes',
-      tag: 'Más popular',
-      icon: '♕',
-      description: 'Para avanzar con clases, seguimiento y mayor acompañamiento.',
+      tag: 'Más elegido',
+      description: 'Para entrenar con más acompañamiento y clases grupales.',
       benefits: [
         'Todo lo del plan Básico',
         'Clases grupales ilimitadas',
-        'Plan nutricional básico',
         'Evaluación mensual',
-        'Invita a un amigo 1 vez al mes',
+        'Plan nutricional básico',
+        'Seguimiento por WhatsApp',
       ],
       whatsappMessage: 'Hola Titan Fit Gym, quiero información sobre el plan Premium.',
       featured: true,
@@ -180,9 +175,8 @@ const gymData = {
       name: 'Titan',
       price: '$119.900',
       period: '/mes',
-      tag: 'Alto rendimiento',
-      icon: '◇',
-      description: 'Para entrenar con guía personalizada y objetivos exigentes.',
+      tag: 'Avanzado',
+      description: 'Para objetivos exigentes con entrenamiento personalizado.',
       benefits: [
         'Todo lo del plan Premium',
         'Entrenamiento personalizado',
@@ -196,34 +190,28 @@ const gymData = {
 
   benefits: [
     {
-      icon: '🏆',
       title: 'Entrenadores certificados',
-      description: 'Profesionales con experiencia real para guiar tu progreso.',
+      description: 'Profesionales preparados para guiar tu progreso con seguridad.',
     },
     {
-      icon: '🏋️',
       title: 'Equipamiento premium',
-      description: 'Maquinaria moderna para entrenamientos seguros y completos.',
+      description: 'Máquinas modernas y espacios adecuados para entrenar cómodo.',
     },
     {
-      icon: '🥗',
-      title: 'Asesoría nutricional',
-      description: 'Guía práctica para mejorar tu alimentación y rendimiento.',
-    },
-    {
-      icon: '🕒',
       title: 'Horarios flexibles',
-      description: 'Entrena en la mañana, tarde o noche según tu rutina diaria.',
+      description: 'Entrena en la mañana, tarde o noche según tu rutina.',
     },
     {
-      icon: '🤝',
-      title: 'Comunidad motivadora',
-      description: 'Ambiente positivo para mantener constancia y disciplina.',
+      title: 'Seguimiento real',
+      description: 'Evaluaciones y orientación para medir tu avance.',
     },
     {
-      icon: '🔒',
-      title: 'Ambiente seguro',
-      description: 'Instalaciones limpias, modernas y con mantenimiento regular.',
+      title: 'Ambiente profesional',
+      description: 'Espacios limpios, organizados y enfocados en resultados.',
+    },
+    {
+      title: 'Comunidad activa',
+      description: 'Un entorno motivador para mantener disciplina y constancia.',
     },
   ],
 
@@ -231,22 +219,22 @@ const gymData = {
     {
       name: 'Andrés Vargas',
       initials: 'AV',
-      role: 'Entrenador de fuerza e hipertrofia',
+      role: 'Fuerza e hipertrofia',
     },
     {
       name: 'Laura Mesa',
       initials: 'LM',
-      role: 'Nutricionista deportiva',
+      role: 'Nutrición deportiva',
     },
     {
       name: 'Daniel Rojas',
       initials: 'DR',
-      role: 'Especialista en rendimiento',
+      role: 'Rendimiento físico',
     },
     {
       name: 'Paula Gómez',
       initials: 'PG',
-      role: 'Entrenadora de clases grupales',
+      role: 'Clases grupales',
     },
   ],
 
@@ -254,7 +242,7 @@ const gymData = {
     'Parqueadero gratuito',
     'Vestidores y duchas',
     'Zona de estiramiento',
-    'Wi-Fi de alta velocidad',
+    'Wi-Fi disponible',
   ],
 
   scheduleBlocks: [
@@ -267,54 +255,44 @@ const gymData = {
     eyebrow: 'Preguntas frecuentes',
     title: 'Resolvemos tus dudas antes de empezar',
     description:
-      'Información rápida sobre horarios, planes, clases, membresías y forma de contacto.',
+      'Información rápida sobre horarios, planes, clases y contacto.',
     items: [
       {
-        question: '¿Cuál es el horario de atención?',
+        question: '¿Necesito experiencia previa?',
         answer:
-          'Atendemos de lunes a viernes de 05:30 a 22:00, sábados de 07:00 a 20:00 y domingos de 08:00 a 14:00.',
+          'No. Tenemos programas para principiantes, intermedios y avanzados.',
       },
       {
-        question: '¿Necesito experiencia previa para entrenar?',
+        question: '¿Los planes incluyen clases?',
         answer:
-          'No. Tenemos programas para principiantes, intermedios y personas con experiencia.',
+          'El plan Premium y Titan incluyen clases grupales ilimitadas.',
       },
       {
-        question: '¿Los planes incluyen clases grupales?',
+        question: '¿Puedo pagar mensual?',
         answer:
-          'El plan Premium y el plan Titan incluyen clases grupales ilimitadas. El plan Básico puede incluir clases según promoción vigente.',
+          'Sí. Puedes consultar disponibilidad y formas de pago por WhatsApp.',
       },
       {
-        question: '¿Puedo congelar mi membresía?',
+        question: '¿Hay entrenamiento personalizado?',
         answer:
-          'Sí. Puedes solicitar la congelación de tu membresía según las condiciones del plan contratado.',
-      },
-      {
-        question: '¿Qué métodos de pago aceptan?',
-        answer:
-          'Aceptamos efectivo, transferencia y pagos con tarjeta. Puedes confirmar opciones actualizadas por WhatsApp.',
-      },
-      {
-        question: '¿Ofrecen planes para parejas o familias?',
-        answer:
-          'Sí. Tenemos opciones para parejas, grupos y empresas. Escríbenos para revisar disponibilidad.',
+          'Sí. El plan Titan incluye acompañamiento personalizado.',
       },
     ],
   },
 
   contactCta: {
-    title: '¿Listo para empezar tu cambio?',
-    text: 'Escríbenos por WhatsApp y uno de nuestros asesores te ayudará a elegir el plan correcto para tu objetivo.',
+    title: '¿Listo para empezar?',
+    text: 'Escríbenos por WhatsApp y te ayudamos a elegir el plan correcto.',
   },
 
   footerServices: [
     'Hipertrofia',
     'Pérdida de grasa',
     'Fuerza',
-    'Entrenamiento personal',
+    'Personal trainer',
   ],
 
-  footerNote: 'Planes, programas y asesoría por WhatsApp para nuevos miembros.',
+  footerNote: 'Programas, membresías y asesoría por WhatsApp para nuevos miembros.',
 }
 
 export default gymData
