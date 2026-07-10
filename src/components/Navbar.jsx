@@ -52,7 +52,7 @@ function Navbar({ business }) {
           href={whatsappUrl}
           target="_blank"
           rel="noreferrer"
-          className="hidden rounded-full bg-[#101010] px-5 py-3 text-xs font-black uppercase text-white transition hover:bg-[var(--brand-accent-dark)] md:inline-flex"
+          className="hidden rounded-full bg-[var(--brand-accent)] px-5 py-3 text-xs font-black uppercase text-white shadow-lg shadow-[var(--brand-accent)]/25 transition hover:bg-[var(--brand-accent-dark)] md:inline-flex"
         >
           Agenda una visita
         </a>
@@ -89,7 +89,7 @@ function Navbar({ business }) {
             target="_blank"
             rel="noreferrer"
             onClick={() => setIsOpen(false)}
-            className="mt-2 rounded-2xl bg-[#101010] px-4 py-4 text-center text-base font-black uppercase text-white"
+            className="mt-2 rounded-2xl bg-[var(--brand-accent)] px-4 py-4 text-center text-base font-black uppercase text-white shadow-lg shadow-[var(--brand-accent)]/25"
           >
             Agenda una visita
           </a>

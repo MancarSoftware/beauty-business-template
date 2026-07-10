@@ -53,7 +53,7 @@ function Location({ business }) {
               {business.scheduleBlocks.map((item) => (
                 <div
                   key={item.day}
-                  className="flex items-center justify-between gap-5 border-b border-zinc-200 pb-4 text-sm"
+                  className="flex items-center justify-between gap-5 border-b border-zinc-200 pb-4 text-sm last:border-b-0"
                 >
                   <span className="font-black text-[#101010]">{item.day}</span>
                   <span className="font-semibold text-zinc-600">{item.time}</span>
@@ -65,7 +65,7 @@ function Location({ business }) {
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-[#101010] px-5 py-4 text-sm font-black uppercase text-white transition hover:bg-[var(--brand-accent-dark)]"
+              className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-[var(--brand-accent)] px-5 py-4 text-sm font-black uppercase text-white shadow-lg shadow-[var(--brand-accent)]/25 transition hover:-translate-y-1 hover:bg-[var(--brand-accent-dark)]"
             >
               Consultar horarios
             </a>
@@ -99,7 +99,7 @@ function Location({ business }) {
                 href={mapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-full border border-black/10 bg-[#f8f5ef] px-5 py-4 text-sm font-black uppercase text-[#101010] transition hover:bg-[var(--brand-accent)] hover:text-white"
+                className="inline-flex w-full items-center justify-center rounded-full bg-[var(--brand-accent)] px-5 py-4 text-sm font-black uppercase text-white shadow-lg shadow-[var(--brand-accent)]/25 transition hover:-translate-y-1 hover:bg-[var(--brand-accent-dark)]"
               >
                 Cómo llegar
               </a>
@@ -125,12 +125,18 @@ function Location({ business }) {
               ))}
             </ul>
 
-            <div className="mt-8 rounded-2xl bg-[#101010] p-6 text-white">
-              <p className="text-sm font-black uppercase text-[var(--brand-accent)]">
+            <div className="mt-8 rounded-2xl border border-[var(--brand-accent)]/25 bg-[#f8f5ef] p-6">
+              <p className="text-sm font-black uppercase text-[var(--brand-accent-dark)]">
                 Contacto
               </p>
-              <p className="mt-3 text-xl font-black">{business.phone}</p>
-              <p className="mt-2 text-sm text-zinc-300">{business.email}</p>
+
+              <p className="mt-3 text-xl font-black text-[#101010]">
+                {business.phone}
+              </p>
+
+              <p className="mt-2 text-sm font-semibold text-zinc-600">
+                {business.email}
+              </p>
             </div>
           </article>
         </div>
@@ -156,7 +162,7 @@ function Location({ business }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-[var(--brand-accent)] px-7 py-5 text-sm font-black uppercase text-white transition hover:bg-[var(--brand-accent-dark)]"
+            className="inline-flex items-center justify-center rounded-full bg-[var(--brand-accent)] px-7 py-5 text-sm font-black uppercase text-white shadow-lg shadow-[var(--brand-accent)]/25 transition hover:-translate-y-1 hover:bg-[var(--brand-accent-dark)]"
           >
             Escríbenos por WhatsApp
           </a>
