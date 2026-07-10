@@ -88,8 +88,8 @@ function Pricing({ business }) {
                 rel="noreferrer"
                 className={`mt-10 inline-flex justify-center px-7 py-4 text-sm font-black uppercase transition ${
                   plan.featured
-                    ? 'bg-[var(--brand-accent)] text-[#050505] hover:bg-white'
-                    : 'bg-[#050505] text-white hover:bg-[var(--brand-accent)] hover:text-[#050505]'
+                    ? 'bg-[var(--brand-accent)] !text-[#050505] hover:bg-white hover:!text-[#050505]'
+                    : 'bg-[#050505] !text-white hover:bg-[var(--brand-accent)] hover:!text-[#050505]'
                 }`}
               >
                 Consultar plan

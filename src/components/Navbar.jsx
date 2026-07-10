@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { createWhatsAppUrl } from '../utils/whatsapp'
 
 const navItems = [
   { label: 'Inicio', href: '#inicio' },
@@ -12,10 +11,6 @@ const navItems = [
 
 function Navbar({ business }) {
   const [isOpen, setIsOpen] = useState(false)
-  const whatsappUrl = createWhatsAppUrl(
-    business.whatsapp,
-    business.whatsappMessage,
-  )
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#050505]/88 text-white backdrop-blur-xl">
@@ -47,15 +42,6 @@ function Navbar({ business }) {
           ))}
         </div>
 
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="hidden bg-[var(--brand-accent)] px-5 py-3 text-xs font-black uppercase text-[#050505] transition hover:-translate-y-0.5 hover:bg-white md:inline-flex"
-        >
-          Probar gimnasio
-        </a>
-
         <button
           type="button"
           aria-label="Abrir menu"
@@ -82,16 +68,6 @@ function Navbar({ business }) {
               {item.label}
             </a>
           ))}
-
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => setIsOpen(false)}
-            className="mt-2 bg-[var(--brand-accent)] px-4 py-4 text-center text-sm font-black uppercase text-[#050505]"
-          >
-            Probar gimnasio
-          </a>
         </div>
       </div>
     </header>

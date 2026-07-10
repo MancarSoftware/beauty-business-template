@@ -99,7 +99,7 @@ function Location({ business }) {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-[var(--brand-accent)] px-6 py-4 text-center text-sm font-black uppercase text-[#050505] transition hover:bg-white"
+                className="bg-[var(--brand-accent)] px-6 py-4 text-center text-sm font-black uppercase !text-[#050505] transition hover:bg-white hover:!text-[#050505]"
               >
                 Agendar visita
               </a>
@@ -107,7 +107,7 @@ function Location({ business }) {
                 href={mapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="border border-white/20 px-6 py-4 text-center text-sm font-black uppercase text-white transition hover:border-[var(--brand-accent)] hover:text-[var(--brand-accent)]"
+                className="border border-white/20 bg-[#050505] px-6 py-4 text-center text-sm font-black uppercase !text-white transition hover:border-white hover:bg-white hover:!text-[#050505]"
               >
                 Abrir Google Maps
               </a>
@@ -132,7 +132,7 @@ function Location({ business }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="bg-[#050505] px-7 py-5 text-center text-sm font-black uppercase text-white transition hover:bg-white hover:text-[#050505]"
+            className="bg-[#050505] px-7 py-5 text-center text-sm font-black uppercase !text-white transition hover:bg-white hover:!text-[#050505]"
           >
             Escribir por WhatsApp
           </a>

@@ -42,14 +42,14 @@ function Hero({ business }) {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center bg-[var(--brand-accent)] px-8 py-4 text-sm font-black uppercase text-[#050505] transition hover:-translate-y-1 hover:bg-white"
+                className="inline-flex items-center justify-center bg-[var(--brand-accent)] px-8 py-4 text-sm font-black uppercase !text-[#050505] transition hover:-translate-y-1 hover:bg-white hover:!text-[#050505]"
               >
                 {business.hero.cta}
               </a>
 
               <a
                 href={business.hero.secondaryHref ?? '#planes'}
-                className="inline-flex items-center justify-center border border-white/20 bg-white/5 px-8 py-4 text-sm font-black uppercase text-white transition hover:-translate-y-1 hover:border-[var(--brand-accent)] hover:text-[var(--brand-accent)]"
+                className="inline-flex items-center justify-center border border-white/20 bg-[#050505] px-8 py-4 text-sm font-black uppercase !text-white transition hover:-translate-y-1 hover:border-white hover:bg-white hover:!text-[#050505]"
               >
                 {business.hero.secondaryCta ?? 'Ver membresias'}
               </a>

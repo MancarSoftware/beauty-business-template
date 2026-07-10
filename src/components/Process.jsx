@@ -27,7 +27,7 @@ function Process({ business }) {
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex bg-[#050505] px-7 py-4 text-sm font-black uppercase text-white transition hover:-translate-y-1 hover:bg-[var(--brand-punch)]"
+              className="inline-flex bg-[#050505] px-7 py-4 text-sm font-black uppercase !text-white transition hover:-translate-y-1 hover:bg-[var(--brand-punch)]"
             >
               Agendar evaluacion
             </a>
