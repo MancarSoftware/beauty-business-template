@@ -78,10 +78,10 @@ const gymData = {
         'Cada miembro entra con un objetivo distinto. Por eso organizamos el entrenamiento por rutas, no por rutinas genéricas.',
     },
     pricing: {
-      eyebrow: 'Membresías',
-      title: 'Elige cómo quieres pertenecer',
+      eyebrow: 'Planes',
+      title: 'Elige tu plan de entrenamiento',
       description:
-        'Tres membresías diseñadas para diferentes niveles de acompañamiento, constancia y resultado.',
+        'Planes por tiempo para entrenar con acceso completo, mejor precio mensual y beneficios claros.',
     },
     benefits: {
       eyebrow: 'Experiencia Titan',
@@ -169,57 +169,58 @@ const gymData = {
     },
   ],
 
-  pricing: [
+    pricing: [
     {
-      name: 'Essential',
-      price: '$49.900',
-      period: '/mes',
-      tag: 'Acceso',
-      description:
-        'Para empezar a entrenar con acceso al club y una guía inicial.',
+      name: 'Trimestral',
+      duration: '3 Meses',
+      price: '$60',
+      period: '/total',
+      equivalent: 'Equivale a $20.00/mes',
+      tag: 'Inicio',
+      description: 'Ideal para empezar con constancia y acceso completo al club.',
       benefits: [
-        'Acceso a sala de entrenamiento',
-        'Evaluación inicial',
-        'Rutina base de entrada',
-        'Uso de zonas comunes',
+        'Acceso total al gimnasio',
+        'Pesas y cardio ilimitado',
+        'Sin costo de matrícula',
+        'Acceso 7 días a la semana',
       ],
       whatsappMessage:
-        'Hola Titan Fit Gym, quiero información sobre la membresía Essential.',
-    },
-    {
-      name: 'Performance',
-      price: '$79.900',
-      period: '/mes',
-      tag: 'Más elegida',
-      description:
-        'La membresía ideal para entrenar con estructura, clases y seguimiento.',
-      benefits: [
-        'Todo lo de Essential',
-        'Ruta de entrenamiento por objetivo',
-        'Clases grupales ilimitadas',
-        'Evaluación mensual',
-        'Seguimiento por WhatsApp',
-      ],
-      whatsappMessage:
-        'Hola Titan Fit Gym, quiero información sobre la membresía Performance.',
+        'Hola Titan Fit Gym, quiero información sobre el plan Trimestral.',
       featured: true,
     },
     {
-      name: 'Titan Black',
-      price: '$119.900',
-      period: '/mes',
-      tag: 'Privada',
-      description:
-        'Para miembros que buscan acompañamiento avanzado y atención personalizada.',
+      name: 'Semestral',
+      duration: '6 Meses',
+      price: '$108',
+      period: '/total',
+      equivalent: 'Equivale a $18.00/mes',
+      tag: 'Ahorro',
+      description: 'Para entrenar con mayor continuidad y mejor precio mensual.',
       benefits: [
-        'Todo lo de Performance',
-        'Coach privado',
-        'Plan nutricional avanzado',
-        'Revisión semanal',
-        'Acceso extendido 24/7',
+        'Acceso total al gimnasio',
+        'Pesas y cardio ilimitado',
+        'Sin costo de matrícula',
+        'Acceso 7 días a la semana',
       ],
       whatsappMessage:
-        'Hola Titan Fit Gym, quiero información sobre la membresía Titan Black.',
+        'Hola Titan Fit Gym, quiero información sobre el plan Semestral.',
+    },
+    {
+      name: '9 Meses',
+      duration: 'Compromiso Fitness',
+      price: '$153',
+      period: '/total',
+      equivalent: 'Equivale a $17.00/mes',
+      tag: 'Mayor ahorro',
+      description: 'Para miembros que buscan disciplina, ahorro y progreso sostenido.',
+      benefits: [
+        'Acceso total al gimnasio',
+        'Pesas y cardio ilimitado',
+        'Sin costo de matrícula',
+        'Acceso 7 días a la semana',
+      ],
+      whatsappMessage:
+        'Hola Titan Fit Gym, quiero información sobre el plan de 9 Meses.',
     },
   ],
 
