@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const navItems = [
   { label: 'Inicio', href: '#inicio' },
@@ -11,6 +11,22 @@ const navItems = [
 
 function Navbar({ business }) {
   const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    if (!isOpen) {
+      return undefined
+    }
+
+    const closeOnSwipe = () => setIsOpen(false)
+
+    window.addEventListener('touchmove', closeOnSwipe, { passive: true })
+    window.addEventListener('scroll', closeOnSwipe, { passive: true })
+
+    return () => {
+      window.removeEventListener('touchmove', closeOnSwipe)
+      window.removeEventListener('scroll', closeOnSwipe)
+    }
+  }, [isOpen])
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#050505]/88 text-white backdrop-blur-xl">
