@@ -70,9 +70,9 @@ function Hero({ business }) {
           </div>
         </div>
 
-        <div className="relative">
-          <div className="rounded-[2.8rem] border border-[var(--brand-accent)]/40 p-5">
-            <div className="relative overflow-hidden rounded-[2.35rem] bg-[#101010] shadow-2xl shadow-black/30">
+        <div className="relative mx-auto w-full max-w-[700px]">
+          <div className="rounded-[2.75rem] border border-[var(--brand-accent)]/40 bg-[#ede7dc] p-4 shadow-2xl shadow-black/10">
+            <div className="relative overflow-hidden rounded-[2.25rem] bg-[#101010] shadow-2xl shadow-black/25">
               {business.hero.image ? (
                 <img
                   src={business.hero.image}
@@ -81,7 +81,7 @@ function Hero({ business }) {
                 />
               ) : null}
 
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(16,16,16,0.05)_0%,rgba(16,16,16,0.92)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(16,16,16,0.08)_0%,rgba(16,16,16,0.92)_100%)]" />
 
               <div className="absolute left-0 right-0 top-0 flex items-center justify-between p-6 text-white">
                 <p className="text-xs font-black uppercase tracking-[0.25em] text-[var(--brand-accent)]">
@@ -94,7 +94,7 @@ function Hero({ business }) {
               </div>
 
               <div className="absolute bottom-0 left-0 right-0 p-7 text-white">
-                <p className="max-w-sm font-display text-3xl font-black uppercase leading-tight">
+                <p className="max-w-md font-display text-3xl font-black uppercase leading-tight">
                   Método, técnica y seguimiento para avanzar.
                 </p>
 
