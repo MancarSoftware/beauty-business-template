@@ -118,7 +118,7 @@ function Seo({ business }) {
 
     const schema = {
       '@context': 'https://schema.org',
-      '@type': seo.businessType ?? 'ExerciseGym',
+      '@type': seo.businessType ?? 'HealthAndBeautyBusiness',
       name: business.name,
       description,
       telephone: business.phone,

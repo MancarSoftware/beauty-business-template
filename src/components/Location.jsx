@@ -1,7 +1,7 @@
 import { createMapsUrl, createWhatsAppUrl } from '../utils/whatsapp'
 
 function Location({ business }) {
-  const section = business.sections?.location
+  const section = business.sections.location
   const mapsUrl =
     business.mapsUrl && business.mapsUrl !== '#'
       ? business.mapsUrl
@@ -13,44 +13,33 @@ function Location({ business }) {
     )}&z=17&output=embed`
   const whatsappUrl = createWhatsAppUrl(
     business.whatsapp,
-    `Hola ${business.name}, quiero agendar una visita al gimnasio.`,
+    `Hola ${business.name}, quiero reservar una cita.`,
   )
 
   return (
     <section
       id="ubicacion"
-      className="bg-[#f4f1e8] px-4 py-16 text-[#050505] sm:px-6 lg:px-8 lg:py-24"
+      className="bg-[#fbf7f1] px-4 py-16 text-[#09231f] sm:px-6 lg:px-8 lg:py-24"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+        <div className="mb-10 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
           <div>
-            <p className="text-xs font-black uppercase text-[var(--brand-punch)]">
+            <p className="text-xs font-black uppercase text-[var(--brand-accent-dark)]">
               {section.eyebrow}
             </p>
-            <h2 className="mt-4 text-4xl font-black uppercase leading-[0.96] md:text-6xl">
+            <h2 className="mt-4 text-4xl font-black uppercase leading-[0.98] md:text-6xl">
               {section.title}
             </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-600">
-              {section.description}
-            </p>
           </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {business.scheduleBlocks.map((item) => (
-              <article key={item.day} className="border border-[#050505]/12 bg-white p-5">
-                <p className="text-xs font-black uppercase text-zinc-500">
-                  {item.day}
-                </p>
-                <p className="mt-3 text-2xl font-black uppercase">{item.time}</p>
-              </article>
-            ))}
-          </div>
+          <p className="max-w-2xl text-lg leading-8 text-[#09231f]/62">
+            {section.description}
+          </p>
         </div>
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
-          <article className="overflow-hidden border border-[#050505]/12 bg-white">
-            <div className="border-b border-[#050505]/12 p-5">
-              <p className="text-xs font-black uppercase text-[var(--brand-punch)]">
+        <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+          <article className="overflow-hidden border border-[#09231f]/12 bg-white">
+            <div className="border-b border-[#09231f]/12 p-5">
+              <p className="text-xs font-black uppercase text-[var(--brand-accent-dark)]">
                 Direccion
               </p>
               <p className="mt-2 text-lg font-black">{business.address}</p>
@@ -69,45 +58,51 @@ function Location({ business }) {
             />
           </article>
 
-          <aside className="flex flex-col border border-[#050505] bg-[#050505] p-6 text-white">
+          <aside className="border border-[#09231f] bg-[#09231f] p-6 text-white">
             <p className="text-xs font-black uppercase text-[var(--brand-accent)]">
-              Ven preparado
+              Horarios de atencion
             </p>
-            <h3 className="mt-4 text-4xl font-black uppercase leading-none">
-              Tu primera visita puede ser esta semana.
-            </h3>
 
-            <ul className="mt-8 grid gap-3">
-              {business.locationFeatures.map((feature) => (
-                <li
-                  key={feature}
-                  className="flex items-center gap-3 border border-white/10 bg-white/[0.04] p-4 text-sm font-bold"
+            <div className="mt-6 space-y-3">
+              {business.scheduleBlocks.map((item) => (
+                <div
+                  key={item.day}
+                  className="flex items-center justify-between gap-4 border border-white/12 bg-white/[0.04] p-4"
                 >
+                  <span className="text-sm font-black uppercase">{item.day}</span>
+                  <span className="text-sm text-white/64">{item.time}</span>
+                </div>
+              ))}
+            </div>
+
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+              {business.locationFeatures.map((feature) => (
+                <li key={feature} className="flex items-center gap-3 text-sm font-bold">
                   <span className="h-2.5 w-2.5 bg-[var(--brand-accent)]" />
                   {feature}
                 </li>
               ))}
             </ul>
 
-            <div className="mt-8 border-t border-white/10 pt-6">
-              <p className="text-sm text-white/55">{business.phone}</p>
-              <p className="mt-1 text-sm text-white/55">{business.email}</p>
+            <div className="mt-8 border-t border-white/12 pt-6">
+              <p className="text-sm text-white/58">{business.phone}</p>
+              <p className="mt-1 text-sm text-white/58">{business.email}</p>
             </div>
 
-            <div className="mt-auto grid gap-3 pt-8">
+            <div className="mt-8 grid gap-3">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-[var(--brand-accent)] px-6 py-4 text-center text-sm font-black uppercase !text-[#050505] transition hover:bg-white hover:!text-[#050505]"
+                className="bg-[var(--brand-accent)] px-6 py-4 text-center text-sm font-black uppercase text-white transition hover:bg-white hover:text-[#09231f]"
               >
-                Agendar visita
+                Reservar cita
               </a>
               <a
                 href={mapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="border border-white/20 bg-[#050505] px-6 py-4 text-center text-sm font-black uppercase !text-white transition hover:border-white hover:bg-white hover:!text-[#050505]"
+                className="border border-white/20 px-6 py-4 text-center text-sm font-black uppercase text-white transition hover:bg-white hover:text-[#09231f]"
               >
                 Abrir Google Maps
               </a>
@@ -116,14 +111,14 @@ function Location({ business }) {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 max-w-7xl border border-[#050505] bg-[var(--brand-accent)] p-6 text-[#050505] sm:p-8">
-        <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-center">
+      <div className="mx-auto mt-12 max-w-7xl border border-[#09231f] bg-[var(--brand-accent)] p-6 text-white sm:p-8">
+        <div className="grid gap-6 md:grid-cols-[1.15fr_0.85fr] md:items-center">
           <div>
-            <p className="text-xs font-black uppercase">WhatsApp directo</p>
+            <p className="text-xs font-black uppercase">Reserva directa</p>
             <h2 className="mt-3 text-4xl font-black uppercase leading-none">
               {business.contactCta.title}
             </h2>
-            <p className="mt-4 max-w-2xl text-base font-bold leading-7 text-[#050505]/72">
+            <p className="mt-4 max-w-2xl text-base font-bold leading-7 text-white/78">
               {business.contactCta.text}
             </p>
           </div>
@@ -132,7 +127,7 @@ function Location({ business }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="bg-[#050505] px-7 py-5 text-center text-sm font-black uppercase !text-white transition hover:bg-white hover:!text-[#050505]"
+            className="bg-[#09231f] px-7 py-5 text-center text-sm font-black uppercase text-white transition hover:bg-white hover:text-[#09231f]"
           >
             Escribir por WhatsApp
           </a>

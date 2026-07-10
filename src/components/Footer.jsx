@@ -1,9 +1,9 @@
 function Footer({ business }) {
   const quickLinks = [
     { label: 'Inicio', href: '#inicio' },
-    { label: 'Metodo', href: '#proceso' },
-    { label: 'Programas', href: '#programas' },
-    { label: 'Planes', href: '#planes' },
+    { label: 'Tratamientos', href: '#tratamientos' },
+    { label: 'Reserva', href: '#reserva' },
+    { label: 'Paquetes', href: '#paquetes' },
     { label: 'Ubicacion', href: '#ubicacion' },
   ]
 
@@ -21,12 +21,12 @@ function Footer({ business }) {
   }
 
   return (
-    <footer className="border-t border-white/10 bg-[#050505] px-4 py-12 text-white sm:px-6 lg:px-8">
+    <footer className="border-t border-white/10 bg-[#09231f] px-4 py-12 text-white sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <span className="grid h-12 w-12 place-items-center bg-[var(--brand-accent)] font-black text-[#050505]">
+              <span className="grid h-12 w-12 place-items-center bg-[var(--brand-accent)] font-black text-white">
                 {business.logoInitials}
               </span>
               <div>
@@ -62,7 +62,7 @@ function Footer({ business }) {
 
             <div>
               <h3 className="text-xs font-black uppercase text-[var(--brand-accent)]">
-                Entrenamiento
+                Servicios
               </h3>
               <ul className="mt-4 space-y-3 text-sm font-bold text-white/62">
                 {business.footerServices.map((service) => (

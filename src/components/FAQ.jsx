@@ -8,7 +8,7 @@ function FAQ({ business }) {
   return (
     <section
       id="faq"
-      className="bg-[#050505] px-4 py-16 text-white sm:px-6 lg:px-8 lg:py-24"
+      className="bg-[#09231f] px-4 py-16 text-white sm:px-6 lg:px-8 lg:py-24"
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
@@ -29,7 +29,7 @@ function FAQ({ business }) {
           {section.items.map((item, index) => (
             <details
               key={item.question}
-              className="group border border-white/10 bg-white/[0.04] p-5 transition open:border-[var(--brand-accent)] open:bg-white open:text-[#050505]"
+              className="group border border-white/12 bg-white/[0.04] p-5 transition open:border-[var(--brand-accent)] open:bg-white open:text-[#09231f]"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6">
                 <span className="text-base font-black uppercase">
@@ -39,12 +39,12 @@ function FAQ({ business }) {
                   {item.question}
                 </span>
 
-                <span className="grid h-9 w-9 shrink-0 place-items-center border border-white/15 text-xl font-light transition group-open:rotate-45 group-open:border-[#050505]">
+                <span className="grid h-9 w-9 shrink-0 place-items-center border border-white/15 text-xl font-light transition group-open:rotate-45 group-open:border-[#09231f]">
                   +
                 </span>
               </summary>
 
-              <p className="mt-5 text-sm leading-7 text-white/62 group-open:text-[#050505]/70">
+              <p className="mt-5 text-sm leading-7 text-white/62 group-open:text-[#09231f]/70">
                 {item.answer}
               </p>
             </details>
