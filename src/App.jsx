@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import Location from './components/Location'
 import Navbar from './components/Navbar'
 import Pricing from './components/Pricing'
+import Process from './components/Process'
 import Programs from './components/Programs'
 import Seo from './components/Seo'
 import WhatsAppButton from './components/WhatsAppButton'
@@ -26,6 +27,7 @@ function App() {
 
       <main>
         <Hero business={business} />
+        <Process business={business} />
         <Programs business={business} />
         <Pricing business={business} />
         <WhyChooseUs business={business} />

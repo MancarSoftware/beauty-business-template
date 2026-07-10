@@ -3,7 +3,7 @@ const gymData = {
   shortName: 'Titan Fit',
   logoInitials: 'TF',
   type: 'Gimnasio premium',
-  slogan: 'Entrena con propósito, estructura y resultados reales',
+  slogan: 'Entrena con dirección, estructura y resultados reales',
   description:
     'Gimnasio premium con programas por objetivo, planes flexibles, entrenadores certificados y contacto directo por WhatsApp.',
   whatsapp: '593987654321',
@@ -48,15 +48,15 @@ const gymData = {
 
   hero: {
     eyebrow: 'Gimnasio premium en Quito',
-    title: 'Entrena con propósito',
-    accentTitle: 'y resultados reales',
+    title: 'Tu entrenamiento',
+    accentTitle: 'con dirección.',
     subtitle:
-      'Programas por objetivo, planes flexibles y acompañamiento profesional para mejorar fuerza, energía y disciplina.',
+      'Planes claros, entrenadores certificados y seguimiento real para avanzar sin improvisar.',
     image:
       'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1600&q=80',
-    cta: 'Comenzar ahora',
+    cta: 'Agendar visita',
     secondaryHref: '#planes',
-    secondaryCta: 'Ver planes',
+    secondaryCta: 'Ver membresías',
     features: [
       { title: '+500', text: 'miembros activos' },
       { title: '24/7', text: 'acceso disponible' },
@@ -65,11 +65,17 @@ const gymData = {
   },
 
   sections: {
-    programs: {
-      eyebrow: 'Programas',
-      title: 'Entrenamiento según tu objetivo',
+    process: {
+      eyebrow: 'Cómo empiezas',
+      title: 'Un método claro para entrenar mejor',
       description:
-        'Elige el camino correcto: fuerza, hipertrofia, pérdida de grasa o entrenamiento personalizado.',
+        'Desde la primera visita sabrás qué hacer, cómo avanzar y qué plan se adapta a tu objetivo.',
+    },
+    programs: {
+      eyebrow: 'Objetivos',
+      title: 'Elige el camino según tu meta',
+      description:
+        'No todos entrenan por lo mismo. Por eso organizamos los programas según el resultado que buscas.',
     },
     pricing: {
       eyebrow: 'Membresías',
@@ -97,44 +103,67 @@ const gymData = {
     },
   },
 
+  process: [
+    {
+      title: 'Evaluación inicial',
+      description:
+        'Revisamos tu objetivo, nivel actual y disponibilidad para recomendarte el mejor inicio.',
+    },
+    {
+      title: 'Plan según tu objetivo',
+      description:
+        'Definimos si tu enfoque será ganar músculo, perder grasa, fuerza o condición física.',
+    },
+    {
+      title: 'Entrenamiento guiado',
+      description:
+        'Entrenas con una estructura clara, corrección técnica y apoyo profesional.',
+    },
+    {
+      title: 'Seguimiento mensual',
+      description:
+        'Medimos avances y ajustamos tu rutina para mantener progreso real.',
+    },
+  ],
+
   programs: [
     {
       icon: '01',
-      name: 'Hipertrofia',
+      name: 'Ganar músculo',
       description:
-        'Rutinas progresivas para aumentar masa muscular con técnica y control.',
+        'Programa enfocado en hipertrofia, progresión de cargas y técnica correcta.',
       whatsappMessage:
-        'Hola Titan Fit Gym, quiero información sobre el programa de hipertrofia.',
+        'Hola Titan Fit Gym, quiero información sobre el programa para ganar músculo.',
     },
     {
       icon: '02',
-      name: 'Pérdida de grasa',
+      name: 'Perder grasa',
       description:
         'Entrenamientos medibles para mejorar composición corporal y condición física.',
       whatsappMessage:
-        'Hola Titan Fit Gym, quiero información sobre pérdida de grasa.',
+        'Hola Titan Fit Gym, quiero información sobre el programa para perder grasa.',
     },
     {
       icon: '03',
-      name: 'Fuerza',
+      name: 'Mejorar fuerza',
       description:
-        'Programa para mejorar potencia, técnica y rendimiento en sala de pesas.',
+        'Rutinas para aumentar potencia, control y rendimiento en sala de pesas.',
       whatsappMessage:
         'Hola Titan Fit Gym, quiero información sobre el programa de fuerza.',
     },
     {
       icon: '04',
-      name: 'Acondicionamiento',
+      name: 'Condición física',
       description:
         'Sesiones dinámicas para resistencia, agilidad y energía diaria.',
       whatsappMessage:
-        'Hola Titan Fit Gym, quiero información sobre acondicionamiento.',
+        'Hola Titan Fit Gym, quiero información sobre acondicionamiento físico.',
     },
     {
       icon: '05',
-      name: 'Personal trainer',
+      name: 'Entrenar con coach',
       description:
-        'Entrenamiento uno a uno con seguimiento directo según tu objetivo.',
+        'Entrenamiento personalizado con seguimiento directo según tu objetivo.',
       whatsappMessage:
         'Hola Titan Fit Gym, quiero información sobre entrenamiento personalizado.',
     },
@@ -146,7 +175,7 @@ const gymData = {
       price: '$49.900',
       period: '/mes',
       tag: 'Inicio',
-      description: 'Para empezar con acceso al gimnasio y rutina base.',
+      description: 'Para empezar con acceso al gimnasio y una rutina base.',
       benefits: [
         'Acceso al gimnasio',
         'Rutina inicial',
@@ -160,7 +189,7 @@ const gymData = {
       price: '$79.900',
       period: '/mes',
       tag: 'Más elegido',
-      description: 'Para entrenar con más acompañamiento y clases grupales.',
+      description: 'Para entrenar con más acompañamiento, clases y seguimiento.',
       benefits: [
         'Todo lo del plan Básico',
         'Clases grupales ilimitadas',
@@ -281,15 +310,15 @@ const gymData = {
   },
 
   contactCta: {
-    title: '¿Listo para empezar?',
-    text: 'Escríbenos por WhatsApp y te ayudamos a elegir el plan correcto.',
+    title: 'Empieza esta semana',
+    text: 'Escríbenos por WhatsApp y agenda tu primera visita. Te ayudamos a elegir el plan correcto.',
   },
 
   footerServices: [
-    'Hipertrofia',
-    'Pérdida de grasa',
-    'Fuerza',
-    'Personal trainer',
+    'Ganar músculo',
+    'Perder grasa',
+    'Mejorar fuerza',
+    'Entrenar con coach',
   ],
 
   footerNote: 'Programas, membresías y asesoría por WhatsApp para nuevos miembros.',
