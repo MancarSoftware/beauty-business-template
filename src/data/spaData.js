@@ -49,9 +49,10 @@ const spaData = {
   },
 
   hero: {
-    eyebrow: 'Wellness concierge en Quito',
-    title: 'Bienestar con agenda privada.',
-    accentTitle: 'Cuidado sin ruido.',
+    eyebrow: 'Bienvenido a Serena Spa',
+    since: 'Since 2012',
+    title: 'Relajacion, belleza y bienestar en un solo lugar.',
+    accentTitle: 'Tu pausa empieza aqui.',
     subtitle:
       'Un spa urbano con reserva asistida, cabinas privadas y rituales pensados para piel, cuerpo y descanso real.',
     image:
@@ -67,6 +68,14 @@ const spaData = {
   },
 
   sections: {
+    about: {
+      eyebrow: 'Nosotros',
+      title: 'Disfruta una sesion relajante con Serena Spa',
+      description:
+        'Creamos un oasis urbano donde cada visita se vive como una experiencia sensorial: terapeutas profesionales, cabinas privadas, faciales, masajes y rituales disenados para renovar cuerpo y mente.',
+      image:
+        'https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=1200&q=85',
+    },
     treatments: {
       eyebrow: 'Carta de tratamientos',
       title: 'Servicios claros, experiencia cuidada y reserva sin espera.',
@@ -107,49 +116,56 @@ const spaData = {
 
   treatments: [
     {
-      name: 'Masaje relajante',
+      name: 'Tratamientos faciales',
       duration: '60 min',
-      price: 'Desde $35',
+      price: 'Desde $32',
       image:
         'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=900&q=80',
       description:
-        'Presion suave a media para liberar tension, descansar la mente y recuperar calma corporal.',
+        'Limpiezas, hidratacion profunda y protocolos para piel cansada, opaca o sensible.',
       whatsappMessage:
-        'Hola Serena Spa, quiero reservar un masaje relajante.',
+        'Hola Serena Spa, quiero informacion sobre tratamientos faciales.',
     },
     {
-      name: 'Facial luminosidad',
-      duration: '50 min',
-      price: 'Desde $32',
+      name: 'Depilacion laser',
+      duration: 'Por zona',
+      price: 'Desde $18',
       image:
         'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80',
       description:
-        'Limpieza, hidratacion y masaje facial para una piel mas fresca, suave y descansada.',
+        'Sesiones por zona con agenda personalizada, cuidado previo y recomendaciones posteriores.',
       whatsappMessage:
-        'Hola Serena Spa, quiero reservar un facial luminosidad.',
+        'Hola Serena Spa, quiero informacion sobre depilacion laser.',
     },
     {
-      name: 'Ritual corporal',
+      name: 'Tratamientos corporales',
       duration: '75 min',
       price: 'Desde $48',
       image:
         'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=80',
       description:
-        'Exfoliacion, aromaterapia y masaje envolvente para renovar piel y relajar profundamente.',
+        'Masajes, exfoliaciones, drenajes y rituales envolventes para relajar y renovar.',
       whatsappMessage:
         'Hola Serena Spa, quiero informacion sobre el ritual corporal.',
     },
     {
-      name: 'Spa para parejas',
-      duration: '90 min',
-      price: 'Desde $78',
+      name: 'Reduccion de medidas',
+      duration: 'Plan mensual',
+      price: 'Desde $65',
       image:
         'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=80',
       description:
-        'Experiencia compartida con cabina preparada, masaje sincronizado y detalles especiales.',
+        'Protocolos corporales con seguimiento, aparatologia estetica y asesoramiento por objetivo.',
       whatsappMessage:
-        'Hola Serena Spa, quiero reservar una experiencia para parejas.',
+        'Hola Serena Spa, quiero informacion sobre reduccion de medidas.',
     },
+  ],
+
+  stats: [
+    { value: '12+', label: 'anos de experiencia' },
+    { value: '24', label: 'tratamientos disponibles' },
+    { value: '4.9', label: 'valoracion promedio' },
+    { value: '5000+', label: 'clientes atendidos' },
   ],
 
   process: [

@@ -31,6 +31,14 @@ function Navbar({ business }) {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-[#09231f]/10 bg-[#fbf7f1]/92 text-[#09231f] backdrop-blur-xl">
+      <div className="hidden border-b border-[#09231f]/10 bg-[#09231f] text-white md:block">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs font-bold uppercase text-white/72 lg:px-8">
+          <span>{business.phone}</span>
+          <span>Lunes a sabado · reserva previa por WhatsApp</span>
+          <span>{business.email}</span>
+        </div>
+      </div>
+
       <nav className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center gap-4 px-4 py-4 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-8">
         <a href="#inicio" className="flex items-center gap-3">
           <span className="grid h-11 w-11 place-items-center bg-[#09231f] text-sm font-black text-white">

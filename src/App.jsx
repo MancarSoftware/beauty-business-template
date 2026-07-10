@@ -1,5 +1,7 @@
 import FAQ from './components/FAQ'
+import About from './components/About'
 import BookingFlow from './components/BookingFlow'
+import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Location from './components/Location'
@@ -30,11 +32,13 @@ function App() {
 
       <main>
         <Hero business={business} />
+        <About business={business} />
         <Treatments business={business} />
         <BookingFlow business={business} />
         <Packages business={business} />
         <SpaExperience business={business} />
         <Testimonials business={business} />
+        <ContactForm business={business} />
         <Location business={business} />
         <FAQ business={business} />
       </main>

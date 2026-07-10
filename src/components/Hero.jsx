@@ -16,6 +16,9 @@ function Hero({ business }) {
           <p className="mb-7 w-fit border border-[#09231f]/14 bg-white px-4 py-2 text-xs font-black uppercase text-[var(--brand-accent-dark)]">
             {business.hero.eyebrow}
           </p>
+          <p className="mb-4 font-display text-3xl italic text-[var(--brand-accent-dark)]">
+            {business.hero.since}
+          </p>
 
           <h1 className="max-w-4xl text-6xl font-black uppercase leading-[0.9] md:text-7xl lg:text-8xl">
             {business.hero.title}
@@ -98,6 +101,22 @@ function Hero({ business }) {
               </a>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="relative border-t border-[#09231f]/10 bg-[#f1e6dc]">
+        <div className="mx-auto grid max-w-7xl md:grid-cols-4">
+          {business.stats.map((stat) => (
+            <article
+              key={stat.label}
+              className="border-b border-[#09231f]/10 p-5 md:border-b-0 md:border-r md:last:border-r-0"
+            >
+              <p className="text-4xl font-black">{stat.value}</p>
+              <p className="mt-2 text-xs font-black uppercase text-[#09231f]/50">
+                {stat.label}
+              </p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
