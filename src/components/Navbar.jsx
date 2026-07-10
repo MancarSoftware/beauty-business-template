@@ -30,18 +30,16 @@ function Navbar({ business }) {
   }, [isOpen])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#09231f]/10 bg-[#fbf7f1]/92 text-[#09231f] backdrop-blur-xl">
-      <div className="hidden border-b border-[#09231f]/10 bg-[#09231f] text-white md:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs font-bold uppercase text-white/72 lg:px-8">
-          <span>{business.phone}</span>
-          <span>Lunes a sabado · reserva previa por WhatsApp</span>
-          <span>{business.email}</span>
-        </div>
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 text-[#09231f] sm:px-5">
+      <div className="mx-auto hidden max-w-7xl items-center justify-between rounded-full bg-[#09231f] px-5 py-2 text-xs font-bold uppercase text-white/72 shadow-lg shadow-[#09231f]/10 md:flex">
+        <span>{business.phone}</span>
+        <span>Lunes a sabado - reserva previa por WhatsApp</span>
+        <span>{business.email}</span>
       </div>
 
-      <nav className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center gap-4 px-4 py-4 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-8">
+      <nav className="mx-auto mt-3 grid max-w-7xl grid-cols-[1fr_auto] items-center gap-4 rounded-full border border-white/70 bg-[#fffaf5]/90 px-4 py-3 shadow-2xl shadow-[#09231f]/10 backdrop-blur-xl sm:px-5 lg:grid-cols-[1fr_auto_1fr]">
         <a href="#inicio" className="flex items-center gap-3">
-          <span className="grid h-11 w-11 place-items-center bg-[#09231f] text-sm font-black text-white">
+          <span className="grid h-11 w-11 place-items-center rounded-full bg-[#09231f] text-sm font-black text-white">
             {business.logoInitials}
           </span>
           <span>
@@ -54,12 +52,12 @@ function Navbar({ business }) {
           </span>
         </a>
 
-        <div className="hidden items-center gap-7 text-xs font-black uppercase text-[#09231f]/58 lg:flex">
+        <div className="hidden items-center rounded-full bg-[#f4ebe2] p-1 text-xs font-black uppercase text-[#09231f]/62 lg:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="transition hover:text-[var(--brand-accent-dark)]"
+              className="rounded-full px-4 py-2.5 transition hover:bg-white hover:text-[var(--brand-accent-dark)]"
             >
               {item.label}
             </a>
@@ -71,7 +69,7 @@ function Navbar({ business }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="border border-[#09231f] px-5 py-3 text-xs font-black uppercase text-[#09231f] transition hover:bg-[#09231f] hover:text-white"
+            className="rounded-full bg-[var(--brand-accent)] px-5 py-3 text-xs font-black uppercase text-white shadow-lg shadow-[var(--brand-accent)]/20 transition hover:-translate-y-0.5 hover:bg-[#09231f]"
           >
             Solicitar cita
           </a>
@@ -81,24 +79,24 @@ function Navbar({ business }) {
           type="button"
           aria-label="Abrir menu"
           onClick={() => setIsOpen((current) => !current)}
-          className="grid h-11 w-11 place-items-center border border-[#09231f]/20 bg-white text-2xl font-light text-[#09231f] lg:hidden"
+          className="grid h-11 w-11 place-items-center rounded-full bg-[#09231f] text-2xl font-light text-white lg:hidden"
         >
           {isOpen ? 'x' : '='}
         </button>
       </nav>
 
       <div
-        className={`overflow-hidden border-t border-[#09231f]/10 bg-[#fbf7f1] transition-all duration-300 lg:hidden ${
+        className={`mx-auto mt-2 max-w-7xl overflow-hidden rounded-[2rem] bg-[#fffaf5] shadow-2xl shadow-[#09231f]/10 transition-all duration-300 lg:hidden ${
           isOpen ? 'max-h-[560px]' : 'max-h-0'
         }`}
       >
-        <div className="mx-auto grid max-w-7xl gap-2 px-4 py-4">
+        <div className="grid gap-2 p-3">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="border border-[#09231f]/10 bg-white px-4 py-4 text-sm font-black uppercase text-[#09231f]"
+              className="rounded-2xl bg-[#f4ebe2] px-4 py-4 text-sm font-black uppercase text-[#09231f]"
             >
               {item.label}
             </a>
@@ -109,7 +107,7 @@ function Navbar({ business }) {
             target="_blank"
             rel="noreferrer"
             onClick={() => setIsOpen(false)}
-            className="mt-2 bg-[#09231f] px-4 py-4 text-center text-sm font-black uppercase text-white"
+            className="mt-1 rounded-2xl bg-[var(--brand-accent)] px-4 py-4 text-center text-sm font-black uppercase text-white"
           >
             Solicitar cita
           </a>
