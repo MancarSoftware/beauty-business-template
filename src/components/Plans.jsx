@@ -7,36 +7,49 @@ function Plans({ business }) {
   return (
     <section
       id="paquetes"
-      className="bg-[#111827] px-4 py-20 text-white sm:px-6 lg:px-12 lg:py-28"
+      className="bg-[#f4fbff] px-4 py-20 text-[#08111f] sm:px-6 lg:px-8 lg:py-28"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow={section.eyebrow}
           title={section.title}
           description={section.description}
-          inverse
-          align="left"
         />
 
-        <div className="grid border-t border-white/14 lg:grid-cols-3">
+        <div className="grid gap-5 lg:grid-cols-3">
           {business.plans.map((item) => (
             <article
               key={item.name}
-              className="flex min-h-[500px] flex-col border-b border-white/14 py-8 lg:border-r lg:px-7 last:lg:border-r-0"
+              className={`relative flex min-h-[540px] flex-col overflow-hidden rounded-[2.5rem] p-6 shadow-xl transition duration-300 hover:-translate-y-3 ${
+                item.featured
+                  ? 'bg-[#08111f] text-white shadow-[#08111f]/20'
+                  : 'bg-white text-[#08111f] shadow-[#08111f]/8'
+              }`}
             >
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-[var(--brand-accent)]">
+              <div className="absolute -right-20 top-20 h-48 w-48 rounded-full bg-[var(--brand-accent)]/20" />
+
+              <p
+                className={`relative w-fit rounded-full px-4 py-2 text-xs font-black uppercase ${
+                  item.featured
+                    ? 'bg-[var(--brand-accent)] text-[#08111f]'
+                    : 'bg-[#eefcff] text-[#0c8b91]'
+                }`}
+              >
                 {item.tag}
               </p>
-              <h3 className="mt-8 text-4xl font-black uppercase leading-none">
+
+              <h3 className="relative mt-10 text-4xl font-black uppercase leading-none">
                 {item.name}
               </h3>
-              <p className="mt-5 min-h-[112px] text-base leading-7 text-white/62">
+              <p className="relative mt-5 min-h-[112px] text-base leading-7 text-current/65">
                 {item.description}
               </p>
 
-              <p className="mt-8 text-6xl font-black leading-none">{item.price}</p>
+              <p className="relative mt-8 text-6xl font-black leading-none">
+                {item.price}
+              </p>
 
-              <ul className="mt-8 flex-1 space-y-3">
+              <ul className="relative mt-8 flex-1 space-y-3">
                 {item.benefits.map((benefit) => (
                   <li key={benefit} className="flex gap-3 text-sm font-bold">
                     <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--brand-accent)]" />
@@ -49,7 +62,11 @@ function Plans({ business }) {
                 href={createWhatsAppUrl(business.whatsapp, item.whatsappMessage)}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-10 inline-flex justify-center bg-white px-7 py-4 text-sm font-black uppercase text-[#111827] transition hover:bg-[var(--brand-accent)]"
+                className={`relative mt-10 inline-flex justify-center rounded-full px-7 py-4 text-sm font-black uppercase transition ${
+                  item.featured
+                    ? 'bg-white text-[#08111f] hover:bg-[var(--brand-accent)]'
+                    : 'bg-[#08111f] text-white hover:bg-[var(--brand-accent)] hover:text-[#08111f]'
+                }`}
               >
                 Agendar paquete
               </a>

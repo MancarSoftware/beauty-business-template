@@ -18,11 +18,11 @@ const dentalData = {
     'https://www.google.com/maps?q=Av.%20Republica%20de%20El%20Salvador%20y%20Suecia%2C%20Quito%2C%20Ecuador&z=16&output=embed',
 
   theme: {
-    accent: '#ff8a6b',
-    accentDark: '#d94f32',
-    secondary: '#67d8ff',
-    soft: '#fff7ec',
-    dark: '#172033',
+    accent: '#35e0d2',
+    accentDark: '#0c8b91',
+    secondary: '#ffcf5a',
+    soft: '#f4fbff',
+    dark: '#08111f',
   },
 
   seo: {

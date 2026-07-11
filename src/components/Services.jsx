@@ -7,56 +7,57 @@ function Services({ business }) {
   return (
     <section
       id="tratamientos"
-      className="bg-white px-4 py-20 text-[#111827] sm:px-6 lg:px-12 lg:py-28"
+      className="bg-[#f4fbff] px-4 py-20 text-[#08111f] sm:px-6 lg:px-8 lg:py-28"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow={section.eyebrow}
           title={section.title}
           description={section.description}
-          align="left"
         />
 
-        <div className="border-t border-[#111827]/12">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {business.services.map((service, index) => (
             <article
               key={service.name}
-              className="group grid gap-5 border-b border-[#111827]/12 py-7 transition hover:bg-[#fbfaf6] md:grid-cols-[80px_1fr_180px_170px]"
+              className="motion-rise group relative min-h-[390px] overflow-hidden rounded-[2.5rem] bg-white p-6 shadow-xl shadow-[#08111f]/7 transition duration-500 hover:-translate-y-3 hover:bg-[#08111f] hover:text-white hover:shadow-2xl hover:shadow-[#08111f]/20"
+              style={{ animationDelay: `${index * 70}ms` }}
             >
-              <p className="text-2xl font-black text-[#111827]/30 transition group-hover:text-[#227684]">
+              <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-[var(--brand-accent)]/25 transition duration-500 group-hover:scale-[2.3] group-hover:bg-[var(--brand-accent)]/18" />
+              <div className="absolute bottom-5 right-5 text-8xl font-black text-[#08111f]/5 transition group-hover:text-white/5">
                 0{index + 1}
-              </p>
-
-              <div>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs font-black uppercase tracking-[0.18em] text-[#227684]">
-                    {service.badge}
-                  </span>
-                  <span className="text-xs font-black uppercase tracking-[0.18em] text-[#111827]/35">
-                    {service.duration}
-                  </span>
-                </div>
-                <h3 className="mt-3 text-2xl font-black uppercase md:text-3xl">
-                  {service.name}
-                </h3>
-                <p className="mt-3 max-w-2xl text-sm leading-7 text-[#111827]/62">
-                  {service.description}
-                </p>
               </div>
 
-              <p className="text-xl font-black md:text-right">{service.price}</p>
+              <div className="relative flex items-start justify-between gap-5">
+                <span className="rounded-full bg-[#eefcff] px-4 py-2 text-xs font-black uppercase text-[#0c8b91] transition group-hover:bg-white group-hover:text-[#08111f]">
+                  {service.badge}
+                </span>
+                <span className="text-sm font-black uppercase text-[#08111f]/42 transition group-hover:text-white/55">
+                  {service.duration}
+                </span>
+              </div>
 
-              <a
-                href={createWhatsAppUrl(
-                  business.whatsapp,
-                  service.whatsappMessage,
-                )}
-                target="_blank"
-                rel="noreferrer"
-                className="h-fit bg-[#111827] px-5 py-3 text-center text-xs font-black uppercase text-white transition hover:bg-[var(--brand-accent)] hover:text-[#111827]"
-              >
-                Consultar
-              </a>
+              <h3 className="relative mt-12 text-3xl font-black uppercase leading-tight">
+                {service.name}
+              </h3>
+              <p className="relative mt-5 text-base leading-7 text-[#08111f]/62 transition group-hover:text-white/68">
+                {service.description}
+              </p>
+
+              <div className="relative mt-8 flex items-center justify-between gap-4">
+                <p className="text-xl font-black">{service.price}</p>
+                <a
+                  href={createWhatsAppUrl(
+                    business.whatsapp,
+                    service.whatsappMessage,
+                  )}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full bg-[#08111f] px-5 py-3 text-center text-xs font-black uppercase text-white transition group-hover:bg-white group-hover:text-[#08111f] hover:bg-[var(--brand-accent)] hover:text-[#08111f]"
+                >
+                  Consultar
+                </a>
+              </div>
             </article>
           ))}
         </div>
