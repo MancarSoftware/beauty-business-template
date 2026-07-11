@@ -83,6 +83,18 @@ const dentalData = {
   },
 
   sections: {
+    selector: {
+      eyebrow: 'Guia rapida',
+      title: 'Dinos que te preocupa y te orientamos al tratamiento correcto',
+      description:
+        'Elige tu necesidad principal y recibe una recomendacion inmediata para escribir por WhatsApp con contexto.',
+    },
+    transformations: {
+      eyebrow: 'Cambios visibles',
+      title: 'Sonrisas que se planifican antes de tocar un diente',
+      description:
+        'Casos de referencia para mostrar como la clinica comunica resultados, expectativas y pasos del tratamiento.',
+    },
     services: {
       eyebrow: 'Tratamientos',
       title: 'Atencion dental organizada por lo que necesitas resolver',
@@ -181,6 +193,81 @@ const dentalData = {
       badge: 'Urgente',
       whatsappMessage:
         'Hola Nova Dental, necesito ayuda con una urgencia dental.',
+    },
+  ],
+
+  selectorOptions: [
+    {
+      need: 'Tengo dolor o molestia',
+      result: 'Urgencia dental',
+      description:
+        'Priorizamos dolor, inflamacion, fracturas o molestias fuertes para revisar la causa y estabilizarte.',
+      urgency: 'Prioridad alta',
+      whatsappMessage:
+        'Hola Nova Dental, tengo dolor o una molestia dental y quiero una cita prioritaria.',
+    },
+    {
+      need: 'Quiero una limpieza',
+      result: 'Limpieza dental profesional',
+      description:
+        'Ideal para remover placa, pulir dientes y recibir recomendaciones practicas para tu rutina diaria.',
+      urgency: 'Control preventivo',
+      whatsappMessage:
+        'Hola Nova Dental, quiero agendar una limpieza dental profesional.',
+    },
+    {
+      need: 'Quiero mejorar mi sonrisa',
+      result: 'Blanqueamiento dental',
+      description:
+        'Revisamos color, sensibilidad y salud de encias antes de recomendar blanqueamiento o estetica dental.',
+      urgency: 'Estetica dental',
+      whatsappMessage:
+        'Hola Nova Dental, quiero mejorar mi sonrisa y saber que tratamiento me recomiendan.',
+    },
+    {
+      need: 'Tengo dientes movidos',
+      result: 'Ortodoncia invisible',
+      description:
+        'Evaluamos mordida, alineacion y objetivos para saber si los alineadores transparentes son una buena opcion.',
+      urgency: 'Plan mensual',
+      whatsappMessage:
+        'Hola Nova Dental, quiero informacion sobre ortodoncia invisible.',
+    },
+    {
+      need: 'Me falta una pieza',
+      result: 'Implantes dentales',
+      description:
+        'Revisamos hueso, espacio y alternativas para recuperar funcion y seguridad al sonreir o masticar.',
+      urgency: 'Rehabilitacion',
+      whatsappMessage:
+        'Hola Nova Dental, quiero una valoracion para recuperar una pieza dental.',
+    },
+  ],
+
+  transformations: [
+    {
+      title: 'Limpieza + blanqueamiento',
+      before: 'Tono opaco',
+      after: 'Sonrisa luminosa',
+      time: '2 visitas',
+      description:
+        'Para pacientes que quieren mejorar color y frescura sin un cambio invasivo.',
+    },
+    {
+      title: 'Alineadores transparentes',
+      before: 'Dientes desalineados',
+      after: 'Mordida guiada',
+      time: 'Plan mensual',
+      description:
+        'Correccion progresiva con controles y seguimiento para mantener discrecion.',
+    },
+    {
+      title: 'Rehabilitacion con implante',
+      before: 'Pieza perdida',
+      after: 'Funcion recuperada',
+      time: 'Por etapas',
+      description:
+        'Planificacion para devolver estabilidad, estetica y confianza al masticar.',
     },
   ],
 

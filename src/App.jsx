@@ -8,8 +8,10 @@ import Navbar from './components/Navbar'
 import Plans from './components/Plans'
 import Seo from './components/Seo'
 import Services from './components/Services'
+import SmileTransformations from './components/SmileTransformations'
 import Technology from './components/Technology'
 import Testimonials from './components/Testimonials'
+import TreatmentSelector from './components/TreatmentSelector'
 import WhatsAppButton from './components/WhatsAppButton'
 import dentalData from './data/dentalData'
 
@@ -32,6 +34,8 @@ function App() {
 
       <main>
         <Hero business={business} />
+        <TreatmentSelector business={business} />
+        <SmileTransformations business={business} />
         <Services business={business} />
         <Technology business={business} />
         <Dentists business={business} />
