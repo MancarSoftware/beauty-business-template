@@ -13,12 +13,12 @@ function Footer({ business }) {
   const developer = business.developer
 
   return (
-    <footer className="bg-[#061a2b] px-4 py-8 text-white sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <footer className="bg-[#172033] px-4 py-8 text-white sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl rounded-[2.5rem] bg-white/5 p-6 sm:p-8">
         <div className="grid gap-10 border-b border-white/12 pb-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div>
             <div className="flex items-center gap-3">
-              <span className="grid h-12 w-12 place-items-center rounded-full bg-[var(--brand-accent)] font-black text-[#061a2b]">
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[var(--brand-accent)] font-black text-[#172033]">
                 {business.logoInitials}
               </span>
               <h3 className="text-3xl font-black uppercase leading-none">
@@ -66,7 +66,7 @@ function Footer({ business }) {
                     href={link}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full bg-white/8 px-4 py-2 text-xs font-black uppercase text-white/62 transition hover:bg-white hover:text-[#061a2b]"
+                    className="rounded-full bg-white/8 px-4 py-2 text-xs font-black uppercase text-white/62 transition hover:bg-white hover:text-[#172033]"
                   >
                     {name}
                   </a>
@@ -78,7 +78,7 @@ function Footer({ business }) {
 
         <div className="mt-6 flex flex-col gap-4 text-sm text-white/42 md:flex-row md:items-center md:justify-between">
           <p>
-            © {currentYear} {business.name}. Todos los derechos reservados.
+            (c) {currentYear} {business.name}. Todos los derechos reservados.
           </p>
           {developer?.url && (
             <p>

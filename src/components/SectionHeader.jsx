@@ -5,7 +5,7 @@ function SectionHeader({ eyebrow, title, description, inverse = false, align = '
     <div className={`${centered ? 'mx-auto text-center' : ''} mb-12 max-w-4xl`}>
       <p
         className={`text-xs font-black uppercase tracking-[0.22em] ${
-          inverse ? 'text-[var(--brand-accent)]' : 'text-[#087f83]'
+          inverse ? 'text-[var(--brand-accent)]' : 'text-[var(--brand-accent-dark)]'
         }`}
       >
         {eyebrow}
@@ -14,7 +14,7 @@ function SectionHeader({ eyebrow, title, description, inverse = false, align = '
       <h2
         className={`mt-4 max-w-4xl text-4xl font-black uppercase leading-[0.96] md:text-6xl ${
           centered ? 'mx-auto' : ''
-        } ${inverse ? 'text-white' : 'text-[#061a2b]'}`}
+        } ${inverse ? 'text-white' : 'text-[#172033]'}`}
       >
         {title}
       </h2>
@@ -23,7 +23,7 @@ function SectionHeader({ eyebrow, title, description, inverse = false, align = '
         <p
           className={`mt-5 max-w-2xl text-base leading-8 md:text-lg ${
             centered ? 'mx-auto' : ''
-          } ${inverse ? 'text-white/68' : 'text-[#061a2b]/62'}`}
+          } ${inverse ? 'text-white/68' : 'text-[#172033]/62'}`}
         >
           {description}
         </p>

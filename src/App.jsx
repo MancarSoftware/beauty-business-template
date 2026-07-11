@@ -18,13 +18,13 @@ function App() {
 
   return (
     <div
-      className="min-h-screen bg-[#f6fdff] text-[#061a2b]"
+      className="min-h-screen bg-[#fff7ec] text-[#172033]"
       style={{
         '--brand-accent': business.theme.accent,
         '--brand-accent-dark': business.theme.accentDark ?? business.theme.accent,
         '--brand-secondary': business.theme.secondary ?? business.theme.accent,
-        '--brand-soft': business.theme.soft ?? '#eefbff',
-        '--brand-dark': business.theme.dark ?? '#061a2b',
+        '--brand-soft': business.theme.soft ?? '#fff7ec',
+        '--brand-dark': business.theme.dark ?? '#172033',
       }}
     >
       <Seo business={business} />

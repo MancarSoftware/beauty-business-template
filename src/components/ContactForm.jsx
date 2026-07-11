@@ -11,7 +11,7 @@ function ContactForm({ business }) {
   })
 
   const fieldClass =
-    'w-full rounded-2xl border border-[#061a2b]/10 bg-white px-5 py-4 text-base font-semibold text-[#061a2b] outline-none transition placeholder:text-[#061a2b]/35 focus:border-[var(--brand-accent-dark)] focus:ring-4 focus:ring-[var(--brand-accent)]/18'
+    'w-full rounded-[1.5rem] border border-[#172033]/10 bg-white px-5 py-4 text-base font-semibold text-[#172033] outline-none transition placeholder:text-[#172033]/35 focus:border-[var(--brand-accent-dark)] focus:ring-4 focus:ring-[var(--brand-accent)]/18'
 
   const handleChange = (event) => {
     const { name, value } = event.currentTarget
@@ -38,29 +38,28 @@ function ContactForm({ business }) {
   }
 
   return (
-    <section className="bg-white px-4 py-20 text-[#061a2b] sm:px-6 lg:px-8 lg:py-28">
-      <div className="mx-auto grid max-w-7xl overflow-hidden border border-[#061a2b]/10 bg-[#f6fdff] shadow-2xl shadow-[#061a2b]/8 lg:grid-cols-[0.92fr_1.08fr]">
-        <div className="relative bg-[#061a2b] p-6 text-white sm:p-8 lg:p-10">
-          <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,var(--brand-accent),var(--brand-secondary))]" />
-          <p className="w-fit rounded-full bg-white/8 px-5 py-2 text-xs font-black uppercase tracking-[0.2em] text-[var(--brand-accent)]">
+    <section className="bg-white px-4 py-20 text-[#172033] sm:px-6 lg:px-8 lg:py-28">
+      <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="rounded-[2.5rem] bg-[#fff7ec] p-6 sm:p-8 lg:p-10">
+          <p className="w-fit rounded-full bg-white px-5 py-2 text-xs font-black uppercase tracking-[0.2em] text-[var(--brand-accent-dark)]">
             Cita directa
           </p>
           <h2 className="mt-6 text-5xl font-black uppercase leading-[0.96] md:text-7xl">
-            Cuéntanos qué necesitas revisar.
+            Cuentanos que necesitas revisar.
           </h2>
-          <p className="mt-6 max-w-xl text-base leading-8 text-white/66">
+          <p className="mt-6 max-w-xl text-base leading-8 text-[#172033]/62">
             Te respondemos por WhatsApp con horario disponible, duracion
             estimada y recomendaciones antes de llegar a la clinica.
           </p>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            <div className="border border-white/12 p-5">
+            <div className="rounded-[2rem] bg-white p-5">
               <p className="text-3xl font-black">10 digitos</p>
-              <p className="mt-2 text-xs font-black uppercase text-white/50">
+              <p className="mt-2 text-xs font-black uppercase text-[#172033]/45">
                 telefono validado
               </p>
             </div>
-            <div className="border border-white/12 p-5">
+            <div className="rounded-[2rem] bg-[#172033] p-5 text-white">
               <p className="text-3xl font-black">WhatsApp</p>
               <p className="mt-2 text-xs font-black uppercase text-white/50">
                 envio inmediato
@@ -69,7 +68,10 @@ function ContactForm({ business }) {
           </div>
         </div>
 
-        <form className="grid gap-5 p-6 sm:p-8 lg:p-10" onSubmit={handleSubmit}>
+        <form
+          className="grid gap-5 rounded-[2.5rem] bg-[#172033] p-6 text-white shadow-2xl shadow-[#172033]/14 sm:p-8 lg:p-10"
+          onSubmit={handleSubmit}
+        >
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="grid gap-2 text-sm font-black uppercase">
               Nombre
@@ -129,7 +131,7 @@ function ContactForm({ business }) {
 
           <button
             type="submit"
-            className="rounded-full bg-[var(--brand-accent)] px-7 py-5 text-center text-sm font-black uppercase text-[#061a2b] shadow-xl shadow-[var(--brand-accent)]/20 transition hover:bg-[#061a2b] hover:text-white"
+            className="rounded-full bg-[var(--brand-accent)] px-7 py-5 text-center text-sm font-black uppercase text-[#172033] shadow-xl shadow-[var(--brand-accent)]/20 transition hover:bg-white"
           >
             Enviar datos por WhatsApp
           </button>

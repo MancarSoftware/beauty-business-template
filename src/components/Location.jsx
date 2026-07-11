@@ -19,27 +19,27 @@ function Location({ business }) {
   return (
     <section
       id="ubicacion"
-      className="bg-[#f6fdff] px-4 py-20 text-[#061a2b] sm:px-6 lg:px-8 lg:py-28"
+      className="bg-[#fff7ec] px-4 py-20 text-[#172033] sm:px-6 lg:px-8 lg:py-28"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10 grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
+        <div className="mb-12 grid gap-8 lg:grid-cols-[0.7fr_1fr] lg:items-end">
           <div>
-            <p className="w-fit rounded-full bg-white px-5 py-2 text-xs font-black uppercase tracking-[0.22em] text-[#087f83] shadow-sm">
+            <p className="w-fit rounded-full bg-white px-5 py-2 text-xs font-black uppercase tracking-[0.22em] text-[var(--brand-accent-dark)]">
               {section.eyebrow}
             </p>
             <h2 className="mt-6 text-5xl font-black uppercase leading-[0.96] md:text-7xl">
               {section.title}
             </h2>
           </div>
-          <p className="max-w-2xl text-lg leading-8 text-[#061a2b]/62">
+          <p className="max-w-2xl text-lg leading-8 text-[#172033]/62">
             {section.description}
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr]">
           <aside className="grid gap-4">
-            <div className="border border-[#061a2b]/10 bg-white p-6 shadow-xl shadow-[#061a2b]/6">
-              <p className="text-xs font-black uppercase text-[#087f83]">
+            <div className="rounded-[2rem] bg-white p-6 shadow-xl shadow-[#172033]/6">
+              <p className="text-xs font-black uppercase text-[var(--brand-accent-dark)]">
                 Direccion
               </p>
               <p className="mt-4 text-2xl font-black uppercase leading-tight">
@@ -50,7 +50,7 @@ function Location({ business }) {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full bg-[#061a2b] px-5 py-3 text-center text-xs font-black uppercase text-white transition hover:bg-[var(--brand-accent)] hover:text-[#061a2b]"
+                  className="rounded-full bg-[#172033] px-5 py-3 text-center text-xs font-black uppercase text-white transition hover:bg-[var(--brand-accent)] hover:text-[#172033]"
                 >
                   Agendar cita
                 </a>
@@ -58,57 +58,49 @@ function Location({ business }) {
                   href={mapsUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full bg-[#eefbff] px-5 py-3 text-center text-xs font-black uppercase text-[#061a2b] transition hover:bg-white"
+                  className="rounded-full bg-[#fff7ec] px-5 py-3 text-center text-xs font-black uppercase text-[#172033] transition hover:bg-[var(--brand-secondary)]"
                 >
                   Google Maps
                 </a>
               </div>
             </div>
 
-            <div className="border border-[#061a2b]/10 bg-white p-6 shadow-xl shadow-[#061a2b]/6">
-              <p className="text-xs font-black uppercase text-[#087f83]">
+            <div className="rounded-[2rem] bg-white p-6 shadow-xl shadow-[#172033]/6">
+              <p className="text-xs font-black uppercase text-[var(--brand-accent-dark)]">
                 Horarios
               </p>
               <div className="mt-5 space-y-3">
                 {business.scheduleBlocks.map((item) => (
                   <div
                     key={item.day}
-                    className="grid gap-2 border-l-4 border-[var(--brand-accent)] bg-[#f6fdff] px-4 py-3 text-sm sm:grid-cols-[1fr_auto]"
+                    className="grid gap-2 rounded-2xl bg-[#fff7ec] px-4 py-3 text-sm sm:grid-cols-[1fr_auto]"
                   >
                     <span className="font-black uppercase">{item.day}</span>
-                    <span className="font-semibold text-[#061a2b]/58">
+                    <span className="font-semibold text-[#172033]/58">
                       {item.time}
                     </span>
                   </div>
                 ))}
               </div>
             </div>
-
-            <div className="bg-[#061a2b] p-6 text-white shadow-2xl shadow-[#061a2b]/14">
-              <p className="text-xs font-black uppercase text-[var(--brand-accent)]">
-                Contacto
-              </p>
-              <p className="mt-4 text-3xl font-black">{business.phone}</p>
-              <p className="mt-2 text-sm text-white/58">{business.email}</p>
-            </div>
           </aside>
 
-          <div className="overflow-hidden border border-[#061a2b]/10 bg-white p-3 shadow-2xl shadow-[#061a2b]/10">
+          <div className="overflow-hidden rounded-[2.5rem] bg-white p-3 shadow-2xl shadow-[#172033]/10">
             <iframe
               src={mapEmbedUrl}
               width="100%"
-              height="590"
+              height="560"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title={`Mapa de ${business.name}`}
-              className="h-[590px] w-full grayscale"
+              className="h-[560px] w-full rounded-[2rem] grayscale"
             />
           </div>
         </div>
 
-        <div className="mt-5 grid bg-[#061a2b] text-white shadow-2xl shadow-[#061a2b]/18 lg:grid-cols-[1fr_auto]">
+        <div className="mt-5 grid rounded-[2.5rem] bg-[#172033] text-white shadow-2xl shadow-[#172033]/18 lg:grid-cols-[1fr_auto]">
           <div className="p-6 sm:p-8">
             <p className="w-fit rounded-full bg-white/8 px-5 py-2 text-xs font-black uppercase tracking-[0.2em] text-[var(--brand-accent)]">
               Reserva directa
@@ -125,7 +117,7 @@ function Location({ business }) {
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="w-full rounded-full bg-white px-7 py-5 text-center text-sm font-black uppercase text-[#061a2b] transition hover:bg-[var(--brand-accent)] hover:text-[#061a2b]"
+              className="w-full rounded-full bg-white px-7 py-5 text-center text-sm font-black uppercase text-[#172033] transition hover:bg-[var(--brand-accent)]"
             >
               Escribir por WhatsApp
             </a>

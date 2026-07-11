@@ -18,11 +18,11 @@ const dentalData = {
     'https://www.google.com/maps?q=Av.%20Republica%20de%20El%20Salvador%20y%20Suecia%2C%20Quito%2C%20Ecuador&z=16&output=embed',
 
   theme: {
-    accent: '#28d4c8',
-    accentDark: '#087f83',
-    secondary: '#f5c451',
-    soft: '#eefbff',
-    dark: '#061a2b',
+    accent: '#ff8a6b',
+    accentDark: '#d94f32',
+    secondary: '#67d8ff',
+    soft: '#fff7ec',
+    dark: '#172033',
   },
 
   seo: {
@@ -66,10 +66,10 @@ const dentalData = {
   },
 
   hero: {
-    eyebrow: 'Clinica dental en Quito',
-    title: 'Sonrie con seguridad desde la primera cita.',
+    eyebrow: 'Nueva odontologia en Quito',
+    title: 'Una sonrisa sana empieza con un plan claro.',
     subtitle:
-      'Valoracion clara, tecnologia digital y un equipo que te explica cada paso antes de iniciar cualquier tratamiento.',
+      'Diagnostico visual, explicacion honesta y una experiencia dental pensada para que llegues tranquilo desde el primer mensaje.',
     cta: 'Agendar valoracion',
     secondaryCta: 'Ver tratamientos',
     secondaryHref: '#tratamientos',
