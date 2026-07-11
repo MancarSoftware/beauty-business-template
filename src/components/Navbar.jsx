@@ -31,13 +31,7 @@ function Navbar({ business }) {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 text-[#09231f] sm:px-5">
-      <div className="mx-auto hidden max-w-7xl items-center justify-between rounded-full bg-[#09231f] px-5 py-2 text-xs font-bold uppercase text-white/72 shadow-lg shadow-[#09231f]/10 md:flex">
-        <span>{business.phone}</span>
-        <span>Lunes a sabado - reserva previa por WhatsApp</span>
-        <span>{business.email}</span>
-      </div>
-
-      <nav className="mx-auto mt-3 grid max-w-7xl grid-cols-[1fr_auto] items-center gap-4 rounded-full border border-white/70 bg-[#fffaf5]/90 px-4 py-3 shadow-2xl shadow-[#09231f]/10 backdrop-blur-xl sm:px-5 lg:grid-cols-[1fr_auto_1fr]">
+      <nav className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center gap-4 rounded-full border border-white/70 bg-[#fffaf5]/90 px-4 py-3 shadow-2xl shadow-[#09231f]/10 backdrop-blur-xl sm:px-5 lg:grid-cols-[1fr_auto_1fr]">
         <a href="#inicio" className="flex items-center gap-3">
           <span className="grid h-11 w-11 place-items-center rounded-full bg-[#09231f] text-sm font-black text-white">
             {business.logoInitials}
