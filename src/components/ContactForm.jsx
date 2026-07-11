@@ -1,13 +1,41 @@
+import { useState } from 'react'
+
 import { createWhatsAppUrl } from '../utils/whatsapp'
 
 function ContactForm({ business }) {
-  const whatsappUrl = createWhatsAppUrl(
-    business.whatsapp,
-    'Hola Serena Spa, quiero que me ayuden a elegir un tratamiento.',
-  )
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    treatment: business.treatments[0]?.name ?? '',
+    message: 'Hola, quiero reservar una cita esta semana.',
+  })
 
   const inputClass =
     'rounded-full bg-[#fbf3ec] px-5 py-4 text-base font-medium normal-case outline-none ring-1 ring-[#17342f]/10 transition focus:ring-2 focus:ring-[var(--brand-accent)]'
+
+  const handleChange = (event) => {
+    const { name, value } = event.currentTarget
+
+    setFormData((currentData) => ({
+      ...currentData,
+      [name]: name === 'phone' ? value.replace(/\D/g, '').slice(0, 10) : value,
+    }))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    const whatsappMessage = [
+      `Hola ${business.shortName}, quiero reservar una experiencia.`,
+      '',
+      `Nombre: ${formData.name || 'Por confirmar'}`,
+      `Telefono: ${formData.phone || 'Por confirmar'}`,
+      `Tratamiento de interes: ${formData.treatment || 'Por recomendar'}`,
+      `Mensaje: ${formData.message || 'Quiero que me recomienden una opcion.'}`,
+    ].join('\n')
+
+    window.open(createWhatsAppUrl(business.whatsapp, whatsappMessage), '_blank')
+  }
 
   return (
     <section className="bg-[#fbf3ec] px-4 py-20 text-[#17342f] sm:px-6 lg:px-8 lg:py-28">
@@ -40,26 +68,33 @@ function ContactForm({ business }) {
           </div>
         </div>
 
-        <form className="grid gap-5 p-6 sm:p-8 lg:p-10">
+        <form className="grid gap-5 p-6 sm:p-8 lg:p-10" onSubmit={handleSubmit}>
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="grid gap-2 text-sm font-black uppercase">
               Nombre
-              <input type="text" placeholder="Tu nombre" className={inputClass} />
+              <input
+                type="text"
+                name="name"
+                placeholder="Tu nombre"
+                autoComplete="name"
+                value={formData.name}
+                onChange={handleChange}
+                className={inputClass}
+              />
             </label>
 
             <label className="grid gap-2 text-sm font-black uppercase">
               Telefono
               <input
                 type="tel"
+                name="phone"
                 placeholder="+593..."
                 inputMode="numeric"
                 maxLength={10}
                 pattern="[0-9]*"
-                onInput={(event) => {
-                  event.currentTarget.value = event.currentTarget.value
-                    .replace(/\D/g, '')
-                    .slice(0, 10)
-                }}
+                autoComplete="tel"
+                value={formData.phone}
+                onChange={handleChange}
                 className={inputClass}
               />
             </label>
@@ -67,7 +102,12 @@ function ContactForm({ business }) {
 
           <label className="grid gap-2 text-sm font-black uppercase">
             Tratamiento de interes
-            <select className={inputClass}>
+            <select
+              name="treatment"
+              value={formData.treatment}
+              onChange={handleChange}
+              className={inputClass}
+            >
               {business.treatments.map((treatment) => (
                 <option key={treatment.name}>{treatment.name}</option>
               ))}
@@ -77,20 +117,21 @@ function ContactForm({ business }) {
           <label className="grid gap-2 text-sm font-black uppercase">
             Mensaje
             <textarea
+              name="message"
               rows="5"
               placeholder="Hola, quiero reservar una cita esta semana."
+              value={formData.message}
+              onChange={handleChange}
               className={`${inputClass} rounded-[2rem] resize-none`}
             />
           </label>
 
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
+          <button
+            type="submit"
             className="rounded-full bg-[var(--brand-accent)] px-7 py-5 text-center text-sm font-black uppercase text-white shadow-xl shadow-[var(--brand-accent)]/20 transition hover:bg-[#17342f]"
           >
             Enviar por WhatsApp
-          </a>
+          </button>
         </form>
       </div>
     </section>

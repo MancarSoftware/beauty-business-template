@@ -29,11 +29,28 @@ const spaData = {
     title: 'Serena Spa & Wellness | Spa urbano premium en Quito',
     description:
       'Reserva masajes relajantes, faciales, rituales corporales y paquetes de bienestar en Serena Spa & Wellness. Atencion premium y reserva por WhatsApp.',
-    image: '/favicon.svg',
+    image:
+      'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1800&q=85',
+    imageAlt:
+      'Cabina privada de spa con ambiente calido para masajes, faciales y rituales corporales',
     locale: 'es_EC',
     areaServed: 'Quito, Ecuador',
     priceRange: '$$',
+    currency: 'USD',
     businessType: 'HealthAndBeautyBusiness',
+    keywords: [
+      'spa en Quito',
+      'masajes relajantes Quito',
+      'faciales en Quito',
+      'rituales corporales Quito',
+      'spa para parejas Quito',
+      'tratamientos corporales Quito',
+      'Serena Spa Wellness',
+    ],
+    geo: {
+      latitude: '-0.180653',
+      longitude: '-78.467834',
+    },
   },
 
   social: {

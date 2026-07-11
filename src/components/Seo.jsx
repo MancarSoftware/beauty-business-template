@@ -30,13 +30,32 @@ function upsertLink(selector, attributes) {
   })
 }
 
+function upsertJsonLd(id, schema) {
+  let structuredData = document.head.querySelector(`script[data-seo="${id}"]`)
+
+  if (!structuredData) {
+    structuredData = document.createElement('script')
+    structuredData.type = 'application/ld+json'
+    structuredData.setAttribute('data-seo', id)
+    document.head.appendChild(structuredData)
+  }
+
+  structuredData.textContent = JSON.stringify(schema)
+}
+
 function Seo({ business }) {
   useEffect(() => {
     const seo = business.seo ?? {}
     const title = seo.title ?? `${business.name} | ${business.type}`
     const description = seo.description ?? business.description
-    const image = seo.image ?? '/favicon.svg'
+    const image = seo.image ?? business.hero?.image ?? '/favicon.svg'
     const locale = seo.locale ?? 'es_EC'
+    const pageUrl =
+      seo.siteUrl ??
+      (window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1'
+        ? ''
+        : window.location.href)
 
     const socialLinks = Object.values(business.social ?? {}).filter(
       (url) => url && url !== '#',
@@ -48,6 +67,13 @@ function Seo({ business }) {
       name: 'description',
       content: description,
     })
+
+    if (seo.keywords?.length) {
+      upsertMeta('meta[name="keywords"]', {
+        name: 'keywords',
+        content: seo.keywords.join(', '),
+      })
+    }
 
     upsertMeta('meta[name="robots"]', {
       name: 'robots',
@@ -84,6 +110,11 @@ function Seo({ business }) {
       content: image,
     })
 
+    upsertMeta('meta[property="og:image:alt"]', {
+      property: 'og:image:alt',
+      content: seo.imageAlt ?? `${business.name} en ${seo.areaServed ?? 'Quito'}`,
+    })
+
     upsertMeta('meta[name="twitter:card"]', {
       name: 'twitter:card',
       content: 'summary_large_image',
@@ -99,52 +130,122 @@ function Seo({ business }) {
       content: description,
     })
 
+    upsertMeta('meta[name="twitter:image"]', {
+      name: 'twitter:image',
+      content: image,
+    })
+
     upsertMeta('meta[name="theme-color"]', {
       name: 'theme-color',
       content: business.theme?.dark ?? '#101010',
     })
 
-    if (seo.siteUrl) {
+    if (pageUrl) {
       upsertLink('link[rel="canonical"]', {
         rel: 'canonical',
-        href: seo.siteUrl,
+        href: pageUrl,
       })
 
       upsertMeta('meta[property="og:url"]', {
         property: 'og:url',
-        content: seo.siteUrl,
+        content: pageUrl,
       })
     }
 
-    const schema = {
+    const offerCatalog = [
+      ...(business.treatments ?? []).map((treatment) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: treatment.name,
+          description: treatment.description,
+          serviceType: treatment.name,
+        },
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          priceCurrency: seo.currency ?? 'USD',
+          description: treatment.price,
+        },
+      })),
+      ...(business.packages ?? []).map((item) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: item.name,
+          description: item.description,
+          serviceType: item.tag,
+        },
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          priceCurrency: seo.currency ?? 'USD',
+          description: item.price,
+        },
+      })),
+    ]
+
+    const localBusinessSchema = {
       '@context': 'https://schema.org',
       '@type': seo.businessType ?? 'HealthAndBeautyBusiness',
       name: business.name,
+      alternateName: business.shortName,
       description,
+      image,
       telephone: business.phone,
       email: business.email,
       address: business.address,
       areaServed: seo.areaServed ?? 'Quito, Ecuador',
       priceRange: seo.priceRange ?? '$$',
       sameAs: socialLinks,
+      slogan: business.slogan,
+      openingHoursSpecification: (business.scheduleBlocks ?? []).map((item) => ({
+        '@type': 'OpeningHoursSpecification',
+        name: item.day,
+        description: item.time,
+      })),
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: `Servicios y paquetes de ${business.shortName ?? business.name}`,
+        itemListElement: offerCatalog,
+      },
     }
 
     if (business.mapsUrl && business.mapsUrl !== '#') {
-      schema.hasMap = business.mapsUrl
+      localBusinessSchema.hasMap = business.mapsUrl
     }
 
-    let structuredData = document.head.querySelector(
-      'script[data-seo="local-business"]',
-    )
-
-    if (!structuredData) {
-      structuredData = document.createElement('script')
-      structuredData.type = 'application/ld+json'
-      structuredData.setAttribute('data-seo', 'local-business')
-      document.head.appendChild(structuredData)
+    if (seo.geo) {
+      localBusinessSchema.geo = {
+        '@type': 'GeoCoordinates',
+        latitude: seo.geo.latitude,
+        longitude: seo.geo.longitude,
+      }
     }
 
-    structuredData.textContent = JSON.stringify(schema)
+    upsertJsonLd('local-business', localBusinessSchema)
+
+    upsertJsonLd('website', {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: business.name,
+      url: pageUrl || window.location.origin,
+      inLanguage: 'es-EC',
+      description,
+    })
+
+    if (business.faq?.items?.length) {
+      upsertJsonLd('faq', {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: business.faq.items.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      })
+    }
   }, [business])
 
   return null
