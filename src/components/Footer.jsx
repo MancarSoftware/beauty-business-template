@@ -54,7 +54,10 @@ function Footer({ business }) {
               <ul className="mt-4 space-y-3 text-sm font-bold text-white/62">
                 {quickLinks.map((link) => (
                   <li key={link.href}>
-                    <a href={link.href} className="transition hover:text-white">
+                    <a
+                      href={link.href}
+                      className="text-white/62 transition hover:text-white"
+                    >
                       {link.label}
                     </a>
                   </li>

@@ -32,7 +32,7 @@ function Navbar({ business }) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 text-[#09231f] sm:px-5">
       <nav className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center gap-4 rounded-full border border-white/70 bg-[#fffaf5]/90 px-4 py-3 shadow-2xl shadow-[#09231f]/10 backdrop-blur-xl sm:px-5 lg:grid-cols-[1fr_auto_1fr]">
-        <a href="#inicio" className="flex items-center gap-3">
+        <a href="#inicio" className="flex items-center gap-3 text-[#09231f]">
           <span className="grid h-11 w-11 place-items-center rounded-full bg-[#09231f] text-sm font-black text-white">
             {business.logoInitials}
           </span>
@@ -51,7 +51,7 @@ function Navbar({ business }) {
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full px-4 py-2.5 transition hover:bg-white hover:text-[var(--brand-accent-dark)]"
+              className="rounded-full px-4 py-2.5 text-[#09231f]/62 transition hover:bg-white hover:text-[var(--brand-accent-dark)]"
             >
               {item.label}
             </a>
