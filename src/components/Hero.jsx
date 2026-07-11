@@ -42,14 +42,14 @@ function Hero({ business }) {
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex justify-center rounded-full bg-[#f1c8b9] px-8 py-4 text-sm font-black uppercase text-[#17342f] shadow-2xl shadow-black/20 transition hover:-translate-y-1 hover:bg-white"
+              className="inline-flex justify-center rounded-full bg-[#f1c8b9] px-8 py-4 text-sm font-black uppercase text-[#09231f] shadow-2xl shadow-black/20 transition hover:-translate-y-1 hover:bg-white hover:text-[#09231f]"
             >
               {business.hero.cta}
             </a>
 
             <a
               href={business.hero.secondaryHref}
-              className="inline-flex justify-center rounded-full border border-white/24 bg-white/10 px-8 py-4 text-sm font-black uppercase text-white backdrop-blur transition hover:-translate-y-1 hover:bg-white hover:text-[#17342f]"
+              className="inline-flex justify-center rounded-full border border-white bg-white px-8 py-4 text-sm font-black uppercase text-[#09231f] shadow-2xl shadow-black/10 transition hover:-translate-y-1 hover:bg-[#f1c8b9] hover:text-[#09231f]"
             >
               {business.hero.secondaryCta}
             </a>

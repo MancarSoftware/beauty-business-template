@@ -30,7 +30,7 @@ function BookingFlow({ business }) {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-8 inline-flex rounded-full bg-white px-7 py-4 text-sm font-black uppercase text-[#17342f] transition hover:bg-[var(--brand-accent)] hover:text-white"
+                className="mt-8 inline-flex rounded-full bg-white px-7 py-4 text-sm font-black uppercase text-[#09231f] transition hover:bg-[var(--brand-accent)] hover:text-[#09231f]"
               >
                 Hablar con concierge
               </a>

@@ -30,7 +30,7 @@ function Packages({ business }) {
                 <p
                   className={`rounded-full px-4 py-2 text-xs font-black uppercase ${
                     item.featured
-                      ? 'bg-[var(--brand-accent)] text-white'
+                      ? 'bg-[var(--brand-accent)] text-[#09231f]'
                       : 'bg-[#f2e4d8] text-[var(--brand-accent-dark)]'
                   }`}
                 >
@@ -73,8 +73,8 @@ function Packages({ business }) {
                 rel="noreferrer"
                 className={`mt-10 inline-flex justify-center rounded-full px-7 py-4 text-sm font-black uppercase transition ${
                   item.featured
-                    ? 'bg-white text-[#17342f] hover:bg-[var(--brand-accent)] hover:text-white'
-                    : 'bg-[#17342f] text-white hover:bg-[var(--brand-accent)]'
+                    ? 'bg-white text-[#09231f] hover:bg-[var(--brand-accent)] hover:text-[#09231f]'
+                    : 'bg-[#09231f] text-white hover:bg-[var(--brand-accent)] hover:text-[#09231f]'
                 }`}
               >
                 Reservar

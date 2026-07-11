@@ -69,7 +69,7 @@ function Navbar({ business }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="rounded-full bg-[var(--brand-accent)] px-5 py-3 text-xs font-black uppercase text-white shadow-lg shadow-[var(--brand-accent)]/20 transition hover:-translate-y-0.5 hover:bg-[#09231f]"
+            className="rounded-full bg-[var(--brand-accent)] px-5 py-3 text-xs font-black uppercase text-[#09231f] shadow-lg shadow-[var(--brand-accent)]/20 transition hover:-translate-y-0.5 hover:bg-[#09231f] hover:text-white"
           >
             Solicitar cita
           </a>
@@ -107,7 +107,7 @@ function Navbar({ business }) {
             target="_blank"
             rel="noreferrer"
             onClick={() => setIsOpen(false)}
-            className="mt-1 rounded-2xl bg-[var(--brand-accent)] px-4 py-4 text-center text-sm font-black uppercase text-white"
+            className="mt-1 rounded-2xl bg-[var(--brand-accent)] px-4 py-4 text-center text-sm font-black uppercase text-[#09231f]"
           >
             Solicitar cita
           </a>

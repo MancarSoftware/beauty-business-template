@@ -53,7 +53,7 @@ function About({ business }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-9 inline-flex rounded-full bg-[var(--brand-accent)] px-8 py-4 text-sm font-black uppercase text-white shadow-xl shadow-[var(--brand-accent)]/20 transition hover:-translate-y-1 hover:bg-[#17342f]"
+            className="mt-9 inline-flex rounded-full bg-[var(--brand-accent)] px-8 py-4 text-sm font-black uppercase text-[#09231f] shadow-xl shadow-[var(--brand-accent)]/20 transition hover:-translate-y-1 hover:bg-[#17342f] hover:text-white"
           >
             Conocer disponibilidad
           </a>

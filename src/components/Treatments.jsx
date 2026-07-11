@@ -66,7 +66,7 @@ function Treatments({ business }) {
                     )}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full bg-white px-6 py-3 text-xs font-black uppercase text-[#17342f] shadow-lg shadow-[#17342f]/8 transition hover:bg-[var(--brand-accent)] hover:text-white"
+                    className="rounded-full bg-white px-6 py-3 text-xs font-black uppercase text-[#09231f] shadow-lg shadow-[#17342f]/8 transition group-hover:text-[#09231f] hover:bg-[var(--brand-accent)] hover:text-[#09231f]"
                   >
                     Reservar ritual
                   </a>

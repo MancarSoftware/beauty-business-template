@@ -98,7 +98,7 @@ function Location({ business }) {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full bg-[#09231f] px-5 py-3 text-center text-xs font-black uppercase text-white transition hover:bg-[var(--brand-accent)]"
+                  className="rounded-full bg-[#09231f] px-5 py-3 text-center text-xs font-black uppercase text-white transition hover:bg-[var(--brand-accent)] hover:text-[#09231f]"
                 >
                   Reservar
                 </a>
@@ -106,7 +106,7 @@ function Location({ business }) {
                   href={mapsUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full bg-white px-5 py-3 text-center text-xs font-black uppercase text-[#09231f] transition hover:bg-[#09231f] hover:text-white"
+                  className="rounded-full bg-white px-5 py-3 text-center text-xs font-black uppercase text-[#09231f] transition hover:bg-[#f1c8b9] hover:text-[#09231f]"
                 >
                   Google Maps
                 </a>
@@ -144,7 +144,7 @@ function Location({ business }) {
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="w-full rounded-full bg-white px-7 py-5 text-center text-sm font-black uppercase text-[#09231f] transition hover:bg-[var(--brand-accent)] hover:text-white"
+              className="w-full rounded-full bg-white px-7 py-5 text-center text-sm font-black uppercase text-[#09231f] transition hover:bg-[var(--brand-accent)] hover:text-[#09231f]"
             >
               Escribir por WhatsApp
             </a>

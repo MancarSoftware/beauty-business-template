@@ -128,7 +128,7 @@ function ContactForm({ business }) {
 
           <button
             type="submit"
-            className="rounded-full bg-[var(--brand-accent)] px-7 py-5 text-center text-sm font-black uppercase text-white shadow-xl shadow-[var(--brand-accent)]/20 transition hover:bg-[#17342f]"
+            className="rounded-full bg-[var(--brand-accent)] px-7 py-5 text-center text-sm font-black uppercase text-[#09231f] shadow-xl shadow-[var(--brand-accent)]/20 transition hover:bg-[#17342f] hover:text-white"
           >
             Enviar por WhatsApp
           </button>
