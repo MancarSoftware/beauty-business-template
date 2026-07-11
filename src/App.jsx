@@ -18,31 +18,33 @@ function App() {
 
   return (
     <div
-      className="min-h-screen bg-[#fff7ec] text-[#172033]"
+      className="min-h-screen bg-[#fbfaf6] text-[#111827]"
       style={{
-        '--brand-accent': business.theme.accent,
-        '--brand-accent-dark': business.theme.accentDark ?? business.theme.accent,
-        '--brand-secondary': business.theme.secondary ?? business.theme.accent,
-        '--brand-soft': business.theme.soft ?? '#fff7ec',
-        '--brand-dark': business.theme.dark ?? '#172033',
+        '--brand-accent': '#8fdbe8',
+        '--brand-accent-dark': '#227684',
+        '--brand-secondary': '#f6d365',
+        '--brand-soft': '#fbfaf6',
+        '--brand-dark': '#111827',
       }}
     >
       <Seo business={business} />
       <Navbar business={business} />
 
-      <main>
-        <Hero business={business} />
-        <Services business={business} />
-        <Technology business={business} />
-        <Dentists business={business} />
-        <Plans business={business} />
-        <Testimonials business={business} />
-        <ContactForm business={business} />
-        <Location business={business} />
-        <FAQ business={business} />
-      </main>
+      <div className="lg:pl-72">
+        <main>
+          <Hero business={business} />
+          <Services business={business} />
+          <Technology business={business} />
+          <Dentists business={business} />
+          <Plans business={business} />
+          <Testimonials business={business} />
+          <ContactForm business={business} />
+          <Location business={business} />
+          <FAQ business={business} />
+        </main>
 
-      <Footer business={business} />
+        <Footer business={business} />
+      </div>
       <WhatsAppButton business={business} />
     </div>
   )
