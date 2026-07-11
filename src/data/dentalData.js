@@ -250,6 +250,10 @@ const dentalData = {
       before: 'Tono opaco',
       after: 'Sonrisa luminosa',
       time: '2 visitas',
+      beforeImage:
+        'https://images.unsplash.com/photo-1663182245833-7dd667277043?auto=format&fit=crop&w=900&q=70',
+      afterImage:
+        'https://images.unsplash.com/photo-1677026010083-78ec7f1b84ed?auto=format&fit=crop&w=900&q=70',
       description:
         'Para pacientes que quieren mejorar color y frescura sin un cambio invasivo.',
     },
@@ -258,6 +262,10 @@ const dentalData = {
       before: 'Dientes desalineados',
       after: 'Mordida guiada',
       time: 'Plan mensual',
+      beforeImage:
+        'https://images.unsplash.com/photo-1679911522750-aeedd9c88550?auto=format&fit=crop&w=900&q=70',
+      afterImage:
+        'https://images.unsplash.com/photo-1675526607070-f5cbd71dde92?auto=format&fit=crop&w=900&q=70',
       description:
         'Correccion progresiva con controles y seguimiento para mantener discrecion.',
     },
@@ -266,6 +274,10 @@ const dentalData = {
       before: 'Pieza perdida',
       after: 'Funcion recuperada',
       time: 'Por etapas',
+      beforeImage:
+        'https://images.unsplash.com/photo-1679741919483-acf704e00495?auto=format&fit=crop&w=900&q=70',
+      afterImage:
+        'https://images.unsplash.com/photo-1704579924216-31ef96f7e008?auto=format&fit=crop&w=900&q=70',
       description:
         'Planificacion para devolver estabilidad, estetica y confianza al masticar.',
     },

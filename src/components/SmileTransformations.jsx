@@ -25,10 +25,27 @@ function SmileTransformations({ business }) {
               className="group overflow-hidden rounded-[2.5rem] bg-[#f4fbff] p-5 shadow-xl shadow-[#08111f]/7 transition hover:-translate-y-3 hover:shadow-2xl hover:shadow-[#08111f]/14"
             >
               <div className="relative h-72 overflow-hidden rounded-[2rem] bg-[#08111f]">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_28%,rgba(255,207,90,0.32),transparent_32%),radial-gradient(circle_at_76%_70%,rgba(53,224,210,0.36),transparent_36%)]" />
-                <div className="absolute inset-y-0 left-0 w-[48%] bg-white/12 backdrop-blur-sm transition duration-500 group-hover:w-[24%]" />
-                <div className="absolute inset-y-0 right-0 w-[52%] bg-white/5 transition duration-500 group-hover:w-[76%]" />
-                <div className="absolute left-[48%] top-0 h-full w-1 bg-white shadow-2xl transition duration-500 group-hover:left-[24%]" />
+                <div className="absolute inset-y-0 left-0 w-[50%] overflow-hidden transition-all duration-500 group-hover:w-[30%]">
+                  <img
+                    src={item.beforeImage}
+                    alt={`${item.title} antes`}
+                    className="h-full w-full object-cover grayscale contrast-110 brightness-75 transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-[#08111f]/35" />
+                </div>
+
+                <div className="absolute inset-y-0 right-0 w-[50%] overflow-hidden transition-all duration-500 group-hover:w-[70%]">
+                  <img
+                    src={item.afterImage}
+                    alt={`${item.title} despues`}
+                    className="h-full w-full object-cover brightness-105 saturate-110 transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#08111f]/30 via-transparent to-transparent" />
+                </div>
+
+                <div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 bg-white shadow-2xl transition-all duration-500 group-hover:left-[30%]" />
 
                 <div className="absolute left-5 top-5 rounded-full bg-white px-4 py-2 text-xs font-black uppercase text-[#08111f]">
                   Antes
@@ -38,13 +55,13 @@ function SmileTransformations({ business }) {
                 </div>
 
                 <div className="absolute inset-x-6 bottom-6 grid grid-cols-2 gap-3">
-                  <div className="rounded-2xl bg-white/12 p-4 text-white backdrop-blur">
+                  <div className="rounded-2xl bg-[#08111f]/48 p-4 text-white shadow-xl backdrop-blur-md">
                     <p className="text-xs font-black uppercase text-white/45">
                       Antes
                     </p>
                     <p className="mt-2 text-lg font-black">{item.before}</p>
                   </div>
-                  <div className="rounded-2xl bg-[var(--brand-accent)] p-4 text-[#08111f]">
+                  <div className="rounded-2xl bg-[var(--brand-accent)] p-4 text-[#08111f] shadow-xl">
                     <p className="text-xs font-black uppercase text-[#08111f]/45">
                       Despues
                     </p>
