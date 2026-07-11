@@ -6,12 +6,12 @@ function ContactForm({ business }) {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    treatment: business.treatments[0]?.name ?? '',
-    message: 'Hola, quiero reservar una cita esta semana.',
+    service: business.services[0]?.name ?? '',
+    message: 'Hola, quiero agendar una valoracion dental.',
   })
 
-  const inputClass =
-    'rounded-full bg-[#fbf3ec] px-5 py-4 text-base font-medium normal-case outline-none ring-1 ring-[#17342f]/10 transition focus:ring-2 focus:ring-[var(--brand-accent)]'
+  const fieldClass =
+    'w-full rounded-2xl border border-[#061a2b]/10 bg-white px-5 py-4 text-base font-semibold text-[#061a2b] outline-none transition placeholder:text-[#061a2b]/35 focus:border-[var(--brand-accent-dark)] focus:ring-4 focus:ring-[var(--brand-accent)]/18'
 
   const handleChange = (event) => {
     const { name, value } = event.currentTarget
@@ -26,43 +26,44 @@ function ContactForm({ business }) {
     event.preventDefault()
 
     const whatsappMessage = [
-      `Hola ${business.shortName}, quiero reservar una experiencia.`,
+      `Hola ${business.shortName}, quiero agendar una cita dental.`,
       '',
       `Nombre: ${formData.name || 'Por confirmar'}`,
       `Telefono: ${formData.phone || 'Por confirmar'}`,
-      `Tratamiento de interes: ${formData.treatment || 'Por recomendar'}`,
-      `Mensaje: ${formData.message || 'Quiero que me recomienden una opcion.'}`,
+      `Tratamiento de interes: ${formData.service || 'Por recomendar'}`,
+      `Mensaje: ${formData.message || 'Quiero una valoracion.'}`,
     ].join('\n')
 
     window.open(createWhatsAppUrl(business.whatsapp, whatsappMessage), '_blank')
   }
 
   return (
-    <section className="bg-[#fbf3ec] px-4 py-20 text-[#17342f] sm:px-6 lg:px-8 lg:py-28">
-      <div className="mx-auto grid max-w-7xl overflow-hidden rounded-[4rem] bg-white shadow-2xl shadow-[#17342f]/10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="bg-[#17342f] p-6 text-white sm:p-8 lg:p-10">
-          <p className="w-fit rounded-full bg-white/10 px-5 py-2 text-xs font-black uppercase text-[var(--brand-accent)]">
-            Agenda una cita
+    <section className="bg-white px-4 py-20 text-[#061a2b] sm:px-6 lg:px-8 lg:py-28">
+      <div className="mx-auto grid max-w-7xl overflow-hidden border border-[#061a2b]/10 bg-[#f6fdff] shadow-2xl shadow-[#061a2b]/8 lg:grid-cols-[0.92fr_1.08fr]">
+        <div className="relative bg-[#061a2b] p-6 text-white sm:p-8 lg:p-10">
+          <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,var(--brand-accent),var(--brand-secondary))]" />
+          <p className="w-fit rounded-full bg-white/8 px-5 py-2 text-xs font-black uppercase tracking-[0.2em] text-[var(--brand-accent)]">
+            Cita directa
           </p>
-          <h2 className="mt-5 font-display text-5xl leading-[1.02] md:text-7xl">
-            Cuentanos que necesitas y preparamos tu experiencia.
+          <h2 className="mt-6 text-5xl font-black uppercase leading-[0.96] md:text-7xl">
+            Cuéntanos qué necesitas revisar.
           </h2>
           <p className="mt-6 max-w-xl text-base leading-8 text-white/66">
-            Nuestro equipo revisa tu objetivo, disponibilidad y tipo de piel o
-            tension para recomendarte la mejor opcion antes de confirmar.
+            Te respondemos por WhatsApp con horario disponible, duracion
+            estimada y recomendaciones antes de llegar a la clinica.
           </p>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-[2rem] bg-white/8 p-5">
-              <p className="text-3xl font-black">24h</p>
+            <div className="border border-white/12 p-5">
+              <p className="text-3xl font-black">10 digitos</p>
               <p className="mt-2 text-xs font-black uppercase text-white/50">
-                reserva recomendada
+                telefono validado
               </p>
             </div>
-            <div className="rounded-[2rem] bg-white/8 p-5">
-              <p className="text-3xl font-black">1:1</p>
+            <div className="border border-white/12 p-5">
+              <p className="text-3xl font-black">WhatsApp</p>
               <p className="mt-2 text-xs font-black uppercase text-white/50">
-                recomendacion personalizada
+                envio inmediato
               </p>
             </div>
           </div>
@@ -79,7 +80,7 @@ function ContactForm({ business }) {
                 autoComplete="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={inputClass}
+                className={fieldClass}
               />
             </label>
 
@@ -88,14 +89,14 @@ function ContactForm({ business }) {
               <input
                 type="tel"
                 name="phone"
-                placeholder="+593..."
+                placeholder="0999999999"
                 inputMode="numeric"
                 maxLength={10}
                 pattern="[0-9]*"
                 autoComplete="tel"
                 value={formData.phone}
                 onChange={handleChange}
-                className={inputClass}
+                className={fieldClass}
               />
             </label>
           </div>
@@ -103,13 +104,13 @@ function ContactForm({ business }) {
           <label className="grid gap-2 text-sm font-black uppercase">
             Tratamiento de interes
             <select
-              name="treatment"
-              value={formData.treatment}
+              name="service"
+              value={formData.service}
               onChange={handleChange}
-              className={inputClass}
+              className={fieldClass}
             >
-              {business.treatments.map((treatment) => (
-                <option key={treatment.name}>{treatment.name}</option>
+              {business.services.map((service) => (
+                <option key={service.name}>{service.name}</option>
               ))}
             </select>
           </label>
@@ -119,18 +120,18 @@ function ContactForm({ business }) {
             <textarea
               name="message"
               rows="5"
-              placeholder="Hola, quiero reservar una cita esta semana."
+              placeholder="Hola, quiero agendar una valoracion dental."
               value={formData.message}
               onChange={handleChange}
-              className={`${inputClass} rounded-[2rem] resize-none`}
+              className={`${fieldClass} resize-none`}
             />
           </label>
 
           <button
             type="submit"
-            className="rounded-full bg-[var(--brand-accent)] px-7 py-5 text-center text-sm font-black uppercase text-[#09231f] shadow-xl shadow-[var(--brand-accent)]/20 transition hover:bg-[#17342f] hover:text-white"
+            className="rounded-full bg-[var(--brand-accent)] px-7 py-5 text-center text-sm font-black uppercase text-[#061a2b] shadow-xl shadow-[var(--brand-accent)]/20 transition hover:bg-[#061a2b] hover:text-white"
           >
-            Enviar por WhatsApp
+            Enviar datos por WhatsApp
           </button>
         </form>
       </div>

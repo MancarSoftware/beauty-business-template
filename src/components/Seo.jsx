@@ -152,8 +152,11 @@ function Seo({ business }) {
       })
     }
 
+    const services = business.services ?? []
+    const plans = business.plans ?? []
+
     const offerCatalog = [
-      ...(business.treatments ?? []).map((treatment) => ({
+      ...services.map((treatment) => ({
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
@@ -167,7 +170,7 @@ function Seo({ business }) {
           description: treatment.price,
         },
       })),
-      ...(business.packages ?? []).map((item) => ({
+      ...plans.map((item) => ({
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',

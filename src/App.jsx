@@ -1,30 +1,30 @@
-import FAQ from './components/FAQ'
-import About from './components/About'
-import BookingFlow from './components/BookingFlow'
 import ContactForm from './components/ContactForm'
+import Dentists from './components/Dentists'
+import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Location from './components/Location'
 import Navbar from './components/Navbar'
-import Packages from './components/Packages'
+import Plans from './components/Plans'
 import Seo from './components/Seo'
-import SpaExperience from './components/SpaExperience'
+import Services from './components/Services'
+import Technology from './components/Technology'
 import Testimonials from './components/Testimonials'
-import Treatments from './components/Treatments'
 import WhatsAppButton from './components/WhatsAppButton'
-import spaData from './data/spaData'
+import dentalData from './data/dentalData'
 
 function App() {
-  const business = spaData
+  const business = dentalData
 
   return (
     <div
-      className="min-h-screen bg-[#fbf3ec] text-[#17342f]"
+      className="min-h-screen bg-[#f6fdff] text-[#061a2b]"
       style={{
         '--brand-accent': business.theme.accent,
         '--brand-accent-dark': business.theme.accentDark ?? business.theme.accent,
         '--brand-secondary': business.theme.secondary ?? business.theme.accent,
-        '--brand-soft': business.theme.soft ?? '#f7f1ea',
+        '--brand-soft': business.theme.soft ?? '#eefbff',
+        '--brand-dark': business.theme.dark ?? '#061a2b',
       }}
     >
       <Seo business={business} />
@@ -32,11 +32,10 @@ function App() {
 
       <main>
         <Hero business={business} />
-        <About business={business} />
-        <Treatments business={business} />
-        <BookingFlow business={business} />
-        <Packages business={business} />
-        <SpaExperience business={business} />
+        <Services business={business} />
+        <Technology business={business} />
+        <Dentists business={business} />
+        <Plans business={business} />
         <Testimonials business={business} />
         <ContactForm business={business} />
         <Location business={business} />
