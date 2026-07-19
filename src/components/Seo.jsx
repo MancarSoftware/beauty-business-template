@@ -152,8 +152,8 @@ function Seo({ business }) {
       })
     }
 
-    const services = business.services ?? []
-    const plans = business.plans ?? []
+    const services = business.specialties ?? []
+    const products = business.products ?? []
 
     const offerCatalog = [
       ...services.map((treatment) => ({
@@ -167,20 +167,21 @@ function Seo({ business }) {
         priceSpecification: {
           '@type': 'PriceSpecification',
           priceCurrency: seo.currency ?? 'USD',
-          description: treatment.price,
+          description: treatment.cta,
         },
       })),
-      ...plans.map((item) => ({
+      ...products.map((item) => ({
         '@type': 'Offer',
         itemOffered: {
-          '@type': 'Service',
+          '@type': 'Product',
           name: item.name,
           description: item.description,
-          serviceType: item.tag,
+          category: item.category,
         },
         priceSpecification: {
           '@type': 'PriceSpecification',
           priceCurrency: seo.currency ?? 'USD',
+          price: String(item.price).replace(/[^0-9.]/g, ''),
           description: item.price,
         },
       })),
@@ -188,7 +189,7 @@ function Seo({ business }) {
 
     const localBusinessSchema = {
       '@context': 'https://schema.org',
-      '@type': seo.businessType ?? 'HealthAndBeautyBusiness',
+      '@type': seo.businessType ?? 'Bakery',
       name: business.name,
       alternateName: business.shortName,
       description,
@@ -207,7 +208,9 @@ function Seo({ business }) {
       })),
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: `Servicios y paquetes de ${business.shortName ?? business.name}`,
+        name: `Productos y especialidades de ${
+          business.shortName ?? business.name
+        }`,
         itemListElement: offerCatalog,
       },
     }

@@ -1,7 +1,8 @@
 const footerLinks = [
   { label: 'Inicio', href: '#inicio' },
-  { label: 'Tratamientos', href: '#tratamientos' },
-  { label: 'Equipo', href: '#equipo' },
+  { label: 'Especialidades', href: '#especialidades' },
+  { label: 'Favoritos', href: '#favoritos' },
+  { label: 'Eventos', href: '#eventos' },
   { label: 'Ubicacion', href: '#ubicacion' },
 ]
 
@@ -13,12 +14,12 @@ function Footer({ business }) {
   const developer = business.developer
 
   return (
-    <footer className="bg-[#08111f] px-4 py-8 text-white sm:px-6 lg:px-8">
+    <footer className="bg-[var(--brand-dark)] px-4 py-8 text-white sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl rounded-[2.5rem] bg-white/5 p-6 sm:p-8">
         <div className="grid gap-10 border-b border-white/12 pb-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div>
             <div className="flex items-center gap-3">
-              <span className="grid h-12 w-12 place-items-center rounded-full bg-[var(--brand-accent)] font-black text-[#08111f]">
+              <span className="grid h-12 w-12 place-items-center rounded-full bg-[var(--brand-caramel)] font-black text-[var(--brand-dark)]">
                 {business.logoInitials}
               </span>
               <h3 className="text-3xl font-black uppercase leading-none">
@@ -31,7 +32,7 @@ function Footer({ business }) {
           </div>
 
           <div>
-            <h3 className="text-xs font-black uppercase text-[var(--brand-accent)]">
+            <h3 className="text-xs font-black uppercase text-[var(--brand-caramel)]">
               Enlaces
             </h3>
             <ul className="mt-4 space-y-3 text-sm font-bold">
@@ -49,7 +50,7 @@ function Footer({ business }) {
           </div>
 
           <div>
-            <h3 className="text-xs font-black uppercase text-[var(--brand-accent)]">
+            <h3 className="text-xs font-black uppercase text-[var(--brand-caramel)]">
               Servicios
             </h3>
             <ul className="mt-4 space-y-3 text-sm font-bold text-white/62">
@@ -66,7 +67,7 @@ function Footer({ business }) {
                     href={link}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full bg-white/8 px-4 py-2 text-xs font-black uppercase text-white/62 transition hover:bg-white hover:text-[#08111f]"
+                    className="rounded-full bg-white/8 px-4 py-2 text-xs font-black uppercase text-white/62 transition hover:bg-white hover:text-[var(--brand-dark)]"
                   >
                     {name}
                   </a>
@@ -80,17 +81,20 @@ function Footer({ business }) {
           <p>
             (c) {currentYear} {business.name}. Todos los derechos reservados.
           </p>
-          {developer?.url && (
+          {developer && (
             <p>
-              {developer.text}{' '}
+              {developer.text}
+              {developer.url ? ' ' : ''}
+              {developer.url && (
               <a
                 href={developer.url}
                 target="_blank"
                 rel="noreferrer"
-                className="font-black text-[var(--brand-accent)] transition hover:text-white"
+                className="font-black text-[var(--brand-caramel)] transition hover:text-white"
               >
                 {developer.name}
               </a>
+              )}
             </p>
           )}
         </div>

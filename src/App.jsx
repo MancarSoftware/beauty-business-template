@@ -1,47 +1,42 @@
-import ContactForm from './components/ContactForm'
-import Dentists from './components/Dentists'
+import BakeryBreakfast from './components/BakeryBreakfast'
+import BakeryEvents from './components/BakeryEvents'
+import BakeryFavorites from './components/BakeryFavorites'
+import BakeryHero from './components/BakeryHero'
+import BakerySpecialties from './components/BakerySpecialties'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
-import Hero from './components/Hero'
 import Location from './components/Location'
 import Navbar from './components/Navbar'
-import Plans from './components/Plans'
 import Seo from './components/Seo'
-import Services from './components/Services'
-import SmileTransformations from './components/SmileTransformations'
-import Technology from './components/Technology'
-import Testimonials from './components/Testimonials'
-import TreatmentSelector from './components/TreatmentSelector'
 import WhatsAppButton from './components/WhatsAppButton'
-import dentalData from './data/dentalData'
+import WhyChooseUs from './components/WhyChooseUs'
+import bakeryData from './data/bakeryData'
 
 function App() {
-  const business = dentalData
+  const business = bakeryData
 
   return (
     <div
-      className="min-h-screen bg-[#f4fbff] text-[#08111f]"
+      className="min-h-screen bg-[var(--brand-background)] text-[var(--brand-dark)]"
       style={{
-        '--brand-accent': '#35e0d2',
-        '--brand-accent-dark': '#0c8b91',
-        '--brand-secondary': '#ffcf5a',
-        '--brand-soft': '#f4fbff',
-        '--brand-dark': '#08111f',
+        '--brand-background': business.theme.background,
+        '--brand-surface': business.theme.surface,
+        '--brand-dark': business.theme.dark,
+        '--brand-coffee': business.theme.coffee,
+        '--brand-caramel': business.theme.caramel,
+        '--brand-border': business.theme.border,
       }}
     >
       <Seo business={business} />
       <Navbar business={business} />
 
       <main>
-        <Hero business={business} />
-        <TreatmentSelector business={business} />
-        <SmileTransformations business={business} />
-        <Services business={business} />
-        <Technology business={business} />
-        <Dentists business={business} />
-        <Plans business={business} />
-        <Testimonials business={business} />
-        <ContactForm business={business} />
+        <BakeryHero business={business} />
+        <BakerySpecialties business={business} />
+        <BakeryFavorites business={business} />
+        <BakeryBreakfast business={business} />
+        <BakeryEvents business={business} />
+        <WhyChooseUs business={business} />
         <Location business={business} />
         <FAQ business={business} />
       </main>
