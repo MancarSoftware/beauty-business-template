@@ -58,11 +58,11 @@ const bakeryData = {
     text: 'Page created by Mancar Software',
   },
   hero: {
-    eyebrow: 'Panaderia artesanal en Quito',
-    title: 'Pan fresco, postres de autor y desayunos para compartir.',
-    accent: 'Horneado con detalle cada manana.',
+    eyebrow: 'Hecho con tiempo, dedicado a ti',
+    title: 'Pan recien hecho, postres artesanales y momentos para disfrutar.',
+    accent: 'para disfrutar.',
     subtitle:
-      'Una experiencia de panaderia premium con masas artesanales, tortas elegantes, desayunos completos, postres por porcion y pedidos especiales para celebraciones.',
+      'En Maison Miga creamos cada producto con ingredientes de calidad, tecnicas artesanales y mucho amor.',
     cta: 'Pedir por WhatsApp',
     secondaryCta: 'Ver especialidades',
     secondaryHref: '#especialidades',
@@ -71,24 +71,24 @@ const bakeryData = {
       imageParams,
     imageAlt: 'Pan artesanal recien horneado sobre una mesa de panaderia',
     highlights: [
-      { value: '07:00', label: 'pan fresco desde temprano' },
-      { value: '48h', label: 'para tortas personalizadas' },
-      { value: '8+', label: 'favoritos listos para pedir' },
-      { value: '100%', label: 'produccion artesanal' },
+      { value: 'Trigo', label: 'Fresco cada manana' },
+      { value: 'Torta', label: 'Tortas personalizadas' },
+      { value: 'Cafe', label: 'Desayunos y cafe' },
+      { value: 'Mesa', label: 'Eventos y catering' },
     ],
   },
   sections: {
     specialties: {
-      eyebrow: 'Especialidades',
-      title: 'Una vitrina pensada para antojos dulces, salados y celebraciones.',
+      eyebrow: 'Nuestras especialidades',
+      title: 'Sabores que hablan de nosotros',
       description:
         'Cada linea de producto tiene una razon: desayuno, regalo, reunion, pausa de cafe o mesa especial para eventos.',
     },
     favorites: {
-      eyebrow: 'Favoritos de la casa',
-      title: 'Productos que se piden una vez y se vuelven costumbre.',
+      eyebrow: 'Lo mas amado',
+      title: 'Nuestros favoritos',
       description:
-        'Una seleccion comercial lista para ordenar por WhatsApp, sin carrito ni pasos innecesarios.',
+        'Los productos que conquistan a todos nuestros clientes.',
     },
     breakfast: {
       eyebrow: 'Desayunos y cafe',
@@ -97,10 +97,10 @@ const bakeryData = {
         'Combos para la manana, opciones saladas, jugos naturales y piezas dulces para quedarse o llevar.',
     },
     events: {
-      eyebrow: 'Eventos y pedidos especiales',
-      title: 'Mesas dulces, tortas y cajas premium para celebrar mejor.',
+      eyebrow: 'Para cada ocasion',
+      title: 'Hacemos de tus momentos algo inolvidable',
       description:
-        'Preparamos propuestas a medida para cumpleanos, reuniones corporativas, regalos y celebraciones familiares.',
+        'Tortas personalizadas, bocaditos, mesas dulces y catering para cumpleanos, reuniones y eventos corporativos.',
     },
     benefits: {
       eyebrow: 'Por que elegirnos',

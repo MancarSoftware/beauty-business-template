@@ -6,54 +6,39 @@ function BakeryEvents({ business }) {
   return (
     <section
       id="eventos"
-      className="bg-[var(--brand-surface)] px-4 py-16 sm:px-6 lg:px-8 lg:py-24"
+      className="relative isolate overflow-hidden px-4 py-20 text-white sm:px-8 lg:px-10 lg:py-28"
     >
-      <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div>
-            <p className="w-fit rounded-full bg-white px-5 py-2 text-xs font-black uppercase tracking-[0.22em] text-[var(--brand-caramel)] shadow-sm">
-              {section.eyebrow}
-            </p>
-            <h2 className="mt-6 max-w-4xl text-4xl font-black uppercase leading-[0.94] sm:text-5xl lg:text-7xl">
-              {section.title}
-            </h2>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--brand-coffee)]/72 sm:text-lg">
-              {section.description}
-            </p>
+      <img
+        src={business.eventImage}
+        alt=""
+        className="absolute inset-0 -z-20 h-full w-full object-cover"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(43,29,20,0.95)_0%,rgba(43,29,20,0.82)_34%,rgba(43,29,20,0.22)_72%)]" />
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              {business.events.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-[1.5rem] bg-white px-5 py-4 text-sm font-black uppercase text-[var(--brand-dark)] shadow-sm ring-1 ring-[var(--brand-border)]"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
+      <div className="mx-auto max-w-[90rem]">
+        <div className="max-w-[34rem]">
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-[var(--brand-caramel)]">
+            {section.eyebrow}
+          </p>
+          <h2 className="font-brand-serif mt-5 text-4xl leading-[1.02] tracking-[-0.05em] sm:text-5xl lg:text-6xl">
+            {section.title}
+          </h2>
+          <p className="mt-6 text-base leading-8 text-white/82">
+            {section.description}
+          </p>
 
-            <a
-              href={createWhatsAppUrl(
-                business.whatsapp,
-                business.eventWhatsappMessage,
-              )}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 inline-flex rounded-full bg-[var(--brand-dark)] px-8 py-4 text-sm font-black uppercase text-white transition hover:bg-[var(--brand-caramel)] hover:text-[var(--brand-dark)]"
-            >
-              {business.eventCta}
-            </a>
-          </div>
-
-          <div className="relative">
-            <div className="absolute -right-4 -top-4 hidden h-full w-full rounded-[2.5rem] border border-[var(--brand-border)] lg:block" />
-            <img
-              src={business.eventImage}
-              alt="Mesa de postres y catering para evento"
-              className="relative h-[520px] w-full rounded-[2.5rem] object-cover shadow-2xl shadow-[var(--brand-coffee)]/16"
-              loading="lazy"
-            />
-          </div>
+          <a
+            href={createWhatsAppUrl(
+              business.whatsapp,
+              business.eventWhatsappMessage,
+            )}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 inline-flex rounded-full bg-[var(--brand-caramel)] px-8 py-4 text-sm font-black uppercase text-white shadow-2xl shadow-black/20 transition hover:-translate-y-1 hover:bg-white hover:text-[var(--brand-dark)]"
+          >
+            Cotizar mi evento
+          </a>
         </div>
       </div>
     </section>

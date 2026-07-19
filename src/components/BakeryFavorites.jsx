@@ -1,48 +1,58 @@
 import { createWhatsAppUrl } from '../utils/whatsapp'
-import SectionHeader from './SectionHeader'
 
 function BakeryFavorites({ business }) {
   const section = business.sections.favorites
+  const visibleProducts = business.products.slice(0, 4)
 
   return (
     <section
       id="favoritos"
-      className="bg-[var(--brand-surface)] px-4 py-16 sm:px-6 lg:px-8 lg:py-24"
+      className="bg-[#f8f1e7] px-4 py-16 sm:px-8 lg:px-10 lg:py-24"
     >
-      <div className="mx-auto max-w-7xl">
-        <SectionHeader
-          eyebrow={section.eyebrow}
-          title={section.title}
-          description={section.description}
-        />
+      <div className="mx-auto grid max-w-[90rem] gap-10 lg:grid-cols-[18rem_1fr]">
+        <div>
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-[var(--brand-caramel)]">
+            {section.eyebrow}
+          </p>
+          <h2 className="font-brand-serif mt-4 text-4xl leading-[1.02] tracking-[-0.05em] text-[var(--brand-dark)] sm:text-5xl">
+            {section.title}
+          </h2>
+          <span className="mt-8 block h-px w-20 bg-[var(--brand-caramel)]" />
+          <p className="mt-8 max-w-[13rem] text-base leading-7 text-[var(--brand-coffee)]/72">
+            {section.description}
+          </p>
+          <a
+            href="#especialidades"
+            className="mt-8 inline-flex rounded-full border border-[var(--brand-caramel)] px-7 py-3 text-xs font-black uppercase text-[var(--brand-caramel)] transition hover:bg-[var(--brand-caramel)] hover:text-white"
+          >
+            Ver todos los productos
+          </a>
+        </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {business.products.map((product) => (
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          {visibleProducts.map((product) => (
             <article
               key={product.name}
-              className="group flex min-h-[31rem] flex-col overflow-hidden rounded-[1.75rem] bg-white shadow-lg shadow-[var(--brand-coffee)]/7 transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[var(--brand-coffee)]/14"
+              className="group flex min-h-[25rem] flex-col overflow-hidden rounded-[0.8rem] bg-[#fffdf8] shadow-lg shadow-[var(--brand-coffee)]/8 ring-1 ring-[var(--brand-border)] transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[var(--brand-coffee)]/14"
             >
-              <div className="relative h-56 overflow-hidden bg-[var(--brand-background)]">
+              <div className="relative h-56 overflow-hidden bg-[#eee4d5]">
                 <img
                   src={product.image}
                   alt={`${product.name} de ${business.name}`}
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
-                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-2 text-[11px] font-black uppercase text-[var(--brand-caramel)]">
-                  {product.category}
-                </span>
               </div>
 
-              <div className="flex flex-1 flex-col p-5">
-                <h3 className="text-xl font-black uppercase leading-tight">
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="text-lg font-black leading-tight">
                   {product.name}
                 </h3>
-                <p className="mt-3 flex-1 text-sm leading-6 text-[var(--brand-coffee)]/70">
-                  {product.description}
+                <p className="mt-3 text-xs text-[var(--brand-coffee)]/58">
+                  {product.category}
                 </p>
-                <div className="mt-5 flex items-center justify-between gap-3">
-                  <p className="text-2xl font-black text-[var(--brand-dark)]">
+                <div className="mt-auto flex items-end justify-between gap-3 pt-8">
+                  <p className="text-xl font-black text-[var(--brand-dark)]">
                     {product.price}
                   </p>
                   <a
@@ -52,9 +62,10 @@ function BakeryFavorites({ business }) {
                     )}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full bg-[var(--brand-dark)] px-5 py-3 text-xs font-black uppercase text-white transition hover:bg-[var(--brand-caramel)] hover:text-[var(--brand-dark)]"
+                    aria-label={`Pedir ${product.name}`}
+                    className="grid h-8 w-8 place-items-center rounded-full bg-[var(--brand-caramel)] text-lg font-black text-white transition hover:bg-[var(--brand-dark)]"
                   >
-                    Pedir
+                    +
                   </a>
                 </div>
               </div>

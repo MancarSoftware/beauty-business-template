@@ -32,40 +32,38 @@ function Navbar({ business }) {
   }, [isOpen])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 text-[var(--brand-dark)] sm:px-5">
-      <nav className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center gap-4 rounded-full border border-white/70 bg-white/82 px-4 py-3 shadow-2xl shadow-[var(--brand-coffee)]/10 backdrop-blur-2xl sm:px-5 lg:grid-cols-[1fr_auto_1fr]">
-        <a href="#inicio" className="flex items-center gap-3 text-[var(--brand-dark)]">
-          <span className="grid h-11 w-11 place-items-center rounded-full bg-[var(--brand-dark)] text-sm font-black text-white">
-            {business.logoInitials}
+    <header className="absolute inset-x-0 top-0 z-50 px-4 py-5 text-[var(--brand-dark)] sm:px-8">
+      <nav className="relative mx-auto grid max-w-[90rem] grid-cols-[1fr_auto] items-center gap-4 lg:grid-cols-[13rem_1fr]">
+        <a href="#inicio" className="w-fit leading-none text-[var(--brand-dark)]">
+          <span className="block text-center text-[0.72rem] font-semibold uppercase tracking-[0.28em]">
+            Maison
           </span>
-          <span>
-            <span className="block text-lg font-black uppercase leading-5">
-              {business.shortName}
-            </span>
-            <span className="block text-[11px] font-black uppercase tracking-[0.18em] text-[var(--brand-caramel)]">
-              artisan bakery
-            </span>
+          <span className="font-brand-serif block text-4xl uppercase tracking-[-0.06em] sm:text-[3.4rem]">
+            Miga
+          </span>
+          <span className="block text-[0.65rem] font-black uppercase tracking-[0.28em]">
+            Panaderia artesanal
           </span>
         </a>
 
-        <div className="hidden items-center rounded-full bg-[var(--brand-background)] p-1 text-xs font-black uppercase text-[var(--brand-coffee)]/65 lg:flex">
+        <div className="hidden items-center justify-center gap-4 pr-44 text-xs font-medium text-[var(--brand-dark)] lg:flex xl:gap-6">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full px-4 py-2.5 transition hover:bg-white hover:text-[var(--brand-caramel)]"
+              className="border-b border-transparent py-2 transition hover:border-[var(--brand-caramel)] hover:text-[var(--brand-caramel)]"
             >
               {item.label}
             </a>
           ))}
         </div>
 
-        <div className="hidden justify-end lg:flex">
+        <div className="hidden justify-end lg:absolute lg:right-0 lg:top-3 lg:flex">
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="rounded-full bg-[var(--brand-dark)] px-5 py-3 text-xs font-black uppercase text-white shadow-lg shadow-[var(--brand-coffee)]/18 transition hover:-translate-y-0.5 hover:bg-[var(--brand-caramel)] hover:text-[var(--brand-dark)]"
+            className="rounded-full bg-[var(--brand-caramel)] px-5 py-4 text-xs font-black uppercase text-white shadow-xl shadow-[var(--brand-coffee)]/18 transition hover:-translate-y-0.5 hover:bg-[var(--brand-dark)] xl:px-7"
           >
             Pedir ahora
           </a>
@@ -75,7 +73,7 @@ function Navbar({ business }) {
           type="button"
           aria-label="Abrir menu"
           onClick={() => setIsOpen((current) => !current)}
-          className="relative h-11 w-11 rounded-full bg-[var(--brand-dark)] text-white lg:hidden"
+          className="relative h-12 w-12 rounded-full bg-[var(--brand-dark)] text-white shadow-xl shadow-[var(--brand-coffee)]/20 lg:hidden"
         >
           <span
             className={`absolute left-1/2 top-[15px] h-0.5 w-4 -translate-x-1/2 rounded-full bg-current transition ${
@@ -96,7 +94,7 @@ function Navbar({ business }) {
       </nav>
 
       <div
-        className={`mx-auto mt-2 max-w-7xl overflow-hidden rounded-[2rem] bg-white/95 shadow-2xl shadow-[var(--brand-coffee)]/10 backdrop-blur-xl transition-all duration-300 lg:hidden ${
+        className={`mx-auto mt-4 max-w-[90rem] overflow-hidden rounded-[1.5rem] bg-white/95 shadow-2xl shadow-[var(--brand-coffee)]/10 backdrop-blur-xl transition-all duration-300 lg:hidden ${
           isOpen ? 'max-h-[560px]' : 'max-h-0'
         }`}
       >

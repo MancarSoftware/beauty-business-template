@@ -39,6 +39,11 @@ body {
   letter-spacing: 0;
 }
 
+.font-brand-serif {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+}
+
 a {
   text-decoration: none;
 }
