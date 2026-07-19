@@ -49,7 +49,7 @@ function BakerySpecialties({ business }) {
                   aria-label={`Consultar ${item.name}`}
                   className="mx-auto mt-4 grid h-9 w-9 place-items-center rounded-full border border-[var(--brand-caramel)] text-lg text-[var(--brand-caramel)] transition hover:bg-[var(--brand-caramel)] hover:text-white"
                 >
-                  ›
+                  &gt;
                 </a>
               </div>
             </article>
