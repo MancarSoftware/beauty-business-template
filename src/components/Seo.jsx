@@ -43,19 +43,31 @@ function upsertJsonLd(id, schema) {
   structuredData.textContent = JSON.stringify(schema)
 }
 
-function Seo({ business }) {
+function removeJsonLd(id) {
+  const structuredData = document.head.querySelector(`script[data-seo="${id}"]`)
+  structuredData?.remove()
+}
+
+function Seo({ business, page, product }) {
   useEffect(() => {
     const seo = business.seo ?? {}
-    const title = seo.title ?? `${business.name} | ${business.type}`
-    const description = seo.description ?? business.description
-    const image = seo.image ?? business.hero?.image ?? '/favicon.svg'
+    const title = product
+      ? `${product.name} | ${business.name}`
+      : page?.title
+        ? `${page.title} | ${business.name}`
+        : seo.title ?? `${business.name} | ${business.type}`
+    const description =
+      product?.description ?? page?.description ?? seo.description ?? business.description
+    const image =
+      product?.image ?? page?.image ?? seo.image ?? business.hero?.image ?? '/favicon.svg'
     const locale = seo.locale ?? 'es_EC'
+    const currentUrl = window.location.href
     const pageUrl =
       seo.siteUrl ??
       (window.location.hostname === 'localhost' ||
       window.location.hostname === '127.0.0.1'
         ? ''
-        : window.location.href)
+        : currentUrl)
 
     const socialLinks = Object.values(business.social ?? {}).filter(
       (url) => url && url !== '#',
@@ -82,7 +94,7 @@ function Seo({ business }) {
 
     upsertMeta('meta[property="og:type"]', {
       property: 'og:type',
-      content: 'business.business',
+      content: product ? 'product' : 'business.business',
     })
 
     upsertMeta('meta[property="og:locale"]', {
@@ -238,6 +250,32 @@ function Seo({ business }) {
       description,
     })
 
+    if (product) {
+      upsertJsonLd('product', {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: product.name,
+        image: product.image,
+        description: product.description,
+        category: product.categoryLabel,
+        brand: {
+          '@type': 'Brand',
+          name: business.name,
+        },
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: seo.currency ?? 'USD',
+          price: String(product.price).replace(/[^0-9.]/g, ''),
+          availability: product.available
+            ? 'https://schema.org/InStock'
+            : 'https://schema.org/OutOfStock',
+          url: currentUrl,
+        },
+      })
+    } else {
+      removeJsonLd('product')
+    }
+
     if (business.faq?.items?.length) {
       upsertJsonLd('faq', {
         '@context': 'https://schema.org',
@@ -252,7 +290,7 @@ function Seo({ business }) {
         })),
       })
     }
-  }, [business])
+  }, [business, page, product])
 
   return null
 }

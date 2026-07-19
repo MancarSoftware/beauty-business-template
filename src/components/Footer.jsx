@@ -1,10 +1,4 @@
-const footerLinks = [
-  { label: 'Inicio', href: '#inicio' },
-  { label: 'Especialidades', href: '#especialidades' },
-  { label: 'Favoritos', href: '#favoritos' },
-  { label: 'Eventos', href: '#eventos' },
-  { label: 'Ubicacion', href: '#ubicacion' },
-]
+import { Link } from 'react-router-dom'
 
 function Footer({ business }) {
   const currentYear = new Date().getFullYear()
@@ -12,6 +6,7 @@ function Footer({ business }) {
     ([, url]) => url && url !== '#',
   )
   const developer = business.developer
+  const footerLinks = business.footerLinks ?? []
 
   return (
     <footer className="bg-[var(--brand-dark)] px-4 py-8 text-white sm:px-6 lg:px-8">
@@ -38,12 +33,12 @@ function Footer({ business }) {
             <ul className="mt-4 space-y-3 text-sm font-bold">
               {footerLinks.map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-white/62 transition hover:text-white"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

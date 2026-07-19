@@ -1,15 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import { createWhatsAppUrl } from '../utils/whatsapp'
-
-const navItems = [
-  { label: 'Inicio', href: '#inicio' },
-  { label: 'Especialidades', href: '#especialidades' },
-  { label: 'Favoritos', href: '#favoritos' },
-  { label: 'Desayunos', href: '#desayunos' },
-  { label: 'Eventos', href: '#eventos' },
-  { label: 'Ubicacion', href: '#ubicacion' },
-  { label: 'FAQ', href: '#faq' },
-]
 
 function Navbar({ business }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -17,6 +8,7 @@ function Navbar({ business }) {
     business.whatsapp,
     business.whatsappMessage,
   )
+  const navItems = business.navbarLinks ?? []
 
   useEffect(() => {
     if (!isOpen) return undefined
@@ -34,7 +26,7 @@ function Navbar({ business }) {
   return (
     <header className="absolute inset-x-0 top-0 z-50 px-4 py-5 text-[var(--brand-dark)] sm:px-8">
       <nav className="relative mx-auto grid max-w-[90rem] grid-cols-[1fr_auto] items-center gap-4 lg:grid-cols-[13rem_1fr]">
-        <a href="#inicio" className="w-fit leading-none text-[var(--brand-dark)]">
+        <Link to="/" className="w-fit leading-none text-[var(--brand-dark)]">
           <span className="block text-center text-[0.72rem] font-semibold uppercase tracking-[0.28em]">
             Maison
           </span>
@@ -44,17 +36,17 @@ function Navbar({ business }) {
           <span className="block text-[0.65rem] font-black uppercase tracking-[0.28em]">
             Panaderia artesanal
           </span>
-        </a>
+        </Link>
 
         <div className="hidden items-center justify-center gap-4 pr-44 text-xs font-medium text-[var(--brand-dark)] lg:flex xl:gap-6">
           {navItems.map((item) => (
-            <a
+            <NavLink
               key={item.href}
-              href={item.href}
+              to={item.href}
               className="border-b border-transparent py-2 transition hover:border-[var(--brand-caramel)] hover:text-[var(--brand-caramel)]"
             >
               {item.label}
-            </a>
+            </NavLink>
           ))}
         </div>
 
@@ -100,14 +92,14 @@ function Navbar({ business }) {
       >
         <div className="grid gap-2 p-3">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               onClick={() => setIsOpen(false)}
               className="rounded-2xl bg-[var(--brand-background)] px-4 py-4 text-sm font-black uppercase text-[var(--brand-dark)]"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
 
           <a

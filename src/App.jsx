@@ -1,16 +1,30 @@
-import BakeryBreakfast from './components/BakeryBreakfast'
-import BakeryEvents from './components/BakeryEvents'
-import BakeryFavorites from './components/BakeryFavorites'
-import BakeryHero from './components/BakeryHero'
-import BakerySpecialties from './components/BakerySpecialties'
-import FAQ from './components/FAQ'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Footer from './components/Footer'
-import Location from './components/Location'
 import Navbar from './components/Navbar'
-import Seo from './components/Seo'
 import WhatsAppButton from './components/WhatsAppButton'
-import WhyChooseUs from './components/WhyChooseUs'
 import bakeryData from './data/bakeryData'
+import CategoryPage from './pages/CategoryPage'
+import HomePage from './pages/HomePage'
+import NotFoundPage from './pages/NotFoundPage'
+import ProductDetailPage from './pages/ProductDetailPage'
+import ProductsPage from './pages/ProductsPage'
+
+function ScrollManager() {
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash) {
+      const target = document.querySelector(location.hash)
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      return
+    }
+
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [location.pathname, location.hash])
+
+  return null
+}
 
 function App() {
   const business = bakeryData
@@ -27,18 +41,26 @@ function App() {
         '--brand-border': business.theme.border,
       }}
     >
-      <Seo business={business} />
+      <ScrollManager />
       <Navbar business={business} />
 
       <main>
-        <BakeryHero business={business} />
-        <BakerySpecialties business={business} />
-        <BakeryFavorites business={business} />
-        <BakeryBreakfast business={business} />
-        <BakeryEvents business={business} />
-        <WhyChooseUs business={business} />
-        <Location business={business} />
-        <FAQ business={business} />
+        <Routes>
+          <Route path="/" element={<HomePage business={business} />} />
+          <Route
+            path="/especialidades/:slug"
+            element={<CategoryPage business={business} />}
+          />
+          <Route
+            path="/productos"
+            element={<ProductsPage business={business} />}
+          />
+          <Route
+            path="/producto/:slug"
+            element={<ProductDetailPage business={business} />}
+          />
+          <Route path="*" element={<NotFoundPage business={business} />} />
+        </Routes>
       </main>
 
       <Footer business={business} />

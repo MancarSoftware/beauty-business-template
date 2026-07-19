@@ -1,4 +1,4 @@
-import { createWhatsAppUrl } from '../utils/whatsapp'
+import { Link } from 'react-router-dom'
 
 function BakerySpecialties({ business }) {
   const section = business.sections.specialties
@@ -42,15 +42,13 @@ function BakerySpecialties({ business }) {
                 <h3 className="min-h-12 text-center text-sm font-black leading-tight text-[var(--brand-dark)] xl:text-[0.95rem]">
                   {item.name}
                 </h3>
-                <a
-                  href={createWhatsAppUrl(business.whatsapp, item.whatsappMessage)}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`Consultar ${item.name}`}
+                <Link
+                  to={item.href}
+                  aria-label={`Ver ${item.name}`}
                   className="mx-auto mt-4 grid h-9 w-9 place-items-center rounded-full border border-[var(--brand-caramel)] text-lg text-[var(--brand-caramel)] transition hover:bg-[var(--brand-caramel)] hover:text-white"
                 >
                   &gt;
-                </a>
+                </Link>
               </div>
             </article>
           ))}

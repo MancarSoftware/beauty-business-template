@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { createWhatsAppUrl } from '../utils/whatsapp'
 
 function BakeryFavorites({ business }) {
@@ -21,12 +22,12 @@ function BakeryFavorites({ business }) {
           <p className="mt-8 max-w-[13rem] text-base leading-7 text-[var(--brand-coffee)]/72">
             {section.description}
           </p>
-          <a
-            href="#especialidades"
+          <Link
+            to="/productos"
             className="mt-8 inline-flex rounded-full border border-[var(--brand-caramel)] px-7 py-3 text-xs font-black uppercase text-[var(--brand-caramel)] transition hover:bg-[var(--brand-caramel)] hover:text-white"
           >
             Ver todos los productos
-          </a>
+          </Link>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
@@ -35,21 +36,25 @@ function BakeryFavorites({ business }) {
               key={product.name}
               className="group flex min-h-[25rem] flex-col overflow-hidden rounded-[0.8rem] bg-[#fffdf8] shadow-lg shadow-[var(--brand-coffee)]/8 ring-1 ring-[var(--brand-border)] transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[var(--brand-coffee)]/14"
             >
-              <div className="relative h-56 overflow-hidden bg-[#eee4d5]">
+              <Link
+                to={`/producto/${product.slug}`}
+                aria-label={`Ver ${product.name}`}
+                className="relative block h-56 overflow-hidden bg-[#eee4d5]"
+              >
                 <img
                   src={product.image}
                   alt={`${product.name} de ${business.name}`}
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
-              </div>
+              </Link>
 
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="text-lg font-black leading-tight">
+                <Link to={`/producto/${product.slug}`} className="text-lg font-black leading-tight transition hover:text-[var(--brand-caramel)]">
                   {product.name}
-                </h3>
+                </Link>
                 <p className="mt-3 text-xs text-[var(--brand-coffee)]/58">
-                  {product.category}
+                  {product.categoryLabel}
                 </p>
                 <div className="mt-auto flex items-end justify-between gap-3 pt-8">
                   <p className="text-xl font-black text-[var(--brand-dark)]">

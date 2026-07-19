@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { createWhatsAppUrl } from '../utils/whatsapp'
 
 function HighlightIcon({ type }) {
@@ -104,12 +105,12 @@ function BakeryHero({ business }) {
             >
               {business.hero.cta}
             </a>
-            <a
-              href={business.hero.secondaryHref}
+            <Link
+              to={business.hero.secondaryHref}
               className="rounded-full border border-[var(--brand-caramel)] bg-white/60 px-8 py-4 text-center text-sm font-black uppercase text-[var(--brand-caramel)] shadow-sm backdrop-blur transition hover:-translate-y-1 hover:bg-white"
             >
               {business.hero.secondaryCta}
-            </a>
+            </Link>
           </div>
         </div>
 
