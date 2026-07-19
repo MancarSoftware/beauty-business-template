@@ -936,6 +936,124 @@ const products = [
   },
 ]
 
+const categoryDetails = {
+  'panaderia-artesanal': {
+    label: 'Panaderia Artesanal',
+    fallbackGallery: [images.bread, images.baguette, images.breadHero, images.croissant],
+    features: [
+      'Hecho cada dia',
+      'Ingredientes seleccionados',
+      'Fermentacion natural',
+      'Hecho con amor',
+    ],
+    ingredients: [
+      'Harina de trigo',
+      'Masa madre',
+      'Agua',
+      'Sal marina',
+      'Levadura natural',
+    ],
+  },
+  'tortas-pasteleria': {
+    label: 'Tortas & Pasteleria',
+    fallbackGallery: [images.cake, images.cheesecake, images.carrot, images.catering],
+    features: [
+      'Decoracion artesanal',
+      'Rellenos premium',
+      'Reserva por pedido',
+      'Lista para celebrar',
+    ],
+    ingredients: [
+      'Harina de trigo',
+      'Huevos',
+      'Mantequilla',
+      'Crema',
+      'Fruta o chocolate',
+    ],
+  },
+  'postres-en-porcion': {
+    label: 'Postres en Porcion',
+    fallbackGallery: [images.tiramisu, images.cheesecake, images.carrot, images.coffee],
+    features: [
+      'Porcion individual',
+      'Preparacion fresca',
+      'Ideal con cafe',
+      'Empaque cuidado',
+    ],
+    ingredients: [
+      'Crema',
+      'Bizcocho',
+      'Fruta o chocolate',
+      'Azucar',
+      'Vainilla',
+    ],
+  },
+  'desayunos-cafe': {
+    label: 'Desayunos & Cafe',
+    fallbackGallery: [images.breakfast, images.coffee, images.sandwich, images.croissant],
+    features: [
+      'Preparado al momento',
+      'Cafe fresco',
+      'Pan del dia',
+      'Listo para llevar',
+    ],
+    ingredients: [
+      'Pan artesanal',
+      'Cafe',
+      'Fruta fresca',
+      'Queso',
+      'Ingredientes de temporada',
+    ],
+  },
+  'galletas-bocaditos': {
+    label: 'Galletas & Bocaditos',
+    fallbackGallery: [images.cookies, images.macarons, images.catering, images.cheesecake],
+    features: [
+      'Perfecto para compartir',
+      'Cajas para regalo',
+      'Pequenos lotes',
+      'Dulce equilibrado',
+    ],
+    ingredients: [
+      'Harina de trigo',
+      'Mantequilla',
+      'Azucar',
+      'Chocolate',
+      'Frutos secos segun receta',
+    ],
+  },
+  'eventos-catering': {
+    label: 'Eventos & Catering',
+    fallbackGallery: [images.event, images.catering, images.cake, images.breakfast],
+    features: [
+      'Cotizacion personalizada',
+      'Presentacion premium',
+      'Montaje coordinado',
+      'Para empresas y familias',
+    ],
+    ingredients: [
+      'Productos seleccionados',
+      'Postres artesanales',
+      'Panes frescos',
+      'Frutas',
+      'Rellenos segun pedido',
+    ],
+  },
+}
+
+const enrichedProducts = products.map((product) => {
+  const details = categoryDetails[product.categorySlug] ?? categoryDetails['panaderia-artesanal']
+  const gallery = [...new Set([product.image, ...(product.gallery ?? []), ...details.fallbackGallery])]
+
+  return {
+    ...product,
+    categoryLabel: details.label,
+    gallery: gallery.slice(0, 4),
+    features: product.features ?? details.features,
+    ingredients: product.ingredients ?? details.ingredients,
+  }
+})
+
 const categories = [
   {
     slug: 'panaderia-artesanal',
@@ -1281,7 +1399,7 @@ const bakeryData = {
     },
   },
   categories,
-  products,
+  products: enrichedProducts,
   specialties: categories.map((category) => ({
     name: category.title,
     slug: category.slug,

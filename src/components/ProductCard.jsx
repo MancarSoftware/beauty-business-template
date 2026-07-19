@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { createWhatsAppUrl } from '../utils/whatsapp'
 
 function ProductCard({ business, product }) {
   return (
@@ -41,15 +40,13 @@ function ProductCard({ business, product }) {
           <p className="text-xl font-black text-[var(--brand-dark)]">
             {product.price}
           </p>
-          <a
-            href={createWhatsAppUrl(business.whatsapp, product.whatsappMessage)}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`Pedir ${product.name}`}
+          <Link
+            to={`/producto/${product.slug}`}
+            aria-label={`Ver detalle de ${product.name}`}
             className="grid h-9 w-9 place-items-center rounded-full bg-[var(--brand-caramel)] text-lg font-black text-white transition hover:bg-[var(--brand-dark)]"
           >
             +
-          </a>
+          </Link>
         </div>
       </div>
     </article>

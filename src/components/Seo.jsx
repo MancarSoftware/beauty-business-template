@@ -57,7 +57,10 @@ function Seo({ business, page, product }) {
         ? `${page.title} | ${business.name}`
         : seo.title ?? `${business.name} | ${business.type}`
     const description =
-      product?.description ?? page?.description ?? seo.description ?? business.description
+      product?.shortDescription ??
+      page?.description ??
+      seo.description ??
+      business.description
     const image =
       product?.image ?? page?.image ?? seo.image ?? business.hero?.image ?? '/favicon.svg'
     const locale = seo.locale ?? 'es_EC'

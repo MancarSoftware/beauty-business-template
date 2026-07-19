@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { createWhatsAppUrl } from '../utils/whatsapp'
 
 function BakeryFavorites({ business }) {
   const section = business.sections.favorites
@@ -60,18 +59,13 @@ function BakeryFavorites({ business }) {
                   <p className="text-xl font-black text-[var(--brand-dark)]">
                     {product.price}
                   </p>
-                  <a
-                    href={createWhatsAppUrl(
-                      business.whatsapp,
-                      product.whatsappMessage,
-                    )}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`Pedir ${product.name}`}
+                  <Link
+                    to={`/producto/${product.slug}`}
+                    aria-label={`Ver detalle de ${product.name}`}
                     className="grid h-8 w-8 place-items-center rounded-full bg-[var(--brand-caramel)] text-lg font-black text-white transition hover:bg-[var(--brand-dark)]"
                   >
                     +
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>
